@@ -5,7 +5,7 @@ require("dotenv").config();
 require("./models/db");
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 5000;
 
 // Import Routers
 //EX: const productsRouter = require("./routes/products");
