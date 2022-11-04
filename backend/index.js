@@ -13,6 +13,7 @@ const registerRouter = require("./routes/register")
 const loginRouter = require("./routes/login")
 const productRouter = require("./routes/products");
 const rolesRouter = require("./routes/roles");
+const usersRouter = require("./routes/users")
 
 
 app.use(cors());
@@ -24,6 +25,7 @@ app.use('/products',productRouter)
 app.use("/register", registerRouter)
 app.use("/login", loginRouter)
 app.use("/roles", rolesRouter)
+app.use("/users", usersRouter)
 
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
