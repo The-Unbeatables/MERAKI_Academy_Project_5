@@ -9,6 +9,7 @@ const PORT = 5000;
 
 // Import Routers
 //EX: const productsRouter = require("./routes/products");
+const registerRouter = require("./routes/register")
 
 const productRouter = require("./routes/products");
 
@@ -18,6 +19,8 @@ app.use(express.json());
 // Routes Middleware
 //EX: app.use("/products", productsRouter);
 app.use('/products',productRouter)
+=======
+app.use("/register", registerRouter)
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 

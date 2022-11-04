@@ -14,6 +14,7 @@ pool.connect((err, pool) => {
         return
     }else{
         console.log("ALL SYSTEMS GO");
+        console.log(pool.user);
     }
 })
 
