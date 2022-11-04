@@ -26,6 +26,7 @@ CREATE TABLE users(
   password VARCHAR(255) NOT NULL,
   gender VARCHAR(255),
   role_id INT,
+  is_deleted SMALLINT DEFAULT 0,
   FOREIGN KEY (role_id ) REFERENCES roles (id),
   PRIMARY KEY (id) 
 );
