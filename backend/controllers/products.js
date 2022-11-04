@@ -71,7 +71,6 @@ const updateProductsById=(req ,res)=>{
           }
      })
      .catch((err)=>{
-        console.log(err);
         res.status(500).json({
             success: false,
             massage: `Server Error`,
@@ -79,4 +78,31 @@ const updateProductsById=(req ,res)=>{
      })
     })
 }
-module.exports={createNewProducts ,getAllProducts,updateProductsById}
+
+const deleteProductsById = (req , res)=>{
+    const query=`UPDATE products SET is_deleted=1 WHERE id=${req.params.id} ;`
+    pool.query(query)
+    .then((result)=>{
+        console.log(result);
+        if (result.rowCount === 0) {
+            res.status(404).json({
+              success: false,
+              massage: `The Products is not Found`,
+            });
+          } else {
+            res.status(200).json({
+              success: true,
+              massage: `Product Deleted successfully`,
+            });
+          }
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            success: false,
+            massage: `Server Error`,
+            err : err,
+     })
+    })
+}
+
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById}
