@@ -40,4 +40,43 @@ const getAllProducts = (req ,res)=>{
         })
     })
 }
-module.exports={createNewProducts ,getAllProducts}
+
+const updateProductsById=(req ,res)=>{
+    const {title ,price,category ,items_left,image}=req.body
+    const values = [title || null , price || null ,category || null ,items_left || null ,image || null]
+    const query = `UPDATE products
+     SET 
+     title= COALESCE($1 , title),
+     price= COALESCE($2 , price),
+     category= COALESCE($3 , category),
+     items_left= COALESCE($4 ,items_left),
+     image= COALESCE($5 , image)
+     WHERE id =${req.params.id} 
+     AND
+     is_deleted = 0  RETURNING *;
+     `
+     pool.query(query , values)
+     .then((result)=>{
+        if (result.rows.length === 0) {
+             res.status(404).json({
+              success: false,
+              massage: `The Products:${req.params.id} is not Found`,
+            });
+          } else {
+            res.status(200).json({
+              success: true,
+              massage: `Updated successfully`,
+              result: result.rows[0],
+            });
+          }
+     })
+     .catch((err)=>{
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            massage: `Server Error`,
+            err : err
+     })
+    })
+}
+module.exports={createNewProducts ,getAllProducts,updateProductsById}
