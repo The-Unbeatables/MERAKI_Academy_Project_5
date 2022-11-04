@@ -105,4 +105,35 @@ const deleteProductsById = (req , res)=>{
     })
 }
 
-module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById}
+const searchProductsByTitle = (req , res)=>{
+     //REGEXP
+    
+     console.log(req.params.title);
+   const query=`SELECT * FROM products WHERE title ~* '${req.params.title}'`
+   
+   pool.query(query)
+   .then((result)=>{
+     if (result.rowCount === 0) {
+        res.status(404).json({
+          success: false,
+          massage: `The Products is not Found`,
+        });
+      } else {
+        res.status(200).json({
+          success: true,
+          massage: `Product find successfully`,
+          result: result.rows
+        });
+      }
+   })
+   .catch((err)=>{
+    res.status(500).json({
+        success: false,
+        massage: `Server Error`,
+        err : err,
+ })
+   })
+   
+}
+
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle}
