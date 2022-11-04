@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+
 require("dotenv").config();
 require("./models/db");
 
@@ -10,11 +11,15 @@ const PORT = 5000;
 //EX: const productsRouter = require("./routes/products");
 const registerRouter = require("./routes/register")
 
+const productRouter = require("./routes/products");
+
 app.use(cors());
 app.use(express.json());
 
 // Routes Middleware
 //EX: app.use("/products", productsRouter);
+app.use('/products',productRouter)
+=======
 app.use("/register", registerRouter)
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
