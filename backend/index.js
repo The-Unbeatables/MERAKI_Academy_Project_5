@@ -12,6 +12,8 @@ const PORT = 5000;
 const registerRouter = require("./routes/register")
 const loginRouter = require("./routes/login")
 const productRouter = require("./routes/products");
+const rolesRouter = require("./routes/roles");
+
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +23,7 @@ app.use(express.json());
 app.use('/products',productRouter)
 app.use("/register", registerRouter)
 app.use("/login", loginRouter)
+app.use("/roles", rolesRouter)
 
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
