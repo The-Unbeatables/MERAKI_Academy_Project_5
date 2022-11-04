@@ -26,4 +26,30 @@ const addRole = (req, res) => {
     })
 }
 
-module.exports = { addRole }
+const addPermission = (req, res) => {
+    const {permission} = req.body;
+    const values = [permission];
+    const query = `INSERT INTO permissions (permission) VALUES ($1) RETURNING *`
+
+    pool.query(query, values)
+    .then((result) => {
+        let successObject = {
+            success: true,
+            massage: "permission Created Successfully",
+            result: result.rows
+          }
+      
+          res.status(201).json(successObject)
+    })
+    .catch((err) => {
+        let failObject = {
+            success: false,
+            massage: "Server error",
+            err: err.message
+          }
+      
+          res.status(409).json(failObject)
+    })
+}
+
+module.exports = { addRole, addPermission }
