@@ -71,13 +71,6 @@ const deleteCart = (req,res) => {
     })
 };
 
-// TODO: Create updateCartById Function
-// const updateCartById = (req,res) => {
-//     const cartId = req.params.id;
-
-
-// }
-
 // TODO: Create showCartById Function
 const showCartById = (req,res) => {
     const cartId = req.params.id;
