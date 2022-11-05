@@ -2,7 +2,7 @@ const { pool } = require('../models/db');
 
 // TODO: Create addToCart Function
 const addToCart = (req,res) => {
-    const user_id = req.token;
+    const user_id = req.token.userId;
     const { product_id } = req.body;
     const data = [product_id, user_id]
     const query = `INSERT INTO shopping_carts (product_id, user_id) VALUES ($1,$2)`;
@@ -27,7 +27,7 @@ const addToCart = (req,res) => {
 
 // TODO: Create showCart Function
 const showCart = (req,res) => {
-    const user_id = req.token
+    const user_id = req.token.userId
     const data = [user_id]
 
     const query = `SELECT * FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE shopping_carts.is_deleted = 0 AND user_id = $1`;

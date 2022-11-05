@@ -19,6 +19,7 @@ const workersRouter = require("./routes/workers");
 
 
 const cartRouter = require("./routes/carts");
+const commentRouter = require("./routes/comments");
 
 
 app.use(cors());
@@ -33,7 +34,7 @@ app.use("/login", loginRouter)
 app.use("/roles", rolesRouter)
 app.use("/users", usersRouter)
 app.use("/carts", cartRouter)
-
+app.use("/comments", commentRouter)
 
 
 
