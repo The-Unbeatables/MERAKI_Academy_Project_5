@@ -30,7 +30,7 @@ const showCart = (req,res) => {
     const user_id = req.token
     const data = [user_id]
 
-    const query = `SELECT title,price,category,items_left FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE shopping_carts.is_deleted = 0 AND user_id = $1`;
+    const query = `SELECT * FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE shopping_carts.is_deleted = 0 AND user_id = $1`;
 
     pool.query(query,data)
     .then((result) => {
@@ -76,7 +76,7 @@ const showCartById = (req,res) => {
     const cartId = req.params.id;
     const data = [cartId]
     
-    const query = `SELECT title,price,category,items_left FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE id = $1`;
+    const query = `SELECT * FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE id = $1`;
 
     pool.query(query,data)
     .then((result) => {
