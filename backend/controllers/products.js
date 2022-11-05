@@ -83,7 +83,6 @@ const deleteProductsById = (req , res)=>{
     const query=`UPDATE products SET is_deleted=1 WHERE id=${req.params.id} ;`
     pool.query(query)
     .then((result)=>{
-        console.log(result);
         if (result.rowCount === 0) {
             res.status(404).json({
               success: false,

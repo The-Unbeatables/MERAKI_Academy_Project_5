@@ -12,10 +12,13 @@ const PORT = 5000;
 const registerRouter = require("./routes/register")
 const loginRouter = require("./routes/login")
 const productRouter = require("./routes/products");
+const reviewsRouter = require("./routes/reviews");
 const rolesRouter = require("./routes/roles");
 const usersRouter = require("./routes/users");
 const workersRouter = require("./routes/workers");
 
+
+const cartRouter = require("./routes/carts");
 
 
 app.use(cors());
@@ -23,12 +26,13 @@ app.use(express.json());
 
 // Routes Middleware
 //EX: app.use("/products", productsRouter);
+app.use('/reviews',reviewsRouter)
 app.use('/products',productRouter)
 app.use("/register", registerRouter)
 app.use("/login", loginRouter)
 app.use("/roles", rolesRouter)
 app.use("/users", usersRouter)
-
+app.use("/carts", cartRouter)
 
 
 
