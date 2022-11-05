@@ -15,6 +15,9 @@ const productRouter = require("./routes/products");
 const reviewsRouter = require("./routes/reviews");
 const rolesRouter = require("./routes/roles");
 const usersRouter = require("./routes/users");
+const workersRouter = require("./routes/workers");
+
+
 const cartRouter = require("./routes/carts");
 
 
@@ -30,6 +33,13 @@ app.use("/login", loginRouter)
 app.use("/roles", rolesRouter)
 app.use("/users", usersRouter)
 app.use("/carts", cartRouter)
+
+
+
+
+
+app.use('/workers' , workersRouter)
+
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
