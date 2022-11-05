@@ -31,13 +31,14 @@ CREATE TABLE users(
   PRIMARY KEY (id) 
 );
 
-CREATE TABLE workers(
+CREATE TABLE workerss(
   id SERIAL NOT NULL,
   profession VARCHAR(255) ,
   Y.O.E INT,
   bio VARCHAR(255) ,
   image VARCHAR(255) ,
   user_id INT,
+  is_deleted SMALLINT DEFAULT 0,
   FOREIGN KEY (user_id ) REFERENCES users (id),
   PRIMARY KEY (id) 
 );
