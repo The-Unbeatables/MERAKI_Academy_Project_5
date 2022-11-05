@@ -92,6 +92,31 @@ const workerLogin = async function(req, res){
         }
         res.status(403).json(failedPasswordObject)
       }else{
+
+        const idUser = result.rows[0].id;
+        const data = [idUser];
+        const query_2 = `SELECT * FROM workers WHERE user_id = $1`
+        pool.query(query_2, data)
+        .then((result) => {
+          if((result.rows).length === 0){
+            const data = [idUser];
+            const query = `INSERT INTO workers (user_id) VALUES ($1) RETURNING *`
+            pool.query(query, data)
+            .then((result) => {
+              console.log(result.rows);
+            })
+          }
+        })
+        .catch((err) => {
+          let failObject = {
+            success: false,
+            massage: "Server error",
+            err: err.message
+          }
+      
+          res.status(404).json(failObject)
+        })
+
         const payload = {
           userId: result.rows[0].id,
           first_name: result.rows[0].first_name,
