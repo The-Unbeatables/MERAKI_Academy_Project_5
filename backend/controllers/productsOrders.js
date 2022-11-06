@@ -51,4 +51,30 @@ const deleteProductOrder = (req, res) => {
     })
 }
 
-module.exports = { addProductOrder, deleteProductOrder }
+const deleteAllUserProductOrders = (req, res) => {
+    const  userId  = req.params.id;
+    const values = [userId];
+    const query = `UPDATE product_orders SET is_deleted = 1 WHERE userId = $1 RETURNING *;`
+
+    pool.query(query, values)
+    .then((result) => {
+        let successObject = {
+            success: true,
+            massage: "Orders deleted Successfully",
+            result: result.rows
+          }
+      
+          res.status(201).json(successObject)
+    })
+    .catch((err) => {
+        let failObject = {
+            success: false,
+            massage: "Server error",
+            err: err.message
+          }
+      
+          res.status(409).json(failObject)
+    })
+}
+
+module.exports = { addProductOrder, deleteProductOrder, deleteAllUserProductOrders }
