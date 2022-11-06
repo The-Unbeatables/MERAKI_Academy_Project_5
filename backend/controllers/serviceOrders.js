@@ -1,3 +1,4 @@
+const { Pool } = require('pg')
 const {pool} = require('../models/db')
 
 const addServiceOrder=(req , res)=>{
@@ -59,12 +60,54 @@ const updateServiceOrder=(req , res)=>{
     })
 }
 
+const deleteServiceOrder=(req , res)=>{
+    const query=`UPDATE service_orders SET is_deleted = 1 WHERE id=${req.params.id}`
+    pool.query(query)
+    .then((result)=>{
+        if (result.rowCount === 0) {
+            res.status(404).json({
+              success: false,
+              massage: `The Service Orders is not Found`,
+            });
+          } else {
+            res.status(200).json({
+              success: true,
+              massage: `Service Orders Deleted successfully`,
+            });
+          }
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            success: false,
+            massage: `Server Error`,
+            err : err,
+     })
+    })
+}
+
+const getAllServiceOrders=(req ,res)=>{
+    const query=`SELECT * FROM service_orders WHERE  is_deleted = 0 `
+    pool.query(query)
+    .then((result)=>{
+        res.status(200).json({
+            sucess : true,
+            message: "Success Operation",
+            result : result.rows
+        })
+    })
+    .catch((err)=>{
+        res.status(500).json({
+            sucess : false,
+            message: "Server Error",
+            err : err
+        })
+    })
+}
 
 
 
 
-
-module.exports={addServiceOrder,updateServiceOrder}
+module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders}
 
 /*CREATE TABLE service_orders(
   id SERIAL NOT NULL,
