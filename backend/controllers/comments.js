@@ -7,7 +7,7 @@ const createNewComment = (req,res) => {
     const { comment } = req.body;
     const data = [comment,commenter_id,product_id]
 
-    const query = `INSERT INTO product_comments (comment,commenter_id,product_id) VALUES ()`;
+    const query = `INSERT INTO product_comments (comment,commenter_id,product_id) VALUES ($1,$2,$3)`;
 
     pool.query(query,data)
     .then((result) => {
