@@ -106,3 +106,6 @@ CREATE TABLE service_orders(
   FOREIGN KEY (worker_id ) REFERENCES workers(id),
   PRIMARY KEY (id) 
 );
+
+
+
