@@ -31,7 +31,7 @@ CREATE TABLE users(
   PRIMARY KEY (id) 
 );
 
-CREATE TABLE workerss(
+CREATE TABLE workers(
   id SERIAL NOT NULL,
   profession VARCHAR(255) ,
   Y.O.E INT,
