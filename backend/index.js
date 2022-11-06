@@ -19,6 +19,7 @@ const workersRouter = require("./routes/workers");
 
 
 const cartRouter = require("./routes/carts");
+const serviceOrderRouter = require("./routes/serviceOrders");
 const commentRouter = require("./routes/comments");
 const productOrderRouter = require("./routes/productOrders")
 
@@ -42,6 +43,7 @@ app.use("/productOrders", productOrderRouter)
 
 app.use('/workers' , workersRouter)
 
+app.use('/ServiceOrders' , serviceOrderRouter)
 
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
 
