@@ -88,6 +88,7 @@ CREATE TABLE product_orders(
   id SERIAL NOT NULL,
   is_deleted SMALLINT DEFAULT 0,
   user_id INT,
+  quantity INT,
   product_id INT,
   FOREIGN KEY (user_id ) REFERENCES users (id),
   FOREIGN KEY (product_id ) REFERENCES products (id),
