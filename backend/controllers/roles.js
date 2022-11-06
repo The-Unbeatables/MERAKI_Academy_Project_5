@@ -79,3 +79,4 @@ const addRolePermission = (req, res) => {
 }
 
 module.exports = { addRole, addPermission, addRolePermission }
+

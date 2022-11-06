@@ -1,11 +1,13 @@
 const express = require('express')
 const { addServiceOrder, updateServiceOrder, deleteServiceOrder, getAllServiceOrders } = require('../controllers/serviceOrders')
-
+const authentication = require("../middlewares/authentication");
+const authorization = require("../middlewares/authorization")
 const serviceOrderRouter= express.Router()
 
-serviceOrderRouter.post('/',addServiceOrder)
-serviceOrderRouter.put('/:id',updateServiceOrder)
-serviceOrderRouter.delete('/:id' , deleteServiceOrder)
+serviceOrderRouter.post('/', authentication, authorization("ADD_SERVICE_ORDER"), addServiceOrder)
+serviceOrderRouter.put('/:id', authentication, authorization("UPDATE_SERVICE_ORDER"), updateServiceOrder)
+serviceOrderRouter.delete('/:id' , authentication, authorization("DELETE_SERVICE_ORDER"), deleteServiceOrder)
 serviceOrderRouter.get('/' , getAllServiceOrders)
 
 module.exports= serviceOrderRouter
+
