@@ -3,7 +3,7 @@ const { pool } = require('../models/db');
 // TODO: Create createNewComment Function
 const createNewComment = (req,res) => {
     const product_id = req.params.id;
-    const commenter_id = req.token;
+    const commenter_id = req.token.userId;
     const { comment } = req.body;
     const data = [comment,commenter_id,product_id]
 
