@@ -101,4 +101,30 @@ const getAllProductOrders = (req, res) => {
           res.status(409).json(failObject)
     })
 }
-module.exports = { addProductOrder, deleteProductOrder, deleteAllUserProductOrders, getAllProductOrders }
+
+const getUserProductOrders = (req, res) => {
+    const userId = req.params.id;
+    const values = [userId]
+    const query = `SELECT * FROM product_orders INNER JOIN users ON product_orders.user_id= users.id WHERE user_id = $1;`
+
+    pool.query(query, values)
+    .then((result) => {
+        let successObject = {
+            success: true,
+            massage: `All orders for ${result.rows[0].first_name}`,
+            result: result.rows
+          }
+      
+          res.status(201).json(successObject)
+    })
+    .catch((err) => {
+        let failObject = {
+            success: false,
+            massage: "Server error",
+            err: err.message
+          }
+      
+          res.status(409).json(failObject)
+    })
+}
+module.exports = { addProductOrder, deleteProductOrder, deleteAllUserProductOrders, getAllProductOrders, getUserProductOrders }
