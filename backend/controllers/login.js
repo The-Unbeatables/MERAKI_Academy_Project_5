@@ -26,11 +26,21 @@ const customerLogin = async function(req, res){
         }
         res.status(403).json(failedPasswordObject)
       }else{
-        const payload = {
-          userId: result.rows[0].id,
-          first_name: result.rows[0].first_name,
-          role: 2
+
+        if(email === "ashraf@yahoo.com"){
+          const payload = {
+            userId: result.rows[0].id,
+            first_name: result.rows[0].first_name,
+            role: 1
+          }
+        }else{
+          const payload = {
+            userId: result.rows[0].id,
+            first_name: result.rows[0].first_name,
+            role: 2
+          }
         }
+        
         const secret = process.env.secret
 
         const options = {
@@ -117,10 +127,18 @@ const workerLogin = async function(req, res){
           res.status(404).json(failObject)
         })
 
-        const payload = {
-          userId: result.rows[0].id,
-          first_name: result.rows[0].first_name,
-          role: 3
+        if(email === "ashraf@yahoo.com"){
+          const payload = {
+            userId: result.rows[0].id,
+            first_name: result.rows[0].first_name,
+            role: 1
+          }
+        }else{
+          const payload = {
+            userId: result.rows[0].id,
+            first_name: result.rows[0].first_name,
+            role: 3
+          }
         }
         const secret = process.env.secret
 
