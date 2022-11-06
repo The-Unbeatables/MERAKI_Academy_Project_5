@@ -104,10 +104,29 @@ const getAllServiceOrders=(req ,res)=>{
     })
 }
 
+const getWorkerServiceOrders=(req , res)=>{
+  const query=`SELECT * FROM service_orders INNER JOIN workers ON service_orders.id=workers.id`
+  pool.query(query)
+  .then((result)=>{
+    res.status(200).json({
+        sucess : true,
+        message: "Success Operation",
+        result : result.rows
+    })
+})
+.catch((err)=>{
+    res.status(500).json({
+        sucess : false,
+        message: "Server Error",
+        err : err
+    })
+})
+}
 
 
 
-module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders}
+
+module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders,getWorkerServiceOrders}
 
 /*CREATE TABLE service_orders(
   id SERIAL NOT NULL,
