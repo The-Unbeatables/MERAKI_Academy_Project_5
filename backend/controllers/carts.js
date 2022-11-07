@@ -5,7 +5,7 @@ const addToCart = (req,res) => {
     const user_id = req.token.userId;
     const { product_id } = req.body;
     const data = [product_id, user_id]
-    const query = `INSERT INTO shopping_carts (product_id, user_id) VALUES ($1,$2)`;
+    const query = `INSERT INTO shopping_carts (product_id, user_id) VALUES ($1,$2) RETURNING *`;
 
     pool.query(query,data)
     .then((result) => {
@@ -20,7 +20,7 @@ const addToCart = (req,res) => {
         res.status(500).json({
             succsess: false,
             message: `Failed Add To Cart`,
-            error: message.err
+            error: err.message
         })
     })
 };
@@ -30,7 +30,7 @@ const showCart = (req,res) => {
     const user_id = req.token.userId
     const data = [user_id]
 
-    const query = `SELECT * FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE shopping_carts.is_deleted = 0 AND user_id = $1`;
+    const query = `SELECT * FROM products INNER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE shopping_carts.is_deleted = 0 AND user_id = $1`;
 
     pool.query(query,data)
     .then((result) => {
@@ -44,7 +44,7 @@ const showCart = (req,res) => {
         res.status(500).json({
             succsess: false,
             message: `Failed Show The Cart`,
-            error: message.err
+            error: err.message
         })
     })
 };
@@ -66,7 +66,7 @@ const deleteCart = (req,res) => {
     .catch((err) => {
         res.status(500).json({
             succsess: false,
-            error: message.err
+            error: err.message
         })
     })
 };
@@ -76,7 +76,7 @@ const showCartById = (req,res) => {
     const cartId = req.params.id;
     const data = [cartId]
     
-    const query = `SELECT * FROM products INER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE id = $1`;
+    const query = `SELECT * FROM products INNER JOIN shopping_carts ON products.id = shopping_carts.product_id WHERE id = $1`;
 
     pool.query(query,data)
     .then((result) => {
@@ -89,7 +89,7 @@ const showCartById = (req,res) => {
     .catch((err) => {
         res.status(500).json({
             succsess: false,
-            error: message.err
+            error: err.message
         })
     })
 };
@@ -112,7 +112,7 @@ const deleteCartByUserId = (req,res) => {
     .catch((err) => {
         res.status(500).json({
             succsess: false,
-            error: message.err
+            error: err.message
         })
     })
 };

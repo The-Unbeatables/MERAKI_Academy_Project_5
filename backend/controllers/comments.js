@@ -7,14 +7,14 @@ const createNewComment = (req,res) => {
     const { comment } = req.body;
     const data = [comment,commenter_id,product_id]
 
-    const query = `INSERT INTO product_comments (comment,commenter_id,product_id) VALUES ($1,$2,$3)`;
+    const query = `INSERT INTO product_comments (comment,commenter_id,product_id) VALUES ($1,$2,$3) RETURNING *`;
 
     pool.query(query,data)
     .then((result) => {
         res.status(201).json({
             success: true,
             message: 'Comment Created',
-            result: result
+            result: result.rows
         })
     })
     .catch((err) => {
@@ -31,14 +31,14 @@ const getAllComments = (req,res) => {
     const id = req.params.id;
     const data = [id]
 
-    const query = `SELECT * FROM users INER JOIN product_comments ON product_comments.commenter_id = users.id WHERE product_id = $1 ORDER BY product_comments.id DESC`;
+    const query = `SELECT * FROM users INNER JOIN product_comments ON product_comments.commenter_id = users.id WHERE product_id = $1 AND is_deleted = 0 ORDER BY product_comments.id DESC`;
 
     pool.query(query,data)
     .then((result) => {
         res.status(201).json({
             success: true,
             message: 'Get All Comments',
-            result: result
+            result: result.rows
         })
     })
     .catch((err) => {
@@ -63,7 +63,7 @@ const updateComment = (req,res) => {
         res.status(201).json({
             success: true,
             message: 'Update Comment',
-            result: result
+            result: result.rows
         })
     })
     .catch((err) => {
@@ -87,7 +87,7 @@ const deleteComment = (req,res) => {
         res.status(201).json({
             success: true,
             message: 'Delete Comment',
-            result: result
+            result: result.rows
         })
     })
     .catch((err) => {
