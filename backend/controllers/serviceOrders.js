@@ -4,7 +4,7 @@ const {pool} = require('../models/db')
 const addServiceOrder=(req , res)=>{
  const {status , service_title,service_description,user_id,worker_id}=req.body
  const values = [status , service_title,service_description,user_id,worker_id]
- const query=`INSERT INTO service_orders (status , service_title,service_description,user_id,worker_id) VALUES($1,$2,$3,$4,$5)`
+ const query=`INSERT INTO service_orders (status , service_title,service_description,user_id,worker_id) VALUES($1,$2,$3,$4,$5) RETURNING *`
  pool.query(query,values)
  .then((result)=>{
     res.status(200).json({
@@ -105,8 +105,11 @@ const getAllServiceOrders=(req ,res)=>{
 }
 
 const getWorkerServiceOrders=(req , res)=>{
-  const query=`SELECT * FROM service_orders INNER JOIN workers ON service_orders.id=workers.id`
-  pool.query(query)
+ const workerId = req.params.id
+ const values=[workerId]
+  const query=`SELECT * FROM service_orders INNER JOIN workers ON service_orders.worker_id=workers.id WHERE worker_id = $1
+  `
+  pool.query(query , values)
   .then((result)=>{
     res.status(200).json({
         sucess : true,
@@ -127,16 +130,3 @@ const getWorkerServiceOrders=(req , res)=>{
 
 
 module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders,getWorkerServiceOrders}
-
-/*CREATE TABLE service_orders(
-  id SERIAL NOT NULL,
-  status VARCHAR(255),
-  service_title VARCHAR(255),
-  service_description VARCHAR(255),
-  is_deleted SMALLINT DEFAULT 0,
-  user_id INT,
-  worker_id INT,
-  FOREIGN KEY (user_id ) REFERENCES users (id),
-  FOREIGN KEY (worker_id ) REFERENCES workers(id),
-  PRIMARY KEY (id) 
-); */

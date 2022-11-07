@@ -108,7 +108,7 @@ const searchProductsByTitle = (req , res)=>{
      //REGEXP
     
      console.log(req.params.title);
-   const query=`SELECT * FROM products WHERE title ~* '${req.params.title}'`
+   const query=`SELECT * FROM products WHERE title ~* '${req.params.title}' WHERE is_deleted=0`
    
    pool.query(query)
    .then((result)=>{
