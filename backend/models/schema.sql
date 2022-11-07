@@ -99,6 +99,7 @@ CREATE TABLE service_orders(
   status VARCHAR(255),
   service_title VARCHAR(255),
   service_description VARCHAR(255),
+  created_at TIMESTAMP DEFAULT NOW() ,
   is_deleted SMALLINT DEFAULT 0,
   user_id INT,
   worker_id INT,

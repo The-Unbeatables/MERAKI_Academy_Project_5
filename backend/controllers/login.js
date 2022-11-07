@@ -26,15 +26,15 @@ const customerLogin = async function(req, res){
         }
         res.status(403).json(failedPasswordObject)
       }else{
-
+        let payload = {}
         if(email === "ashraf@yahoo.com"){
-          const payload = {
+           payload = {
             userId: result.rows[0].id,
             first_name: result.rows[0].first_name,
             role: 1
           }
         }else{
-          const payload = {
+           payload = {
             userId: result.rows[0].id,
             first_name: result.rows[0].first_name,
             role: 2
@@ -47,7 +47,13 @@ const customerLogin = async function(req, res){
           expiresIn: "1h",
         }
         const token = await jwt.sign(payload, secret, options)
-        let theRoleId = 2
+        let theRoleId = 0
+        if(email === "ashraf@yahoo.com"){
+          theRoleId = 1
+        }else{
+          theRoleId = 2
+        }
+
         let theUserId = result.rows[0].id
         const values = [theRoleId, theUserId]
         const query = 'UPDATE users SET role_id = $1 WHERE id=$2 RETURNING *;'
@@ -113,7 +119,6 @@ const workerLogin = async function(req, res){
             const query = `INSERT INTO workers (user_id) VALUES ($1) RETURNING *`
             pool.query(query, data)
             .then((result) => {
-              console.log(result.rows);
             })
           }
         })
@@ -127,14 +132,15 @@ const workerLogin = async function(req, res){
           res.status(404).json(failObject)
         })
 
+        let payload = {}
         if(email === "ashraf@yahoo.com"){
-          const payload = {
+           payload = {
             userId: result.rows[0].id,
             first_name: result.rows[0].first_name,
             role: 1
           }
         }else{
-          const payload = {
+           payload = {
             userId: result.rows[0].id,
             first_name: result.rows[0].first_name,
             role: 3
@@ -146,8 +152,12 @@ const workerLogin = async function(req, res){
           expiresIn: "1h",
         }
         const token = await jwt.sign(payload, secret, options)
-        let theRoleId = 3
-        let theUserId = result.rows[0].id
+        let theRoleId = 0
+        if(email === "ashraf@yahoo.com"){
+          theRoleId = 1
+        }else{
+          theRoleId = 2
+        }        let theUserId = result.rows[0].id
         const values = [theRoleId, theUserId]
         const query = 'UPDATE users SET role_id = $1 WHERE id=$2 RETURNING *;'
         pool.query(query, values)

@@ -34,7 +34,7 @@ const updateWorkers =(req , res)=>{
         res.status(500).json({
             success: false,
             massage: `Server Error`,
-            err : err,
+            err : err.message,
      })
     })
 }
