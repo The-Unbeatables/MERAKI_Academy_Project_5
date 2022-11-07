@@ -20,7 +20,7 @@ const createNewComment = (req,res) => {
     .catch((err) => {
         res.status(500).json({
             success: false,
-            message: 'error',
+            message: 'error in query',
             result: err.message
         })
     })
