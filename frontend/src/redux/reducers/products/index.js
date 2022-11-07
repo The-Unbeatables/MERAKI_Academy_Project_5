@@ -10,12 +10,14 @@ const productSlice = creatSlice({
             state.products = action.payload
         },
         addProduct:(state,action)=>{
+
         state.products.push(action.payload);
         },
         updateProduct: (state , action)=> {
             state.products = state.products.map((item)=>{
             if(item.id === action.payload.id){
                 return action.payload   
+            
             }
             else{
                 return item
@@ -30,6 +32,8 @@ const productSlice = creatSlice({
          
     }
 })
+
+//title ,price,category ,items_left,image
 
 export const {setProduct , addProduct , updateProduct , deleteProduct} =productSlice.actions
 export default productSlice.reducer
