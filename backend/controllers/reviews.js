@@ -17,7 +17,7 @@ const addWorkerReview = (req, res) => {
       res.status(500).json({
         success: false,
         message: "Server Error",
-        result: result.rows,
+        Error: err,
       });
     });
 };
