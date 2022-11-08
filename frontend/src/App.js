@@ -2,10 +2,13 @@ import "./App.css";
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home"
+
+
 import Navbar from "./components/Navbar"
 import Register from "./components/Register"
 import Footer from "./components/Footer";
 import Services from "./components/Services";
+
 
 function App() {
   return <div className="App">
@@ -14,6 +17,14 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Home />} />
+
+
+
+      <Route path="/register" element={<Register />} /> 
+      {/* <Route path="/register" element={<Register />} /> 
+      <Route path="/login" element={<Login />} /> 
+
+
       <Route path="/services" element={<Services />} /> 
       {/*<Route path="/register" element={<Register />} /> 
       <Route path="/login" element={<Login />} /> 
