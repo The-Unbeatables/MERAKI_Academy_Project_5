@@ -1,0 +1,27 @@
+
+.Register{
+text-align: center;
+display: grid;
+justify-content: center;
+ 
+}
+.contanirRegister{
+    display: grid;
+    gap: 20px;
+   
+
+}
+.inputRegister{
+    display: grid;
+    gap: 20px;
+    
+
+}
+.threefirstinput{
+display: flex;
+gap: 20px;
+
+}
+.buttonRegister{
+    text-align: left;
+}
