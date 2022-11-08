@@ -85,6 +85,25 @@ const getWorkers=(req ,res)=>{
     })
 }
 
+const getWorkersByProffesion = (req, res) => {
+  const { profession } = req.body;
+  const values = [profession]
+  const query=`SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id WHERE profession = $1 AND workers.is_deleted=0`
+  pool.query(query, values)
+  .then((result)=>{
+      res.status(200).json({
+          sucess : true,
+          message: "Success Operation",
+          result : result.rows
+      })
+  })
+  .catch((err)=>{
+      res.status(500).json({
+          sucess : false,
+          message: "Server Error",
+          err : err.message
+      })
+  })
+}
 
-
-module.exports={updateWorkers ,deleteWorkers,getWorkers}
+module.exports={updateWorkers ,deleteWorkers,getWorkers, getWorkersByProffesion}
