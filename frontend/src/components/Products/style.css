@@ -1,0 +1,17 @@
+.n{
+    color: black;
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(4,150px);
+    width: 60%;
+    margin: auto;
+    margin-top: 10%; 
+  gap: 20px;
+    justify-content: center;
+}
+.cardProduct{
+   text-align: center;
+   border: 1px solid black;
+    
+}
