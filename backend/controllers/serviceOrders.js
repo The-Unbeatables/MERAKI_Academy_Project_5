@@ -107,7 +107,7 @@ const getAllServiceOrders=(req ,res)=>{
 const getWorkerServiceOrders=(req , res)=>{
  const workerId = req.params.id
  const values=[workerId]
-  const query=`SELECT * FROM service_orders INNER JOIN workers ON service_orders.worker_id=workers.id WHERE worker_id = $1
+  const query=`SELECT * FROM service_orders INNER JOIN workers ON service_orders.worker_id=workers.id WHERE worker_id = $1 AND is_deleted = 0 
   `
   pool.query(query , values)
   .then((result)=>{
