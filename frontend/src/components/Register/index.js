@@ -25,12 +25,12 @@ const handelRegisterbutton=()=>{
    gender
     })
 .then((result)=>{
- console.log(result.data.massage);
+ 
  setMessage(result.data.massage)
  setShowMessage(true)
 })
 .catch((err)=>{
-    console.log(err.response.data.massage);
+    
     setMessage(err.response.data.massage)
     setShowMessage(true)
 })
