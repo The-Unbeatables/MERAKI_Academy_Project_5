@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Register from "./components/Register"
+import Footer from "./components/Footer";
 
 function App() {
   return <div className="App">
@@ -25,7 +26,7 @@ function App() {
       <Route path="/worker/profile" element={<WorkerProfile />} />   */}
 
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
   </div>;
 }
 
