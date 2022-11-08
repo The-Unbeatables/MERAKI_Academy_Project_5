@@ -2,15 +2,17 @@ import "./App.css";
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home"
+import Navbar from "./components/Navbar"
+import Register from "./components/Register"
 
 function App() {
   return <div className="App">
 
-    {/* <Navbar /> */}
+    <Navbar />
     <Routes>
 
       <Route path="/" element={<Home />} />
-      {/* <Route path="/register" element={<Register />} /> 
+      {/*<Route path="/register" element={<Register />} /> 
       <Route path="/login" element={<Login />} /> 
       <Route path="/services" element={<Services />} /> 
       <Route path="/products" element={<Products />} /> 
