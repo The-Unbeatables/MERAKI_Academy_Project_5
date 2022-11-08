@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Register from "./components/Register"
+import Services from "./components/Services";
 
 function App() {
   return <div className="App">
@@ -12,9 +13,9 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Home />} />
+      <Route path="/services" element={<Services />} /> 
       {/*<Route path="/register" element={<Register />} /> 
       <Route path="/login" element={<Login />} /> 
-      <Route path="/services" element={<Services />} /> 
       <Route path="/products" element={<Products />} /> 
       <Route path="/services/details" element={<ServiceDetails />} /> 
       <Route path="/products/details" element={<ProductDetails />} /> 
