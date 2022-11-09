@@ -4,6 +4,7 @@ const workerSlice = createSlice({
     name : "workers",
     initialState:{
         workers:[],
+        profession: ''
     },
     reducers:{
         setWorkers:(state , action)=>{
@@ -22,9 +23,12 @@ const workerSlice = createSlice({
             state.workers=state.workers.filter((item)=>{
             return item.id != action.payload
             })
+        },
+        setProfession:(state , action)=>{
+            state.profession = action.payload
         }
     }
 })
 
-export const{setWorkers , updateWorker , deleteWorker} = workerSlice.actions
+export const{setWorkers , updateWorker , deleteWorker, setProfession} = workerSlice.actions
 export default workerSlice.reducer
