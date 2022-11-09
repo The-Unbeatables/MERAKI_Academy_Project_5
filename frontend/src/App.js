@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar"
 import Register from "./components/Register"
 import Footer from "./components/Footer";
 import Services from "./components/Services";
-// import Login from "./components/Login";
+import Login from "./components/Login";
 import Products from "./components/Products";
 import ProductDetails from "./components/ProductDetails";
 import ServiceDetails from "./components/ServiceDetails";
