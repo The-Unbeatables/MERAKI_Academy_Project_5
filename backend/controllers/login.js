@@ -5,6 +5,7 @@ const { pool } = require("../models/db");
 const customerLogin = async function(req, res){
   const {email, password} = req.body;
   const values = [email];
+  console.log(email);
   const query = `SELECT * FROM users WHERE email= $1;`
   pool.query(query, values)
 
