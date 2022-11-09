@@ -15,7 +15,8 @@ import Cart from "./components/Cart";
 import ServiceOrders from "./components/ServiceOrders";
 import ProductOrders from "./components/ProductOrders";
 import UserProfile from "./components/UserProfile";
-import WorkerProfile from "./components/WorkerProfile"
+import WorkerProfile from "./components/WorkerProfile";
+import Checkout from "./components/Checkout"
 
 
 function App() {
@@ -36,7 +37,9 @@ function App() {
       <Route path="/services/orders" element={<ServiceOrders />} /> 
       <Route path="/products/orders" element={<ProductOrders />} /> 
       <Route path="/user/profile" element={<UserProfile />} />
-      <Route path="/worker/profile" element={<WorkerProfile />} />   
+      <Route path="/worker/profile" element={<WorkerProfile />} />
+      <Route path="/checkout" element={<Checkout />} />   
+   
 
     </Routes>
     <Footer />
