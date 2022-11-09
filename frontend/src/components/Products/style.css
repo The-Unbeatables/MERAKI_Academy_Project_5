@@ -3,15 +3,26 @@
 }
 .products{
     display: grid;
-    grid-template-columns: repeat(4,150px);
-    width: 60%;
+    grid-template-columns: repeat(5,230px);
+    
+    
     margin: auto;
     margin-top: 10%; 
   gap: 20px;
     justify-content: center;
 }
 .cardProduct{
+  display: grid;
    text-align: center;
    border: 1px solid black;
-    
+   height: 300px;
+   width: auto;
+   box-shadow: 0 10px 8px 0 rgba(0,0,0,0.2);
+  
+}
+.imgproduct{
+  width: auto;
+  height: auto;
+
+  border:1px solid
 }

@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { setProduct } from "../../redux/reducers/products";
+import { deleteProduct, setProduct } from "../../redux/reducers/products";
 import "./style.css"
+import { useNavigate } from 'react-router-dom'
 
 const Products = ()=>{
+  const navigate = useNavigate()
+  
    const dispatch = useDispatch()
 
    const {product} = useSelector((state)=>{
@@ -12,14 +15,14 @@ const Products = ()=>{
         product: state.products.products
     }
    })
-console.log(product);
+
 
     const getProduct = () => {
         
         axios
           .get("http://localhost:5000/products")
           .then((result) => {
-            console.log(result.data.result);
+           
             dispatch(setProduct(result.data.result))
             
           })
@@ -32,10 +35,14 @@ console.log(product);
           getProduct();
         
       }, []);
+     
+
+    
 
 
     return(
         <>
+  
         <h2 className="n">Products</h2>
         <div className="products">
       {product?.map((data)=>{
@@ -43,11 +50,17 @@ console.log(product);
         return(
            
             <div className="cardProduct">
-            <div>{data.image}</div>
+              <div  className="imgproduct">
+            <img src={`${data.image}`} />
+            </div>
+            <div>
             <div>{data.title}</div>
             <div>{data.price}</div>
             <div>{data.category}</div>
             <div>{data.items_left}</div>
+            </div>
+           
+            
             </div>
            
         )
