@@ -4,8 +4,12 @@ const productSlice = createSlice({
     name: 'products',
     initialState:{
         products : [],
+        item : []
     },
     reducers:{
+        setitem:(state , action)=>{
+            state.item = action.payload
+        },
         setProduct:(state , action)=>{
             state.products = action.payload
         },
@@ -35,5 +39,5 @@ const productSlice = createSlice({
 
 //title ,price,category ,items_left,image
 
-export const {setProduct , addProduct , updateProduct , deleteProduct} =productSlice.actions
+export const {setProduct , addProduct , updateProduct , deleteProduct,setitem} =productSlice.actions
 export default productSlice.reducer
