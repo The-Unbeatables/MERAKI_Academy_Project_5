@@ -1,0 +1,14 @@
+.det h2{
+    color: black;
+}
+.rowContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border: 1px solid blue;
+    align-items: center;
+}
+.rowContainer div{
+    margin-top: 2%;
+}
