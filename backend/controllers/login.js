@@ -157,7 +157,7 @@ const workerLogin = async function(req, res){
         if(email === "ashraf@yahoo.com"){
           theRoleId = 1
         }else{
-          theRoleId = 2
+          theRoleId = 3
         }        let theUserId = result.rows[0].id
         const values = [theRoleId, theUserId]
         const query = 'UPDATE users SET role_id = $1 WHERE id=$2 RETURNING *;'
