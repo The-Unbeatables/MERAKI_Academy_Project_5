@@ -79,7 +79,7 @@ const deleteAllUserProductOrders = (req, res) => {
 
 const getAllProductOrders = (req, res) => {
 
-    const query = `SELECT * FROM product_orders INNER JOIN users ON product_orders.user_id= users.id;`
+    const query = `SELECT * FROM product_orders INNER JOIN products ON product_orders.user_id= products.id;`
 
     pool.query(query)
     .then((result) => {
@@ -105,7 +105,7 @@ const getAllProductOrders = (req, res) => {
 const getUserProductOrders = (req, res) => {
     const userId = req.params.id;
     const values = [userId]
-    const query = `SELECT * FROM product_orders INNER JOIN users ON product_orders.user_id= users.id WHERE user_id = $1;`
+    const query = `SELECT * FROM product_orders INNER JOIN products ON product_orders.user_id= products.id WHERE user_id = $1;`
 
     pool.query(query, values)
     .then((result) => {
