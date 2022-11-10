@@ -30,7 +30,7 @@ const Cart = () => {
             },
           })
           .then((result) => {
-            console.log(result.data.result);
+            // console.log(result.data.result);
             dispatch(setCart(result.data.result));
           })
           .catch((err) => {
@@ -88,7 +88,9 @@ const Cart = () => {
                           <div className="cart_price">{product.price}</div>
                           <div className="cart_price">{product.items_left}</div>
                         </div>
+                <button onClick={() => {sendToCart(product.id)}}>Add To Cart</button>
               </div>
+              
             )
           })}
         </div>

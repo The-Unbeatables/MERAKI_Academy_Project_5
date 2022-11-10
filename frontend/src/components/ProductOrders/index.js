@@ -29,6 +29,7 @@ const ProductOrders = () => {
           },
         })
         .then((result) => {
+          console.log(result);
           console.log(result.data.result);
           dispatch(setUserProductOrders(result.data.result));
         })
