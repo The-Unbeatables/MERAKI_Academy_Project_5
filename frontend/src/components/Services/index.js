@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import "./style.css";
 import { setProfession } from '../../redux/reducers/workers';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleClick = (str) => {
         console.log(str);
         dispatch(setProfession(str))
+        navigate('/services/details')
     }
 
 

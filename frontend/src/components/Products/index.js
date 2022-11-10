@@ -43,11 +43,41 @@ const Products = ()=>{
         navigate('/products/details')
 
       }
+  const handelcategory=(str)=>{
+    axios.get(`http://localhost:5000/products/${str}`)
+    .then((result)=>{
+  
+  dispatch(setProduct(result.data.result))
+    })
+    .catch((err)=>{
+    console.log(err);
+    })
+
+  }
+
+const [search, setSearch] = useState('')
+
+const handelSearch=(search)=>{
+ 
+  axios.get(`http://localhost:5000/products/search/product/?title=${search}`)
+  .then((result)=>{
+   console.log(result);
+   dispatch(setProduct(result.data.result))
+  })
+  .catch((err)=>{
+ console.log(err);
+  })
+}
 
 
     return(
         <>
-  
+        <div className="category">
+        <div onClick={()=>{handelcategory("cook")}}>category number1</div>
+        <div onClick={()=>{handelcategory("play")}}>category number2</div>
+        <div onClick={()=>{handelcategory("test")}}>category number3</div>
+        <input onChange={(e)=> {handelSearch(e.target.value)}} />
+        </div>
         <h2 className="n">Products</h2>
         <div className="products">
       {product?.map((data)=>{

@@ -7,6 +7,6 @@ const workersRouter = express.Router()
 workersRouter.put('/:id', authentication, authorization("UPDATE_WORKER"), updateWorkers)
 workersRouter.delete('/:id', authentication, authorization("DELETE_WORKER"), deleteWorkers)
 workersRouter.get('/',  authentication, authorization("GET_ALL_WORKERS"), getWorkers)
-workersRouter.get('/profession', getWorkersByProffesion)
+workersRouter.post('/profession', getWorkersByProffesion)
 
 module.exports=workersRouter

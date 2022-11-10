@@ -5,6 +5,7 @@ const { pool } = require("../models/db");
 const customerLogin = async function(req, res){
   const {email, password} = req.body;
   const values = [email];
+  console.log(email);
   const query = `SELECT * FROM users WHERE email= $1;`
   pool.query(query, values)
 
@@ -156,7 +157,7 @@ const workerLogin = async function(req, res){
         if(email === "ashraf@yahoo.com"){
           theRoleId = 1
         }else{
-          theRoleId = 2
+          theRoleId = 3
         }        let theUserId = result.rows[0].id
         const values = [theRoleId, theUserId]
         const query = 'UPDATE users SET role_id = $1 WHERE id=$2 RETURNING *;'
