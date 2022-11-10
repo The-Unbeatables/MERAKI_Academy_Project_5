@@ -12,10 +12,11 @@ const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const {token, cart}= useSelector((state)=>{
+    const {token, cart, userId}= useSelector((state)=>{
         return{
         token: state.auth.token,
-        cart: state.carts.cart
+        cart: state.carts.cart,
+        userId: state.auth.userId
         }
     })
 
@@ -52,6 +53,7 @@ const Cart = () => {
             `http://localhost:5000/productOrders`,
             {
                 product_id: id,
+                user_id: userId
             },
             {
               headers: {
