@@ -107,8 +107,8 @@ const deleteProductsById = (req , res)=>{
 const searchProductsByTitle = (req , res)=>{
      //REGEXP
     
-     console.log(req.params.title);
-   const query=`SELECT * FROM products WHERE title ~* '${req.params.title}' WHERE is_deleted=0`
+    
+   const query=`SELECT * FROM products WHERE title LIKE '%${req.query.title}%' AND is_deleted=0`
    
    pool.query(query)
    .then((result)=>{
@@ -135,4 +135,27 @@ const searchProductsByTitle = (req , res)=>{
    
 }
 
-module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle}
+const getAllProductsbyCategory= (req , res)=>{
+  const category=req.params.category;
+  values=[category]
+  console.log(category);
+  const query = `SELECT * FROM products WHERE category=$1 AND is_deleted=0;`
+  pool.query(query , values)
+  .then((result)=>{
+    res.status(200).json({
+      sucess : true,
+      message: "Success Operation",
+      result : result.rows
+  })
+    
+  })
+  .catch((err)=>{
+    res.status(500).json({
+      sucess : false,
+      message: "Server Error",
+      err : err
+  })
+  })
+}
+
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory}
