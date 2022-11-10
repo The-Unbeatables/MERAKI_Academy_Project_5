@@ -45,6 +45,7 @@ const Cart = () => {
     }, []);
 
     const sendToCart = (id) => {
+      console.log(id);
         if (!token) {
             return navigate("/login");
         } else {
@@ -52,8 +53,7 @@ const Cart = () => {
           .post(
             `http://localhost:5000/productOrders`,
             {
-                product_id: id,
-                user_id: userId
+                product_id: 1,
             },
             {
               headers: {
@@ -64,7 +64,6 @@ const Cart = () => {
           .then((res) => {
             console.log(res);
             dispatch(addUserProductOrder(cart));
-            // dispatch(setUserId())
           })
           .catch((err) => {
             console.log(err);
@@ -94,6 +93,7 @@ const Cart = () => {
         <div>Whislist</div>
         <div className='container_whaslist'>
           {cart.map((product) => {
+            console.log(product);
             return (
               <div className='product_whislist' key={product.id}>
                 <div>
@@ -108,8 +108,8 @@ const Cart = () => {
                       <div className="cart_price">{product.price}</div>
                       <div className="cart_price">{product.items_left}</div>
                 </div>
-                <div><button onClick={() => {sendToCart(product.id)}}>Add To Cart</button></div>
-                <div><button onClick={() => {deleteFromWhislist(product.id)}}>Delete From Wishlist</button></div>
+                <div><button onClick={() => {sendToCart(product.product_id)}}>Add To Cart</button></div>
+                <div><button onClick={() => {deleteFromWhislist(product.product_id)}}>Delete From Wishlist</button></div>
               </div>
               
             )
