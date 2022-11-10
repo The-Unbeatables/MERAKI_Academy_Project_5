@@ -7,9 +7,10 @@ import './style.css'
 
 const WorkerHome=()=>{
     const dispatch= useDispatch()
-    const {userId}= useSelector((state)=>{
+    const {userId , token}= useSelector((state)=>{
         return {
-            userId : state.auth.userId
+            userId : state.auth.userId,
+            token : state.auth.token
         }
     })
 
@@ -45,9 +46,22 @@ console.log(err);
     //   grtServiceOrder()
     },[])
 
-// const handelUpdateStaus=(id)=>{
-//     axios.put(`http://localhost:5000/ServiceOrders`)
-// }
+const handelUpdateStaus=(id,state)=>{
+   
+    axios.put(`http://localhost:5000/ServiceOrders/${id}`,{
+        status : state
+    },{
+        headers: {
+            Authorization: `Bearer ${token}`,
+          },
+    })
+    .then((result)=>{
+  console.log(result);
+    })
+    .catch((err)=>{
+   console.log(err);
+    })
+}
 
 
     return(
@@ -60,7 +74,9 @@ console.log(err);
                
                  <div>{item.service_title}</div>
                  <div>{item.service_description}</div>    
-                 <button >Aprove</button>
+                 <button onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
+                 <button onClick={()=>{handelUpdateStaus(item.id,'Cancel')}}>Cancel</button>
+                
                 </div>
             )
             
