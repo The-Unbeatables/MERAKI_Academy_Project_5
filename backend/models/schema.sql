@@ -34,7 +34,7 @@ CREATE TABLE users(
 CREATE TABLE workers(
   id SERIAL NOT NULL,
   profession VARCHAR(255) ,
-  Y.O.E INT,
+  YOE INT,
   bio VARCHAR(255) ,
   image VARCHAR(255) ,
   user_id INT,
