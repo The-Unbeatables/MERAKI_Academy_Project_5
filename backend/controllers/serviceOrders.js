@@ -2,9 +2,9 @@ const { Pool } = require('pg')
 const {pool} = require('../models/db')
 
 const addServiceOrder=(req , res)=>{
- const {status , service_title,service_description,user_id,worker_id}=req.body
- const values = [status , service_title,service_description,user_id,worker_id]
- const query=`INSERT INTO service_orders (status , service_title,service_description,user_id,worker_id) VALUES($1,$2,$3,$4,$5) RETURNING *`
+ const {service_title,service_description,user_id,worker_id}=req.body
+ const values = [service_title,service_description,user_id,worker_id]
+ const query=`INSERT INTO service_orders (service_title,service_description,user_id,worker_id) VALUES($1,$2,$3,$4) RETURNING *`
  pool.query(query,values)
  .then((result)=>{
     res.status(200).json({
