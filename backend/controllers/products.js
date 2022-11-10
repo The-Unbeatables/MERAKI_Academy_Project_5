@@ -138,7 +138,6 @@ const searchProductsByTitle = (req , res)=>{
 const getAllProductsbyCategory= (req , res)=>{
   const category=req.params.category;
   values=[category]
-  console.log(category);
   const query = `SELECT * FROM products WHERE category=$1 AND is_deleted=0;`
   pool.query(query , values)
   .then((result)=>{
@@ -158,4 +157,21 @@ const getAllProductsbyCategory= (req , res)=>{
   })
 }
 
-module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory}
+const filterProduct=(req , res)=>{
+ const{ max}= req.body
+ const values=[max]
+ const query = `SELECT * FROM products WHERE price>0 AND price<$1;`
+ pool.query(query , values)
+ .then((result)=>{
+  res.status(200).json({
+    result : result
+  })
+ })
+ .catch((err)=>{
+  res.status(500).json({
+    err:err
+  })
+ })
+}
+
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory,filterProduct}

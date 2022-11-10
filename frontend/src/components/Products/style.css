@@ -58,10 +58,24 @@
   transform: rotateY(180deg);
 }
 
-.category{
+.categoryAndSearch{
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 30px;
   border: 1px solid black;
   justify-content: space-around;
+  align-items: center;
+}
+.category{
+  display: flex;
+  gap: 70px;
+}
+
+.range{
+  text-align: center;
+}
+.inpurRange{
+  width: 300px;
+ 
 }
