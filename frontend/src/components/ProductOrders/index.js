@@ -5,30 +5,35 @@ import { Link, useNavigate } from "react-router-dom";
 // import { setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { deleteUserProductOrder, setUserProductOrders } from "../../redux/reducers/product_orders";
 import "./style.css";
+import Cart from "../Cart";
 
 // Cart
 const ProductOrders = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { userProductOrders, token, userId } = useSelector((state) => {
+  const { userProductOrders, token, userId, cart } = useSelector((state) => {
     return {
       userProductOrders: state.productOrders.userProductOrders ,
       token: state.auth.token,
       userId: state.auth.userId,
+      cart: state.carts.cart,
     };
   });
 
   const showCart = () => {
+    console.log(userId);
     if (!token) {
       navigate("/login");
     } else {
       axios
-        .get(`http://localhost:5000/productOrders/${userId}`, {
+        .get(`http://localhost:5000/productOrders/showCart`
+        , {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        })
+        }
+        )
         .then((result) => {
           console.log(result);
           console.log(result.data.result);
@@ -47,7 +52,7 @@ const ProductOrders = () => {
   const deleteFromCarts = async (id) => {
     try {
       let res = await axios
-        .delete(`http://localhost:5000/productOrders/${id}`, {
+        .delete(`http://localhost:5000/productOrders/delete/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

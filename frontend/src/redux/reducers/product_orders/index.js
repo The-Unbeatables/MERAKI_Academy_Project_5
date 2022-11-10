@@ -12,7 +12,7 @@ const productOrdersSlice = createSlice({
         },
 
         addUserProductOrder: (state, action) => {
-            state.userProductOrders = state.userProductOrders.push(action.payload)
+            state.userProductOrders.push(action.payload)
         },
 
         deleteUserProductOrder: (state, action) => {
