@@ -2,7 +2,7 @@ import './style.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, setCart } from "../../redux/reducers/carts";
+import { addToCart, setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from '../../redux/reducers/product_orders';
 import { useEffect } from 'react';
 
@@ -62,6 +62,7 @@ const Cart = () => {
           .then((res) => {
             console.log(res);
             dispatch(addUserProductOrder(cart));
+            // dispatch(setUserId())
           })
           .catch((err) => {
             console.log(err);
@@ -71,24 +72,42 @@ const Cart = () => {
         
       };
 
+      const deleteFromWhislist = (id) => {
+        axios
+          .delete(`http://localhost:5000/carts/delete/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((res) => {
+            dispatch(deleteFromCart(id));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
     return (
       <div>
         <div>Whislist</div>
-        <div>
+        <div className='container_whaslist'>
           {cart.map((product) => {
             return (
-              <div key={product.id}>
+              <div className='product_whislist' key={product.id}>
+                <div>
                 <img 
                 className="cart_image"
                 src={product.image}
                 alt="product"
                 />
+                </div>
                 <div className="cart_text">
-                          <div className="cart_title">{product.title}</div>
-                          <div className="cart_price">{product.price}</div>
-                          <div className="cart_price">{product.items_left}</div>
-                        </div>
-                <button onClick={() => {sendToCart(product.id)}}>Add To Cart</button>
+                      <div className="cart_title">{product.title}</div>
+                      <div className="cart_price">{product.price}</div>
+                      <div className="cart_price">{product.items_left}</div>
+                </div>
+                <div><button onClick={() => {sendToCart(product.id)}}>Add To Cart</button></div>
+                <div><button onClick={() => {deleteFromWhislist(product.id)}}>Delete From Wishlist</button></div>
               </div>
               
             )

@@ -11,10 +11,11 @@ const ProductOrders = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { userProductOrders, token } = useSelector((state) => {
+  const { userProductOrders, token, userId } = useSelector((state) => {
     return {
       userProductOrders: state.productOrders.userProductOrders ,
       token: state.auth.token,
+      userId: state.auth.userId,
     };
   });
 
@@ -23,7 +24,7 @@ const ProductOrders = () => {
       navigate("/login");
     } else {
       axios
-        .get(`http://localhost:5000/productOrders`, {
+        .get(`http://localhost:5000/productOrders/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -83,11 +84,13 @@ const ProductOrders = () => {
                   return (
                     <div className="cart_details" key={product.id}>
                       <div className="left_cart_det">
+                        <div>
                         <img
                           className="cart_image"
                           src={product.image}
                           alt="product"
                         />
+                        </div>
                         <div className="cart_text">
                           <div className="cart_title">{product.title}</div>
                           <div className="cart_price">{product.price}</div>
