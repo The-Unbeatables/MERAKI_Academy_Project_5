@@ -1,0 +1,9 @@
+.contanirWorkerService{
+    display: grid;
+    gap: 50px;
+}
+.cardirWorkerService{
+    border: 1px solid;
+    display: grid;
+    
+}

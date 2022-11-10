@@ -8,7 +8,7 @@ serviceOrderRouter.post('/', authentication, authorization("ADD_SERVICE_ORDER"),
 serviceOrderRouter.put('/:id', authentication, authorization("UPDATE_SERVICE_ORDER"), updateServiceOrder)
 serviceOrderRouter.delete('/:id' , authentication, authorization("DELETE_SERVICE_ORDER"), deleteServiceOrder)
 serviceOrderRouter.get('/' , getAllServiceOrders)
-serviceOrderRouter.get('/getWorkerService' , getWorkerServiceOrders)
+serviceOrderRouter.get('/workerservis/worker/:id' , getWorkerServiceOrders)
 
 module.exports= serviceOrderRouter
 

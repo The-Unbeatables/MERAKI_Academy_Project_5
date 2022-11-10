@@ -28,7 +28,7 @@ const Login = () => {
             if(value === 'customer'){
                 navigate('/')
             }else{
-                navigate('/')
+                navigate('/worker')
             }
         })
         .catch((err) => {
