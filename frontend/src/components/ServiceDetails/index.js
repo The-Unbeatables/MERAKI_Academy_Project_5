@@ -15,7 +15,7 @@ const ServiceDetails = () => {
     useEffect(() => {
         console.log(profession);
         axios.post('http://localhost:5000/workers/profession', {
-            profession: "painter"
+            profession
         })
         .then((result) => {
             console.log(result.data.result);
@@ -28,6 +28,7 @@ const ServiceDetails = () => {
 
   return (
     <div className='det'>
+        <h2>{profession}s</h2>
         {workers.map((elem, i) => {
             return(
                 <div className='rowContainer'>

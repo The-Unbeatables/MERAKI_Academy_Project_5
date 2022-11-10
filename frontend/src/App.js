@@ -16,7 +16,9 @@ import ServiceOrders from "./components/ServiceOrders";
 import ProductOrders from "./components/ProductOrders";
 import UserProfile from "./components/UserProfile";
 import WorkerProfile from "./components/WorkerProfile";
-import Checkout from "./components/Checkout"
+import Checkout from "./components/Checkout";
+import AddServiceOrder from "./components/AddServiceOrder";
+import WorkerHome from "./components/WorkerHome";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
       <Route path="/user/profile" element={<UserProfile />} />
       <Route path="/worker/profile" element={<WorkerProfile />} />
       <Route path="/checkout" element={<Checkout />} />   
+      <Route path="/worker" element={<WorkerHome />} />  
+      <Route path="/services/add" element={<AddServiceOrder />} />  
    
 
     </Routes>
