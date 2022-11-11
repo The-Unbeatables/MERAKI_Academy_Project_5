@@ -31,8 +31,8 @@ const updateServiceOrder=(req , res)=>{
     service_description=COALESCE($3 ,service_description),
     user_id=COALESCE($4 ,user_id),
     worker_id=COALESCE($5 ,worker_id)
-    WHERE id =${req.params.id} 
-    AND
+     WHERE id =${req.params.id} 
+     AND
     is_deleted = 0  RETURNING *;
     `
     pool.query(query , values)
@@ -55,7 +55,7 @@ const updateServiceOrder=(req , res)=>{
         res.status(500).json({
             success: false,
             massage: `Server Error`,
-            err : err,
+            err : err.message,
      })
     })
 }
@@ -80,7 +80,7 @@ const deleteServiceOrder=(req , res)=>{
         res.status(500).json({
             success: false,
             massage: `Server Error`,
-            err : err,
+            err : err.message,
      })
     })
 }
@@ -128,8 +128,30 @@ const getWorkerServiceOrders=(req , res)=>{
     })
 })
 }
+const getUserServiceOrders=(req , res)=>{
+    
+    const userId = req.params.id
+    const values=[userId]
+     const query=`SELECT service_orders.created_at, service_orders.id, service_title, service_description, first_name, last_name, status FROM workers INNER JOIN service_orders ON workers.id = service_orders.worker_id INNER JOIN users ON workers.user_id = users.id WHERE service_orders.user_id = $1 AND service_orders.is_deleted = 0 `
+     pool.query(query , values)
+     .then((result)=>{
+       res.status(200).json({
+           sucess : true,
+           message: "Success Operation",
+           result : result.rows
+       })
+   })
+   .catch((err)=>{
+       console.log(err);
+       res.status(500).json({
+           sucess : false,
+           message: "Server Error",
+           err : err.message
+       })
+   })
+   }
 
 
 
 
-module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders,getWorkerServiceOrders}
+module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders,getWorkerServiceOrders, getUserServiceOrders}
