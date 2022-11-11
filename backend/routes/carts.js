@@ -8,7 +8,7 @@ const cartRouter = express.Router();
 cartRouter.post('/', authentication, authorization("ADD_CART"),  addToCart);
 cartRouter.get('/show', authentication, showCart);
 cartRouter.delete('/delete/:id', authentication, authorization("DELETE_CART"), deleteCart);
-cartRouter.get('/showcart/:id', authentication, showCartById);
+cartRouter.get('/:id', authentication, showCartById);
 cartRouter.delete('/delete/cart/:id', authentication, authorization("DELETE_CART"), deleteCartByUserId);
 
 module.exports = cartRouter;

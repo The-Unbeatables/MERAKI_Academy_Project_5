@@ -42,6 +42,7 @@ const customerLogin = async function(req, res){
           }
         }
         
+        
         const secret = process.env.secret
 
         const options = {
