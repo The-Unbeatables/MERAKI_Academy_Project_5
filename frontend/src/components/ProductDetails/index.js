@@ -20,6 +20,7 @@ const {item, token}= useSelector((state)=>{
 })
 
 const sendToWhislist = (id) => {
+  // console.log(item);
     if (!token) {
         return navigate("/login");
     } else {
@@ -48,29 +49,73 @@ const sendToWhislist = (id) => {
 }
 
     return(
-        <div className="containerDetails">
-        <h2 className="n">Product Details</h2>
-        <div className="cardDetalis">
-        <div className="imgDetails"> 
-        <img src={`${item.image}`} />
-        </div>
-        <div >
-        <div>{item.title}</div>
-        <div>{item.price}</div>
-        <div>{item.items_left}</div>
-        <div>{item.category}</div>
-        <div>{item.description}</div>
-        </div>
-        </div>
-        <div className="icon-love-product">
+      <div>
+        <div className="container-detailes-product">
+          <div>
+            <img
+              className="image-product-detailess"
+              src={item.image}
+              alt="product"
+            />
+          </div>
+
+          <div className="prduct-detailes-words">
+            <h1 className="title-detailess">
+              {item.title}
+            </h1>
+            <hr></hr>
+            <h3 className="detailess">
+              <b className="textt">Description:</b>{" "}
+              {item.description}
+            </h3>
+            {/* <hr></hr>
+            <p className="detailess">
+              <b className="textt">About This Item:</b>{" "}
+              {productCompContext.productIdDetailes.shorttitle}
+            </p> */}
+            {/* <hr></hr>
+            <p className="detailess">
+              <b className="textt">Located:</b>{" "}
+              {productCompContext.productIdDetailes.location}
+            </p> */}
+            <hr></hr>
+            <p className="detailess">
+              <b className="textt">Quantity:</b>{" "}
+              {item.items_left}
+            </p>
+            <hr></hr>
+            <p className="detailess">
+              <b className="textt">Price:</b>{" "}
+              {item.price}
+            </p>
+          </div>
+
+          <div className="icon-love-product">
             <div className="fclike-icon">
-              <button onClick={() => sendToWhislist(item.id)}>
-                Add To Favorite
-              </button>
-              
+              <button 
+              className="remove-from-wish-list-btns"
+              onClick={() => {
+                  sendToWhislist(item.id);
+                }}>Add To Favorite</button>
+              {/* <FcLike
+                size={40}
+                onClick={() => {
+                  sendToWhislist(item.id);
+                }}
+              /> */}
             </div>
-            </div>
+            {/* <div>
+              <FcUndo
+                className="undo-icon"
+                size={30}
+                onClick={() => {
+                  history(-1);
+                }}
+              />
+            </div> */}
+          </div>
         </div>
+      </div>
     )
 }
 
