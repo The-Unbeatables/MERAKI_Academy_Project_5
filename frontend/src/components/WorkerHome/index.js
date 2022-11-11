@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteWorkerServiceOrder, setWorkerServiceOrders, updateWorkerServiceOrder } from "../../redux/reducers/service_orders";
+import WorkerProfile from "../WorkerProfile";
 import './style.css'
 
 
@@ -80,26 +81,61 @@ const handeldelteStaus =(id)=>{
 const [first, setfirst] = useState('')
 
     return(
-        <>
-        <h2 className="n">Worker Home</h2>
+        
+        <div className="workerHome">
+       
         <div className="contanirWorkerService">
+  
         {workerServiceOrders?.map((item)=>{
+            console.log(item);
            
             return(
                 <div className="cardirWorkerService">
-                 
-                 <div>{item.service_title}</div>
+   <div className="tables">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">The Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">service_title</th>
+      <th scope="col">service_description</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{item.first_name}</td>
+      <td>{item.email}</td>
+      <td>{item.service_title}</td>
+      <td>{item.service_description}</td>
+      <td>{item.status}</td>
+    </tr>
+   
+  </tbody>
+</table>
+
+</div>
+<div className="buttonworkerHome">
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
+<button className="btn btn-primary" onClick={()=>{handeldelteStaus(item.id)}}>Cancel</button>
+</div>
+
+                 {/* <div>{item.service_title}</div>
                  <div>{item.service_description}</div> 
-                 <div>{item.status}</div>   
-                 <button onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
+                 <div>{item.status}</div>    */}
+                 {/* <button onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
                  <button onClick={()=>{handeldelteStaus(item.id)}}>Cancel</button>
-                 
+                */}
                 </div>
             )
             
         })}
+       
+       
         </div>
-        </>
+        </div>
     )
 }
 
