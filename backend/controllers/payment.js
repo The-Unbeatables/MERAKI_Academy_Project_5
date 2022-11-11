@@ -3,7 +3,9 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 const paymentCheckout = async (req, res) => {
     const cart = req.body;
   
-    const line_items = cart.map((product) => {
+    const items = cart.map((product) => {
+        // console.log(cart);
+        console.log(product);
       return {
         price_data: {
           currency: "usd",
@@ -19,7 +21,7 @@ const paymentCheckout = async (req, res) => {
     });
   
     const session = await stripe.checkout.sessions.create({
-      line_items,
+      items,
       mode: "payment",
       success_url: `${process.env.CLIENT_URL}/checkout-success`,
       cancel_url: `${process.env.CLIENT_URL}/cart`,

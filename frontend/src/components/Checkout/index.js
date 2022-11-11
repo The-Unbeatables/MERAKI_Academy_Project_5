@@ -8,6 +8,7 @@ const Checkout = () => {
     const cart = useSelector(getCart);
   
     const handleCheckout = () => {
+        console.log(cart);
       axios
         .post("http://localhost:5000/payment/create-checkout-session", cart)
         .then((result) => {
@@ -27,7 +28,8 @@ const Checkout = () => {
   
     return (
       <>
-        <div></div>;
+        <div>{handleCheckout}</div>
+        <>payment</>
       </>
     );
   };

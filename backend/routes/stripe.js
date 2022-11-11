@@ -32,6 +32,7 @@
 //   module.exports = stripeRouter;
 
 const express = require("express");
+
 const { paymentCheckout } = require("../controllers/payment");
 
 const paymentRouter = express.Router();
