@@ -1,12 +1,18 @@
 .workerHome{
-    padding: 50px;
+    padding: 0px;
+    position: relative;
+    left: 0px;
+    display: flex;
+    column-gap: 10px;
+    background-color: #f0f0f0;
 }
 
 .contanirWorkerService{
     display: grid;
  padding: 20px;
     border-style: inset;
-    
+    border-width: 3px;
+    margin-top: 50px;
     width: 75%;
 }
 .cardirWorkerService{
@@ -20,11 +26,16 @@
     width: 100%;
 }
 .buttonworkerHome{
-    margin-top: 10px;
-    display: flex;
+    margin-top: 45px;
+    display: grid;
     height: 40px;
+    gap: 10px;
     column-gap: 10px;
 }
 .buttonWorker{
     border-radius: 10px;
+}
+.sidebar{
+    background-color: #301111;
+    width: 300px;
 }
