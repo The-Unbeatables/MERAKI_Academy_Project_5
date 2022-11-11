@@ -89,33 +89,34 @@ const Cart = () => {
       };
 
     return (
-      <div>
-        <div>Whislist</div>
-        <div className='container_whaslist'>
-          {cart.map((product) => {
-            console.log(product);
-            return (
-              <div className='product_whislist' key={product.id}>
-                <div>
-                <img 
-                className="cart_image"
-                src={product.image}
-                alt="product"
-                />
+      <>
+      <div className="whislist-page">
+        {cart.map((product, index) => {
+          return (
+            <>
+              <div key={product[index]} className="product_whislist">
+                <div className="image_whislist">
+                  <img
+                    className="product-image"
+                    src={product.image}
+                    alt="product"
+                  />
                 </div>
-                <div className="cart_text">
-                      <div className="cart_title">{product.title}</div>
-                      <div className="cart_price">{product.price}</div>
-                      <div className="cart_price">{product.items_left}</div>
+
+                <div className="words_whislist">
+                  <p className="title"><b>{product.title}</b></p>
+                  <h4 className="price">
+                    <b>{product.price}</b> $
+                  </h4>
+                  <div><button onClick={() => {sendToCart(product.product_id)}}>Add To Cart</button></div>
+                  <div><button onClick={() => {deleteFromWhislist(product.id)}}>Delete From Wishlist</button></div>
                 </div>
-                <div><button onClick={() => {sendToCart(product.product_id)}}>Add To Cart</button></div>
-                <div><button onClick={() => {deleteFromWhislist(product.product_id)}}>Delete From Wishlist</button></div>
               </div>
-              
-            )
-          })}
-        </div>
+            </>
+          );
+        })}
       </div>
+      </>
     )
 };
 
