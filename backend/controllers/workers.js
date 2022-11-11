@@ -106,4 +106,22 @@ const getWorkersByProffesion = (req, res) => {
   })
 }
 
-module.exports={updateWorkers ,deleteWorkers,getWorkers, getWorkersByProffesion}
+const getWorkerByUserId = (req , res) => {
+  const userId = req.params.id
+  const values = [userId ]
+  const query = `SELECT * FROM workers WHERE user_id = $1`
+  pool.query(query , values)
+  .then((result)=>{
+  res.status(200).json({
+    result: result
+  })
+  })
+  .catch((err)=>{
+    res.status(500).json({
+      err:err
+    })
+  })
+  }
+  
+
+module.exports={updateWorkers ,deleteWorkers,getWorkers, getWorkersByProffesion,getWorkerByUserId}
