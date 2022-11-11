@@ -1,0 +1,138 @@
+.shopping-cart-name {
+    font-family: monospace;
+    font-weight: 2000;
+    color: #000000;
+}
+
+.cart-container {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    margin-top: 5px;
+}
+
+.cart {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.cart-prduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    margin: 10px;
+    width: 800px;
+    background: #ffffff;
+    box-shadow: -15px -15px 15px rgba(255,255,255,0.2), 15px 15px 15px rgba(0,0,0,0.1), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
+    width: 1200px;
+
+}
+
+.product-image-cart {
+    width: 200px;
+    height: 200px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.words-cart {
+    text-align: left;
+}
+
+.count {
+    display: flex;
+    margin-left: 30px;
+    align-content:  center;
+    margin-bottom: 15px;
+}
+
+.input-count {
+    width: 80px;
+    height: 30px;
+}
+
+.button-count {
+    margin-right: 10px;
+    margin-left: 5px;
+    font-weight: 500;
+    width: 80px;
+    height: 30px;
+    background-color: #000000;
+    color: white;
+    border-color: #000204;
+}
+
+.title {
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.description {
+    font-weight: 350;
+}
+
+.delete-item-from-cart {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 140px;
+    gap: 5px;
+}
+
+.delete-icon {
+    cursor: pointer;
+}
+
+.CheckOut {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 20px;
+    height: 180px;
+    width: 200px;
+    gap: 5px;
+}
+
+.button-checkout {
+    width: 200px;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.total-price {
+    width: 200px;
+    height: 38px;
+    background-color: rgb(240, 232, 232);
+    border-radius: 2px;
+    color: #000103;
+    padding-top: 12px;
+    font-weight: 1000;
+    text-align: center;
+    font-size: large;
+}
+
+.span-total {
+    width: 200px;
+    height: 38px;
+    background-color: #161719;
+    border-radius: 2px;
+    color: white;
+    padding-top: 10px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.icon-checkout {
+    padding-top: -3px;
+    padding-left: 3px;
+}
+
+.back_to_home {
+    margin-top: 15px;
+    margin-left: 10px;
+}
