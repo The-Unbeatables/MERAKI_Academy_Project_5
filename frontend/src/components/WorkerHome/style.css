@@ -1,9 +1,30 @@
+.workerHome{
+    padding: 50px;
+}
+
 .contanirWorkerService{
     display: grid;
-    gap: 50px;
+ padding: 20px;
+    border-style: inset;
+    
+    width: 75%;
 }
 .cardirWorkerService{
-    border: 1px solid;
-    display: grid;
+    /* border: 1px solid; */
+    display: flex;
     
+   gap: 10px;
+    
+}
+.tables{
+    width: 100%;
+}
+.buttonworkerHome{
+    margin-top: 10px;
+    display: flex;
+    height: 40px;
+    column-gap: 10px;
+}
+.buttonWorker{
+    border-radius: 10px;
 }
