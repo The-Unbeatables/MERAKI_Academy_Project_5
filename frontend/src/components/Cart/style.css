@@ -1,40 +1,45 @@
-.whislist-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 20px;
+
+.remove-from-wish-list-btn {
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgb(208, 0, 0);
+    color: rgb(251, 251, 251);
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.product_whislist {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: white;
-    margin-bottom: 20px;
+.remove-from-wish-list-btn:hover {
+    background-color: rgb(255, 0, 0);
+    border-color: white;
+    cursor: pointer;
 }
 
-.image_whislist {
-    margin-left: 30px;
-    margin-top: 15px;
-}
-
-.product-image {
-    width: 250px;
-    height: 350px;
-}
-
-.words_whislist {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    margin-left: 15px;
-    /* height: 300px; */
-    overflow: auto;
+.whislist_btns {
+    display: flex;
     margin-top: 20px;
+    margin-left: 100px;
 }
 
-.price {
-    color: rgb(170, 17, 17);
+/* @media (min-width: 768px) {
+    .wishlist-grid {
+    grid-template-columns: repeat(1, 4fr);
+    }
 }
 
-.title {
-    font-size: x-large;
+@media (min-width: 960px) {
+    .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
 }
+
+@media (min-width: 1200px) {
+    .wishlist-grid {
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .wishlist-grid {
+    grid-template-columns: repeat(4, 1fr);
+    }
+} */

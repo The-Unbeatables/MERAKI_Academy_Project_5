@@ -25,7 +25,6 @@
     background: #ffffff;
     box-shadow: -15px -15px 15px rgba(255,255,255,0.2), 15px 15px 15px rgba(0,0,0,0.1), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
     width: 1200px;
-
 }
 
 .product-image-cart {
@@ -119,7 +118,7 @@
 .span-total {
     width: 200px;
     height: 38px;
-    background-color: #161719;
+    background-color: #5075bd;
     border-radius: 2px;
     color: white;
     padding-top: 10px;
@@ -135,4 +134,9 @@
 .back_to_home {
     margin-top: 15px;
     margin-left: 10px;
+}
+
+.whislist_btn {
+    margin-top: 20px;
+    margin-left: 150px;
 }

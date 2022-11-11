@@ -133,7 +133,7 @@ const ProductOrders = () => {
                       Item Quantity: {product.items_left}
                     </p>
                   </div>
-                  <div className="delete-item-from-cart">
+                  <div className="whislist_btn">
                     {/* <FcDislike
                       className="delete-icon"
                       size={24}
@@ -141,9 +141,13 @@ const ProductOrders = () => {
                         deleteFromCarts(product.id);
                       }}
                     /> */}
-                    <p onClick={() => {
-                        deleteFromCarts(product.id);
-                      }}>delete item</p>
+                    <button
+                    className="remove-from-wish-list-btn"
+                    onClick={() => {
+                      deleteFromCarts(product.id);
+                    }}>
+                      Delete Product
+                    </button>
                   </div>
                 </div>
 
