@@ -48,11 +48,11 @@ const deleteProductOrder = (req, res) => {
 };
 
 const deleteAllUserProductOrders = (req, res) => {
-    const  userId  = req.params.id;
-    const values = [userId];
+    const id = req.token.userId;
+  const data = [id];
     const query = `UPDATE product_orders SET is_deleted = 1 WHERE userId = $1 RETURNING *;`
 
-    pool.query(query, values)
+    pool.query(query, data)
     .then((result) => {
         let successObject = {
             success: true,
