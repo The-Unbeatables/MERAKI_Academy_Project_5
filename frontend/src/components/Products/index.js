@@ -10,15 +10,15 @@ const Products = ()=>{
   const navigate = useNavigate()
    const dispatch = useDispatch()
 
-   const {product} = useSelector((state)=>{
+   const {product, token} = useSelector((state)=>{
     return{
-        product: state.products.products
+        product: state.products.products,
+        token: state.auth.token
     }
    })
 
 
     const getProduct = () => {
-        
         axios
           .get("http://localhost:5000/products")
           .then((result) => {
@@ -118,16 +118,17 @@ const [range, setRange] = useState('')
             <div className="cardProduct">
               <div className="sss">
               <div  className="imgproduct">
-            <img src={`${data.image}`} />
+            <img src={`${data.image}`} className="image"/>
             </div>
             <div className="info">
-            <div>{data.title}</div>
-            <div>{data.price}</div>
+            <div className="title_product"><h3>{data.title}</h3></div>
+            <div className="description">{data.description}</div>
+            <div className="price">{data.price}</div>
             {/* <div>{data.category}</div>
             <div>{data.items_left}</div> */}
             <div>
                
-            <button onClick={()=>{handelDetalis(data)}}>Details</button>
+            <button className="more_detailes_btn" onClick={()=>{handelDetalis(data)}}>Details</button>
             </div>
             </div>
            
