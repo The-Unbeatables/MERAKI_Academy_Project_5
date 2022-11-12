@@ -1,0 +1,47 @@
+.sidebars{
+    background-color: #301111;
+    width: 300px;
+    position: relative;
+  
+    height: 700px;
+    
+}
+.workerProfile{
+    display: flex;
+    
+}
+.contanirProfile{
+    padding: 50px;
+}
+.py-5{
+    position: relative;
+    top: -150px;
+    right: 350px;
+}
+.form-control{
+    width: 400px;
+}
+.text{
+    width: 500px;
+}
+#exampleFormControlTextarea1{
+    height: 150px;
+}
+.divtext{
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+#upload{
+    width: 350px;
+}
+.button{
+    position: relative;
+    top: -90px;
+    left: 30px;
+}
+.cc{
+    position: relative;
+    right: 70px;
+}

@@ -89,7 +89,6 @@ const handeldelteStaus =(id)=>{
         <div className="contanirWorkerService">
   
         {workerServiceOrders?.map((item)=>{
-            console.log(item);
            
             return(
                 <div className="cardirWorkerService">
@@ -130,12 +129,7 @@ const handeldelteStaus =(id)=>{
                         </div>
 </div>
 
-                 {/* <div>{item.service_title}</div>
-                 <div>{item.service_description}</div> 
-                 <div>{item.status}</div>    */}
-                 {/* <button onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
-                 <button onClick={()=>{handeldelteStaus(item.id)}}>Cancel</button>
-                */}
+            
                 </div>
             )
             
