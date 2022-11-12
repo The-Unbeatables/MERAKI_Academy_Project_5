@@ -1,20 +1,154 @@
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    border: 1px solid black;
-    justify-content: space-around;
+a:link { text-decoration: none; }
 
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+nav{
+    background: #0082e6;
+    width: 100%;
+    height: 80px;
 }
-.sub-0{
-    width: 40%;
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    font-weight: bold;
+    padding: 0 100px;
 }
-.sub-1{
-    width: 40%;
+
+nav ul{
+    float: right;
+    margin-right: 20px;
 }
-.sub-2{
-    width: 10%;
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
 }
-.sub-3{
-    width: 10%;
+
+nav ul li a{
+    color: white;    
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a:hover{
+    background: #1b9bff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+svg{
+    font-size: 100px;
+    width: 100px;
+    height: 80px;
+}
+@media (max-width: 1200px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 962px) {
+    label.logo{
+        font-size: 26px;
+        padding-left: 40px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 922px) {
+    label.logo{
+        font-size: 23px;
+        padding-left: 35px;
+    }
+    nav ul li a{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 875px) {
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.6s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    a:hover{
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+@media (max-width: 550px) {
+    label.logo{
+        font-size: 25px;
+        padding-left: 30px;
+    }
+}
+@media (max-width: 500px) {
+    label.logo{
+        font-size: 22px;
+        padding-left: 20px;
+    }
+    svg{
+        font-size: 100px;
+        width: 80px;
+        height: 60px;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 440px) {
+    label.logo{
+        font-size: 20px;
+        padding-left: 10px;
+    }
+    svg{
+        width: 60px;
+        height: 40px;
+        margin-top: 20px;
+    }
 }
