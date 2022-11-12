@@ -1,4 +1,4 @@
-.det h2{
+/* .det h2{
     color: black;
 }
 .rowContainer{
@@ -15,4 +15,26 @@
 .det h2{
     text-align: center;
 
+} */
+.big_container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.small_container{
+    display: flex;
+    flex-direction: row;
+}
+.small_container img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+.text_img{
+    font-size: 2rem;
+    margin-top: 17%;
+    margin-bottom: 10%;
 }

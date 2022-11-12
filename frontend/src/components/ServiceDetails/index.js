@@ -39,9 +39,11 @@ const ServiceDetails = () => {
         <h2>{profession}s</h2>
         {workers.map((elem, i) => {
             return(
-                <div className='rowContainer' key={i}>
-                    <div><h3><span>{elem.first_name}</span><span> </span><span>{elem.last_name}</span></h3></div>
-                    <div><img src='{elem.image}' /></div>
+                <div className='big_container' key={i}>
+                    <div className='small_container'>
+                        <img src={elem.image} />
+                        <h3 className='text_img'><span>{elem.first_name}</span><span> </span><span>{elem.last_name}</span></h3>
+                    </div>                    
                     <div>{elem.bio}</div>
                     <div>{elem.yoe} years of experience</div>
                     {isLoggedIn && <div><button onClick={() => {handleButton(elem)}}>Send Request</button></div>}
