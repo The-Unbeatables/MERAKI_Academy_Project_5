@@ -32,7 +32,7 @@ const Navbar = () => {
         <div onClick={() => {navigate('/cart')}}><h1>Wishlist</h1></div>
         <div onClick={() => {navigate('/products/orders')}}><h1>Cart</h1></div>
         <div onClick={() => {navigate('/services/orders')}}><h1>Services</h1></div>
-        <div onClick={() => {dispatch(setLogout()); navigate('/')}}><h1>Logout</h1></div>
+        <div onClick={() => {dispatch(setLogout())}}><h1>Logout</h1></div>
     </div>
     }
     </>
