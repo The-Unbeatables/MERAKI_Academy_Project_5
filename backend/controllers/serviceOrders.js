@@ -23,8 +23,9 @@ const addServiceOrder=(req , res)=>{
 }
 
 const updateServiceOrder=(req , res)=>{
+    // status,service_title,service_description,first_name,last_name,email
     const {status , service_title,service_description,user_id,worker_id}=req.body
-    const values = [status , service_title,service_description,user_id,worker_id]
+    const values = [status || null, service_title || null ,service_description || null,user_id || null,worker_id || null]
     const query=`UPDATE service_orders SET
     status=COALESCE($1 ,status),
     service_title=COALESCE($2 ,service_title),
@@ -109,8 +110,10 @@ const getWorkerServiceOrders=(req , res)=>{
  const workerId = req.params.id
  console.log(workerId);
  const values=[workerId]
-  const query=`select service_orders.id,status,service_title,service_description,first_name,last_name,email from service_orders full outer join users on service_orders.id = users.id
-  where worker_id=$1 and service_orders.is_deleted=0;
+  const query=`select service_orders.id,status,service_title,service_description,first_name,last_name,email from service_orders 
+  inner join workers on service_orders.worker_id=workers.id 
+  inner join users on service_orders.user_id=users.id 
+  where service_orders.worker_id=$1 and service_orders.is_deleted=0;
   `
   pool.query(query , values)
   .then((result)=>{
