@@ -1,9 +1,9 @@
 const {pool} = require('../models/db')
 
 const createNewProducts =(req , res)=>{
-    const {title ,price,category ,items_left,image}= req.body
-    const values = [title ,price,category ,items_left,image]
-    const query = `INSERT INTO products(title ,price,category ,items_left,image) VALUES($1 ,$2, $3 ,$4 ,$5) RETURNING *`;
+    const {title,description ,price,category ,items_left,image}= req.body
+    const values = [title, description ,price,category ,items_left,image]
+    const query = `INSERT INTO products(title, description ,price,category ,items_left,image) VALUES($1 ,$2, $3 ,$4 ,$5, $6) RETURNING *`;
 
     pool.query(query , values)
     .then((result)=>{

@@ -43,7 +43,6 @@ function App() {
       <Route path="/checkout" element={<Checkout />} />   
       <Route path="/worker" element={<WorkerHome />} />  
       <Route path="/services/add" element={<AddServiceOrder />} />  
-   
 
     </Routes>
     <Footer />

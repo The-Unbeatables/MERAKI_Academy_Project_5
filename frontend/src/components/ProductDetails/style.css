@@ -59,14 +59,15 @@
     cursor: pointer;
 }
 
-.remove-from-wish-list-btns {
+.remove-from-wish-list {
   margin-top: 40px;
   border-radius: 4px;
   font-size: 16px;
   background-color: rgb(208, 0, 0);
   color: rgb(251, 251, 251);
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 80px;
+  width: 180px;
 }
 
 .remove-from-wish-list-btns:hover {
