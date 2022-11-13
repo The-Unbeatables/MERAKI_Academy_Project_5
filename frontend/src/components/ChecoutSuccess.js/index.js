@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -15,8 +15,10 @@ const CheckoutSuccess = () => {
             token: state.auth.token,
         }
     });
+
   
     useEffect(() => {
+
       axios
         .delete(`http://localhost:5000/productOrders/all/order`, {
           headers: {
