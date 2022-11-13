@@ -19,6 +19,7 @@ import WorkerProfile from "./components/WorkerProfile";
 import Checkout from "./components/Checkout";
 import AddServiceOrder from "./components/AddServiceOrder";
 import WorkerHome from "./components/WorkerHome";
+import CheckoutSuccess from "./components/ChecoutSuccess.js";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
       <Route path="/checkout" element={<Checkout />} />   
       <Route path="/worker" element={<WorkerHome />} />  
       <Route path="/services/add" element={<AddServiceOrder />} />  
-
+<Route path="checkout-success" element = {<CheckoutSuccess />} />
     </Routes>
     <Footer />
   </div>
