@@ -1,17 +1,26 @@
-.sidebars{
+/* .sidebars{
     background-color: #301111;
     width: 300px;
-    position: relative;
-  
-    height: 700px;
+   
     
-}
+} */
 .workerProfile{
+   
+    position: relative;
+    top: -11px;
+    left: 0px;
     display: flex;
+    column-gap: 10px;
+    background-color: #f0f0f0;
+    width: 100%;
+
     
 }
 .contanirProfile{
     padding: 50px;
+    position: relative;
+    /* left: 300px; */
+    width: 75%;
 }
 .py-5{
     position: relative;
@@ -35,6 +44,7 @@
 
 #upload{
     width: 350px;
+    height: 30%;
 }
 .button{
     position: relative;

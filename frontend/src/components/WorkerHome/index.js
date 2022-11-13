@@ -123,7 +123,7 @@ const handeldelteStaus =(id)=>{
 </div>
 <div className="buttonworkerHome">
 <button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
-<button className="btn btn-primary" onClick={()=>{handeldelteStaus(item.id)}}>Cancel</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Cancel')}}>Cancel</button>
 <div class="content app-content container-fluid">
                      
                         </div>
