@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setLogin, setUserId } from '../../redux/reducers/auth'
+import { setLogin, setUserId, setAdminLogin } from '../../redux/reducers/auth'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -23,8 +23,15 @@ const Login = () => {
             password
         })
         .then((result) => {
+            if(result.data.result[0].email === 'ashraf@yahoo.com'){
+                dispatch(setAdminLogin(result.data.result[0].id));
+                dispatch(setUserId(result.data.result[0].id));
+                navigate('/admin')
+                return
+            }
             dispatch(setLogin(result.data.token));
             dispatch(setUserId(result.data.result[0].id));
+            
             if(value === 'customer'){
                 navigate('/')
             }else{

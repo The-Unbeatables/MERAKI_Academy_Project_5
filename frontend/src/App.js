@@ -19,7 +19,10 @@ import WorkerProfile from "./components/WorkerProfile";
 import Checkout from "./components/Checkout";
 import AddServiceOrder from "./components/AddServiceOrder";
 import WorkerHome from "./components/WorkerHome";
-
+import AdminPanell from "./components/AdminPanell";
+import AdminUsers from "./components/AdminUsers";
+import AdminProducts from "./components/AdminProducts";
+import AdminOrders from "./components/AdminOrders"
 
 function App() {
   return <div className="App">
@@ -42,7 +45,14 @@ function App() {
       <Route path="/worker/profile" element={<WorkerProfile />} />
       <Route path="/checkout" element={<Checkout />} />   
       <Route path="/worker" element={<WorkerHome />} />  
-      <Route path="/services/add" element={<AddServiceOrder />} />  
+      <Route path="/services/add" element={<AddServiceOrder />} />
+      <Route path="/admin" element={<AdminPanell />} />  
+      // <Route path="/admin/users" element={<AdminUsers />} />  
+      <Route path="/admin/products" element={<AdminProducts />} />  
+      <Route path="/admin/orders" element={<AdminOrders />} />  
+      {/* <Route path="/admin/service/orders" element={<AdminServiceOrders />} />   */}
+
+  
    
 
     </Routes>
