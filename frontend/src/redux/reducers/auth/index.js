@@ -6,7 +6,8 @@ const authSlice = createSlice({
         token: null || localStorage.getItem('token'),
         userId: null,
         isLoggedIn: false,
-        isAdmin: false
+        isAdmin: false,
+        users: []
     },
     reducers:{
         setLogin: (state, action) => {
@@ -29,9 +30,26 @@ const authSlice = createSlice({
             state.isLoggedIn = true;
             localStorage.setItem('token', action.payload);
             state.isAdmin = true
+        },
+        setUsers:(state , action)=>{
+            state.users = action.payload
+        },
+        updateUser:(state , action)=>{
+            state.users= state.users.map((item)=>{
+                if(item.id === action.payload.id){
+                    return action.payload
+                }else{
+                    return item
+                }
+            })
+        },
+        deleteUser:(state , action)=>{
+            state.users=state.users.filter((item)=>{
+            return item.id != action.payload
+            })
         }
     }
 })
 
 export default authSlice.reducer;
-export const { setLogin, setUserId, setLogout, setAdminLogin } = authSlice.actions;
+export const { setLogin, setUserId, setLogout, setAdminLogin, setUsers, updateUser, deleteUser } = authSlice.actions;
