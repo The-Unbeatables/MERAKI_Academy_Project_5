@@ -5,6 +5,9 @@ import { deleteProduct, setitem, setProduct } from "../../redux/reducers/product
 import "./style.css"
 import { useNavigate } from 'react-router-dom'
 import ProductDetails from "../ProductDetails";
+import {
+  FcSearch
+} from "react-icons/fc";
 
 const Products = ()=>{
   const navigate = useNavigate()
@@ -52,7 +55,6 @@ const Products = ()=>{
     .catch((err)=>{
     console.log(err);
     })
-
   }
 
 const [search, setSearch] = useState('')
@@ -90,16 +92,36 @@ const [range, setRange] = useState('')
         <>
         <div className="categoryAndSearch">
           <div className="category">
-        <div onClick={()=>{handelcategory("cook")}}>category number1</div>
-        <div onClick={()=>{handelcategory("play")}}>category number2</div>
-        <div onClick={()=>{handelcategory("test")}}>category number3</div>
+        <div className="type_category" onClick={() => {getProduct()}}><h4><b>All Products</b></h4></div>
+        <div className="type_category" onClick={()=>{handelcategory("Striking tools")}}><h4><b>Striking tools</b></h4></div>
+        <div className="type_category" onClick={()=>{handelcategory("Metal cutting tools")}}><h4><b>Metal cutting tools</b></h4></div>
+        <div className="type_category" onClick={()=>{handelcategory("Holding tools")}}><h4><b>Holding tools</b></h4></div>
+        <div className="type_category" onClick={()=>{handelcategory("Sharpening and grinding tools")}}><h4><b>Sharpening and grinding tools</b></h4></div>
         </div>
-        <input onChange={(e)=> {handelSearch(e.target.value)}} />
+        <input className="search_input" 
+        placeholder="search"
+        onChange={(e)=> {handelSearch(e.target.value)}} />
+        <FcSearch 
+        className="icons_search"
+        style={{width: '35px', height: '40px'}}
+          onClick={() => {
+            handelSearch()
+          }}/>
         </div>
         <h2 className="n">Products</h2>
         <div className="range">
-          <label>0 - {range}</label>
-          <input className="inpurRange" type='range' min="0" max="100" step="10" onChange={(e)=>{handelselct(e.target.value)}} />
+          {/* <label>0 - {range}</label>
+          <input className="inpurRange" type='range' min="0" max="100" step="10" onChange={(e)=>{handelselct(e.target.value)}} /> */}
+          <select
+          id="filter"
+          name="filter"
+          class="input-filter"
+          onClick={(e) => {
+            handelselct(e.target.value);
+          }}>
+            <option value="test1">tset 1</option>
+            <option value="test2">test 2</option>
+          </select>
         {/* <select className='select' name='rating' onChange={(e)=>{handelselct()}}>
          <option> Choose one from the list </option>  
           <option onClick={()=>{handelselct()}}>1 - 10</option>   
