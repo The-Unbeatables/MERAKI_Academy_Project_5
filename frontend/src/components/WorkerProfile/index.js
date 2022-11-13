@@ -72,6 +72,8 @@ useEffect(()=>{
         <div className="sidebars">
             <SideBar/>
             </div>
+
+            
             <div className="contanirProfile">
 
         
