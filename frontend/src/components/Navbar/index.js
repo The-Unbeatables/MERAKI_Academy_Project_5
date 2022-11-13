@@ -8,9 +8,10 @@ const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { isLoggedIn } = useSelector((state) => {
+    const { isLoggedIn, isAdmin } = useSelector((state) => {
         return{
-            isLoggedIn: state.auth.isLoggedIn
+            isLoggedIn: state.auth.isLoggedIn,
+            isAdmin: state.auth.isAdmin
         }
     });
 
@@ -27,20 +28,13 @@ const Navbar = () => {
       <li onClick={() => {navigate('/')}}><a>Home</a></li>
       <li onClick={() => {navigate('/register')}}><a>Sign Up</a></li>
       <li onClick={() => {navigate('/login')}}><a>Sign In</a></li>
-      {/* <li><a href="#">Services</a></li> */}
-      {/* <li><a href="#">Logout</a></li> */}
+
     </ul>
   </nav>
 
-    //     <div className='nav-container'>
-    //     <div className='sub-0' onClick={() => {navigate('/')}}><h1>Home</h1></div>
-    //     <div className='sub-1'><h1>App Name</h1></div>
-    //     <div className='sub-2' onClick={() => {navigate('/register')}}><h1>Sign In</h1></div>
-    //     <div className='sub-3' onClick={() => {navigate('/login')}}><h1>Sign Up</h1></div>
-    // </div>
     }
 
-    {isLoggedIn && 
+    {isLoggedIn && !isAdmin &&
 
         <nav>
             <input type="checkbox" id="check" />
@@ -53,18 +47,28 @@ const Navbar = () => {
                 <li onClick={() => {navigate('/cart')}}><a>Wishlist</a></li>
                 <li onClick={() => {navigate('/products/orders')}}><a>Cart</a></li>
                 <li onClick={() => {navigate('/services/orders')}}><a>Services</a></li> 
-                <li onClick={() => {dispatch(setLogout())}}><a>Logout</a></li>
+                <li onClick={() => {dispatch(setLogout()); navigate('/')}}><a>Logout</a></li>
             </ul>
         </nav>
-    //     <div className='nav-container'>
-    //     <div onClick={() => {navigate('/')}}><h1>Home</h1></div>
-    //     <div><h1>App Name</h1></div>
-    //     <div onClick={() => {navigate('/cart')}}><h1>Wishlist</h1></div>
-    //     <div onClick={() => {navigate('/products/orders')}}><h1>Cart</h1></div>
-    //     <div onClick={() => {navigate('/services/orders')}}><h1>Services</h1></div>
-    //     <div onClick={() => {dispatch(setLogout())}}><h1>Logout</h1></div>
-    // </div>
     }
+
+{ isAdmin && isLoggedIn &&
+
+<nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+    </label>
+     <label class="logo">Maintinance App</label>
+     <ul>
+        <li onClick={() => {navigate('/admin')}}><a>Home</a></li>
+        <li onClick={() => {navigate('/admin/users')}}><a>Users</a></li>
+        <li onClick={() => {navigate('/admin/products')}}><a>Products</a></li>
+        <li onClick={() => {navigate('/admin/orders')}}><a>Orders</a></li>
+        <li onClick={() => {dispatch(setLogout()); navigate('/')}}><a>Logout</a></li>
+    </ul>
+</nav>
+}
     </>
   )
 }

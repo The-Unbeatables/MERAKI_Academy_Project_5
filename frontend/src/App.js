@@ -22,6 +22,11 @@ import WorkerHome from "./components/WorkerHome";
 import CheckoutSuccess from "./components/ChecoutSuccess.js";
 
 
+import AdminPanell from "./components/AdminPanell";
+import AdminUsers from "./components/AdminUsers";
+import AdminProducts from "./components/AdminProducts";
+import AdminOrders from "./components/AdminOrders"
+
 function App() {
   return <div className="App">
 
@@ -45,6 +50,17 @@ function App() {
       <Route path="/worker" element={<WorkerHome />} />  
       <Route path="/services/add" element={<AddServiceOrder />} />  
 <Route path="checkout-success" element = {<CheckoutSuccess />} />
+
+      <Route path="/services/add" element={<AddServiceOrder />} />
+      <Route path="/admin" element={<AdminPanell />} />  
+      // <Route path="/admin/users" element={<AdminUsers />} />  
+      <Route path="/admin/products" element={<AdminProducts />} />  
+      <Route path="/admin/orders" element={<AdminOrders />} />  
+      {/* <Route path="/admin/service/orders" element={<AdminServiceOrders />} />   */}
+
+  
+   
+
     </Routes>
     <Footer />
   </div>
