@@ -63,7 +63,7 @@
   margin-top: 40px;
   border-radius: 4px;
   font-size: 16px;
-  background-color: rgb(208, 0, 0);
+  background-color: #32373b;
   color: rgb(251, 251, 251);
   margin-right: 10px;
   margin-left: 80px;
@@ -71,7 +71,7 @@
 }
 
 .remove-from-wish-list-btns:hover {
-  background-color: rgb(255, 0, 0);
+  background-color: #0082e6;
   border-color: white;
   cursor: pointer;
 }

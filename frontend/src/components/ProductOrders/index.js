@@ -5,13 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 // import { setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { deleteUserProductOrder, setUserProductOrders } from "../../redux/reducers/product_orders";
 import "./style.css";
-// import {
-//   FcDislike,
-//   FcApproval,
-//   FcCurrencyExchange,
-//   FcLeft,
-//   FcHome
-// } from "react-icons/fc";
+import {
+  FcDislike,
+  FcApproval,
+  FcCurrencyExchange,
+  FcLeft,
+  FcHome
+} from "react-icons/fc";
+import {FaBackward} from "react-icons/fa";
 
 // Cart
 const ProductOrders = () => {
@@ -68,7 +69,6 @@ const ProductOrders = () => {
         }
     } catch (err) {
       console.log("err");
-      //   throw err;
     }
   };
 
@@ -86,33 +86,27 @@ const ProductOrders = () => {
     <>
 <div className="back_to_home">
     <div className="home">
-      {/* <FcHome size={35} onClick={() => {
+      <FcHome
+          style={{width: '40px', height: '40px'}}
+      onClick={() => {
             navigate("/");
-          }}/> */}
-
-      <span onClick={() => {
-            navigate("/");
-          }}>back to home</span>
+          }}/>
           </div>
           
     <div className="back">
-        {/* <FcLeft
+        <FaBackward
           className="back-icon-react"
-          size={30}
+          style={{width: '30px', height: '40px', color: 'black'}}
           onClick={() => {
             navigate(-1);
           }}
-        /> */}
-        <p className="back-string" onClick={() => {
-            navigate(-1);
-          }}>Back</p>
+        />
       </div>
     </div>
 
       <div className="cart-container">
         <div className="cart">
           {userProductOrders.map((product,index) => {
-            
             return (
               <>
                 <div key={product[index]} className="cart-prduct">
@@ -133,21 +127,14 @@ const ProductOrders = () => {
                       Item Quantity: {product.items_left}
                     </p>
                   </div>
-                  <div className="whislist_btn">
-                    {/* <FcDislike
+                  <div className="whislist_btn_cart">
+                    <FcDislike
                       className="delete-icon"
-                      size={24}
+                      style={{width: '40px', height: '40px'}}
                       onClick={() => {
                         deleteFromCarts(product.id);
                       }}
-                    /> */}
-                    <button
-                    className="remove-from-wish-list-btn"
-                    onClick={() => {
-                      deleteFromCarts(product.id);
-                    }}>
-                      Delete Product
-                    </button>
+                    />
                   </div>
                 </div>
 
@@ -160,11 +147,9 @@ const ProductOrders = () => {
           <p className="span-total">Total Price</p>
           <spnan className="total-price">
           {total(userProductOrders)} $ 
-          {/* <FcCurrencyExchange size={25} /> */}
           </spnan>
           <button className="button-checkout" onClick={()=>{checkout()}}>
             CheckOut 
-            {/* <FcApproval className="icon-checkout" size={25} /> */}
           </button>
         </div>
       </div>

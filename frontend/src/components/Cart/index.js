@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from "../../redux/reducers/product_orders";
 import { useEffect } from "react";
+import { FcFullTrash, FcLike, FcHome } from 'react-icons/fc';
+import {FaBackward} from "react-icons/fa";
 
 // Wishlist
 
@@ -21,7 +23,6 @@ const Cart = () => {
   });
 
   const showProducts = () => {
-    // console.log(cart);
     if (!token) {
       navigate("/login");
     } else {
@@ -32,7 +33,6 @@ const Cart = () => {
           },
         })
         .then((result) => {
-          // console.log(result.data.result);
           dispatch(setCart(result.data.result));
         })
         .catch((err) => {
@@ -46,7 +46,6 @@ const Cart = () => {
   }, []);
 
   const sendToCart = (id) => {
-    // console.log(id);
     if (!token) {
       return navigate("/login");
     } else {
@@ -90,38 +89,25 @@ const Cart = () => {
 
   return (
     <>
-      {/* <div className="whislist-page">
-        {cart.map((product, index) => {
-          console.log(product);
-          return (
-            <>
-              <div key={product[index]} className="product_whislist">
-                <div className="image_whislist">
-                  <img
-                    className="product-image"
-                    src={product.image}
-                    alt="product"
-                  />
-                </div>
-
-                <div className="words_whislist">
-                  <p className="title"><b>{product.title}</b></p>
-                  <h4 className="price">
-                    <b>{product.price}</b> $
-                  </h4>
-                  <div><button onClick={() => {sendToCart(product.product_id)}}>Add To Cart</button></div>
-                  <div><button onClick={() => {deleteFromWhislist(product.id)}}>Delete From Wishlist</button></div>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div> */}
-
-
-
-
-
+    <div className="back_to_home">
+    <div className="home">
+      <FcHome
+          style={{width: '40px', height: '40px'}}
+      onClick={() => {
+            navigate("/");
+          }}/>
+          </div>
+          
+    <div className="back">
+        <FaBackward
+          className="back-icon-react"
+          style={{width: '30px', height: '40px', color: 'black'}}
+          onClick={() => {
+            navigate(-1);
+          }}
+        />
+      </div>
+    </div>
       <div className="cart-container">
         <div className="cart">
           {cart.map((product, index) => {
@@ -135,7 +121,6 @@ const Cart = () => {
                       alt="product"
                     />
                   </div>
-
                   <div className="words-cart">
                     <p className="title">{product.title}</p>
                     <hr></hr>
@@ -146,31 +131,21 @@ const Cart = () => {
                     </p>
                   </div>
                   <div className="delete-item-from">
-                    {/* <FcDislike
-                      className="delete-icon"
-                      size={24}
-                      onClick={() => {
-                        deleteFromCarts(product.id);
-                      }}
-                    /> */}
                     <div className="whislist_btns">
-                    <button
-                    className="remove-from-wish-list-btn"
+                    <FcFullTrash
+                      className="whislist_icons"
+                      style={{width: '40px', height: '40px'}}
                       onClick={() => {
                         deleteFromWhislist(product.id);
                       }}
-                    >
-                      Delete Product
-                    </button>
+                    />
                     <div>
-                      <button
-                      className="remove-from-wish-list-btn"
-                        onClick={() => {
-                          sendToCart(product.product_id);
-                        }}
-                      >
-                        Add To Cart
-                      </button>
+                      <FcLike 
+                      className="whislist_icons"
+                      style={{width: '40px', height: '40px'}}
+                      onClick={() => {
+                        sendToCart(product.product_id);
+                      }}/>
                       </div>
                     </div>
                   </div>
@@ -180,51 +155,6 @@ const Cart = () => {
           })}
         </div>
         </div>
-
-
-
-{/* <div className="wishlist-container">
-        <div className="wishlist-grid">
-          {cart.length
-            ? cart.map((product) => {
-                return (
-                  <div className="product-card" key={product.id}>
-                    <img
-                      className="product-img"
-                      src={product.image}
-                      alt={product.title}
-                    />
-                    <div>
-                      <h3>Title: {product.title}</h3>
-                      <h3>Price: {product.price}</h3>
-                    </div>
-                    <button
-                      className="remove-from-wish-list-btn"
-                      onClick={() => {
-                        deleteFromWhislist(product.id);
-                      }}
-                    >
-                      Remove From Wishlist
-                    </button>
-                    <button
-                      className="remove-from-wish-list-btn"
-                      onClick={() => {sendToCart(product.product_id)}}
-                    >
-                      Add To Cart
-                    </button>
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        {!cart.length && (
-          <div className="empty-list">
-            <div className="empty-list-text">
-              You haven't added anything to your wishlist yet.
-            </div>
-          </div>
-        )}
-      </div> */}
     </>
   );
 };

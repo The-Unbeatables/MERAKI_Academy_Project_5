@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 // import { FcLike} from "react-icons/fc";
 import { addToCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from "../../redux/reducers/product_orders"; 
+import { FcHome } from 'react-icons/fc';
+import {FaBackward} from "react-icons/fa";
 
 
 const ProductDetails=()=>{
@@ -49,6 +51,26 @@ const sendToWhislist = (id) => {
 }
 
     return(
+      <>
+      <div className="back_to_home">
+    <div className="home">
+      <FcHome
+          style={{width: '40px', height: '40px'}}
+      onClick={() => {
+            navigate("/");
+          }}/>
+          </div>
+          
+    <div className="back">
+        <FaBackward
+          className="back-icon-react"
+          style={{width: '30px', height: '40px', color: 'black'}}
+          onClick={() => {
+            navigate(-1);
+          }}
+        />
+      </div>
+    </div>
       <div>
         <div className="container-detailes-product">
           <div>
@@ -106,6 +128,7 @@ const sendToWhislist = (id) => {
           </div>
         </div>
       </div>
+      </>
     )
 }
 
