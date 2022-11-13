@@ -3,9 +3,9 @@ footer {
     flex-wrap: row wrap;
     padding: 50px;
     color: rgb(255, 255, 255);
-    background-color: #716a6a;
+    background-color: #3b8dcb;
     height: 330px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .header_footer {
