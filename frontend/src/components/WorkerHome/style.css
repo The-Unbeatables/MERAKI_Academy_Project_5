@@ -2,14 +2,18 @@
     padding: 0px;
     position: relative;
     left: 0px;
+    top: -11px;
     display: flex;
     column-gap: 10px;
     background-color: #f0f0f0;
+    width: 100%;
 }
 
 .contanirWorkerService{
+    position: relative;
+    top: -30px;
     display: grid;
- padding: 20px;
+    padding: 20px;
     border-style: inset;
     border-width: 3px;
     margin-top: 50px;
@@ -36,7 +40,7 @@
 .buttonWorker{
     border-radius: 10px;
 }
-.sidebar{
+/* .sidebar{
     background-color: #301111;
     width: 300px;
-}
+} */
