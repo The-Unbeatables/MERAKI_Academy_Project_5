@@ -23,7 +23,6 @@ const addServiceOrder=(req , res)=>{
 }
 
 const updateServiceOrder=(req , res)=>{
-    // status,service_title,service_description,first_name,last_name,email
     const {status , service_title,service_description,user_id,worker_id}=req.body
     const values = [status || null, service_title || null ,service_description || null,user_id || null,worker_id || null]
     const query=`UPDATE service_orders SET
@@ -156,6 +155,5 @@ const getUserServiceOrders=(req , res)=>{
    }
 
 
-
-
-module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,getAllServiceOrders,getWorkerServiceOrders, getUserServiceOrders}
+module.exports={addServiceOrder,updateServiceOrder,deleteServiceOrder,
+    getAllServiceOrders,getWorkerServiceOrders, getUserServiceOrders}
