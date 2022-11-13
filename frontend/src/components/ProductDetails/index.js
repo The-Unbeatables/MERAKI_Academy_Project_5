@@ -64,28 +64,18 @@ const sendToWhislist = (id) => {
               {item.title}
             </h1>
             <hr></hr>
-            <h3 className="detailess">
-              <b className="textt">Description:</b>{" "}
+            <p className="detailess">
+              <b className="textt">Description: </b>{" "}
               {item.description}
-            </h3>
-            {/* <hr></hr>
-            <p className="detailess">
-              <b className="textt">About This Item:</b>{" "}
-              {productCompContext.productIdDetailes.shorttitle}
-            </p> */}
-            {/* <hr></hr>
-            <p className="detailess">
-              <b className="textt">Located:</b>{" "}
-              {productCompContext.productIdDetailes.location}
-            </p> */}
+            </p>
             <hr></hr>
             <p className="detailess">
-              <b className="textt">Quantity:</b>{" "}
+              <b className="textt">Quantity: </b>{" "}
               {item.items_left}
             </p>
             <hr></hr>
             <p className="detailess">
-              <b className="textt">Price:</b>{" "}
+              <b className="textt">Price: </b>{" "}
               {item.price}
             </p>
           </div>
@@ -93,7 +83,7 @@ const sendToWhislist = (id) => {
           <div className="icon-love-product">
             <div className="fclike-icon">
               <button 
-              className="remove-from-wish-list-btns"
+              className="remove-from-wish-list"
               onClick={() => {
                   sendToWhislist(item.id);
                 }}>Add To Favorite</button>

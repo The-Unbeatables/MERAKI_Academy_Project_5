@@ -107,40 +107,29 @@ const [range, setRange] = useState('')
           <option onClick={()=>{handelselct()}}>21 - 30 </option>   
           <option onClick={()=>{handelselct()}}>31 - 40 </option>
          </select> */}
-
-
         </div>
         <div className="products">
       {product?.map((data)=>{
-       
         return(
-           
             <div className="cardProduct">
               <div className="sss">
               <div  className="imgproduct">
             <img src={`${data.image}`} className="image"/>
             </div>
             <div className="info">
-            <div className="title_product"><h3>{data.title}</h3></div>
-            <div className="description">{data.description}</div>
-            <div className="price">{data.price}</div>
-            {/* <div>{data.category}</div>
-            <div>{data.items_left}</div> */}
+            <div className="product_title"><h2>{data.title}</h2></div>
+            <div className="product_description">{data.description}</div>
+            <div className="product_price">{data.price} $</div>
             <div>
-               
-            <button className="more_detailes_btn" onClick={()=>{handelDetalis(data)}}>Details</button>
+            <button className="product_detailes_btns" onClick={()=>{handelDetalis(data)}}>Details</button>
+
             </div>
             </div>
-           
             </div>
             </div>
-           
         )
       })}
-      
       </div>
-      
-        
         </>
     )
 }
