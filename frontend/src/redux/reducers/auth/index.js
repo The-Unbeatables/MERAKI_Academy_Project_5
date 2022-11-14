@@ -6,6 +6,7 @@ const authSlice = createSlice({
         token: null || localStorage.getItem('token'),
         userId: null,
         isLoggedIn: localStorage.getItem("token") ? true : false,
+        // isLoggedIn: false,
         isAdmin: false,
         users: []
     },

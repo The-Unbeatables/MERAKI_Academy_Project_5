@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setLogin, setUserId } from '../../redux/reducers/auth'
+import { setLogin, setUserId, setAdminLogin } from '../../redux/reducers/auth'
 import GoogleLogin from 'react-google-login'
 // import { GoogleOAuthProvider} from "@react-oauth/google"
 import { gapi } from "gapi-script";
@@ -76,6 +76,13 @@ const Login = () => {
             password
         })
         .then((result) => {
+            // console.log(result.data.result[0].role_id);
+            if(result.data.result[0].role_id == 1){
+                dispatch(setAdminLogin(result.data.token));
+                navigate('/admin')
+                return
+            }
+            // console.log(result.data);
             dispatch(setLogin(result.data.token));
             dispatch(setUserId(result.data.result[0].id));
             if(value === 'customer'){

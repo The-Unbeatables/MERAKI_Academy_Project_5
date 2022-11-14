@@ -36,8 +36,10 @@ const AdminProducts = () => {
         } else throw Error;
       } catch (error) {
         if (!error.response.data) {
+          console.log(error);
           return setMessage(error.response.data.message);
         }
+        console.log(error);
         setMessage("Error happened while Get Data, please try again");
       }
     };
