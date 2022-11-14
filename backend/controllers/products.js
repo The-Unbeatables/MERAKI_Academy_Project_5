@@ -80,8 +80,10 @@ const updateProductsById=(req ,res)=>{
 }
 
 const deleteProductsById = (req , res)=>{
-    const query=`UPDATE products SET is_deleted=1 WHERE id=${req.params.id} ;`
-    pool.query(query)
+  const id = req.params.id;
+  const data = [id]
+    const query=`UPDATE products SET is_deleted=1 WHERE id=$1`
+    pool.query(query,data)
     .then((result)=>{
         if (result.rowCount === 0) {
             res.status(404).json({
@@ -172,6 +174,32 @@ const filterProduct=(req , res)=>{
     err:err
   })
  })
+};
+
+const paginationProduct = (req,res) => {
+  const id = req.params.id;
+  const data = [id]
+  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 2 ROWS ONLY`
+  pool.query(query,data)
+  .then((result) => {
+    if (result.rows.length == 0) {
+      res.status(500).json({
+        success: false,
+        message: 'No Products'
+      })
+    } else {
+      res.status(201).json({
+        success: true,
+        result: result.rows
+      })
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      message: err.message
+    })
+  })
 }
 
-module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory,filterProduct}
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory,filterProduct,paginationProduct}
