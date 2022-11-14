@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { setUserProductOrders } from "../../redux/reducers/product_orders";
+import "./style.css";
 
 
 const CheckoutSuccess = () => {
@@ -38,7 +39,7 @@ const CheckoutSuccess = () => {
         <div className="success_checkout">
           <h1>Thanks for your order!</h1>
           <div onClick={() => navigate("/")} className="success">
-            Continue TO Shopping 
+            <h5>Continue TO Shopping</h5>
           </div>
         </div>
       </div>
