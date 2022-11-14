@@ -25,7 +25,7 @@ const Products = () => {
   });
 
   const [range, setRange] = useState("");
-  const [pagenum, setPageNum] = useState();
+  const [pagenum, setPageNum] = useState(0);
   // console.log(page);
 
   const handlePageClick = (data) => {
