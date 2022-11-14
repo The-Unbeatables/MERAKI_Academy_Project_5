@@ -4,7 +4,8 @@ const productSlice = createSlice({
     name: 'products',
     initialState:{
         products : [],
-        item : []
+        item : [],
+        editProduct: []
     },
     reducers:{
         setitem:(state , action)=>{

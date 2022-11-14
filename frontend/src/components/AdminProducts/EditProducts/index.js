@@ -51,6 +51,10 @@ const EditProduct = () => {
       });
   };
 
+  // cloudName => dykjbbeoi
+  // POST https://api.cloudinary.com/v1_1/demo/image/upload
+  // add upload preset =>  eeshop
+
   const uploadImage = async () => {
     const form = new FormData();
     form.append("file", file);
@@ -64,6 +68,7 @@ const EditProduct = () => {
         setNewImage(result.data.secure_url);
       })
       .catch((err) => {
+        // console.log(err);
         console.log(err);
         throw err;
       });

@@ -1,0 +1,66 @@
+.container-edit-product {
+    display: grid;
+    grid-template-rows: 1fr;
+    margin-top: 30px;
+    justify-items: center;
+    border: 2px solid #000;
+    box-shadow: -15px -15px 15px rgba(66, 130, 183, 0.462), 15px 15px 15px rgba(48, 108, 132, 0.648), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
+    width: 850px;
+    border-radius: 3px;
+    margin-left: 25%;
+}
+
+.upload-image {
+    margin-top: 20px;
+}
+
+.input-edit-product {
+    width: 800px;
+    margin-top: 20px;
+}
+
+.button-update-product {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #000000;
+    border-color: #170e4f #060a57 #080548;
+    border-radius: 4px;
+    color: white;
+    width: 120px;
+}
+
+.messamge-update-product {
+    background-color: #0e2b50;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.back {
+    display: flex;
+    width: 90px;
+    height: 25px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+.back-icon-react {
+    cursor: pointer;
+    /* margin-top: 4px; */
+    margin-left: 5px;
+}
+
+.upload_image {
+    display: flex;
+}
+
+.upload_image_btn {
+    width: 100px;
+    height: 25px;
+    margin-top: 20px;
+}
