@@ -42,15 +42,16 @@ const getAllProducts = (req ,res)=>{
 }
 
 const updateProductsById=(req ,res)=>{
-    const {title ,price,category ,items_left,image}=req.body
-    const values = [title || null , price || null ,category || null ,items_left || null ,image || null]
+    const {title,description ,price,category ,items_left,image}=req.body
+    const values = [title || null, description || null , price || null ,category || null ,items_left || null ,image || null]
     const query = `UPDATE products
      SET 
      title= COALESCE($1 , title),
-     price= COALESCE($2 , price),
-     category= COALESCE($3 , category),
-     items_left= COALESCE($4 ,items_left),
-     image= COALESCE($5 , image)
+     description = COALESCE($2 , description)
+     price= COALESCE($3 , price),
+     category= COALESCE($4 , category),
+     items_left= COALESCE($5 ,items_left),
+     image= COALESCE($6 , image)
      WHERE id =${req.params.id} 
      AND
      is_deleted = 0  RETURNING *;

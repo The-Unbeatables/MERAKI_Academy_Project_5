@@ -85,6 +85,7 @@ const AdminProducts = () => {
         <tbody>
           {show &&
             products.map((iteam) => (
+              console.log(iteam),
               <tr key={iteam.id}>
                 <td data-label="Title"><img src={`${iteam.image}`} className="image_list" /></td>
                 <td data-label="Title">{iteam.title}</td>
@@ -100,7 +101,7 @@ const AdminProducts = () => {
                       className="delete_product"
                     style={{width: '40px', height: '40px', color: 'red'}}
                       onClick={() => {
-                        deleteProducts(iteam.id);
+                        deleteProducts(iteam);
                       }}
                       /></div>
                   </div>
