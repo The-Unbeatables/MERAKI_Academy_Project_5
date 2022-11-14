@@ -18,7 +18,7 @@ const Login = () => {
     const [value, setValue] = useState('');
 
 
-    const clientId ="922531268610-dvasq8corobmvg4j4lr1ovq2a74u90m2.apps.googleusercontent.com";
+    const clientId ="971735679119-ptsdkh5tirpodu47q1seh6tqu9cqjsr0.apps.googleusercontent.com";
 
     useEffect(() => {
         function start() {
