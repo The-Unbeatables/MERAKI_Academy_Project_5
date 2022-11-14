@@ -26,6 +26,7 @@ const EditProduct = () => {
   const [category, setCategories] = useState("");
   const [file, setFile] = useState(null);
 
+
   const updateProducts = () => {
     console.log(editProduct);
     axios
@@ -68,6 +69,7 @@ const EditProduct = () => {
       })
       .catch((err) => {
         // console.log(err);
+        console.log(err);
         throw err;
       });
   };
