@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setLogin, setUserId } from '../../redux/reducers/auth'
 import GoogleLogin from 'react-google-login'
-// import { GoogleOAuthProvider} from "@react-oauth/google"
 import { gapi } from "gapi-script";
 
 
@@ -17,52 +16,45 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [response, setResponse] = useState('');
     const [value, setValue] = useState('');
-//   /
-  const [id, setId] = useState('')
-    const handelFailure = (result)=>{
-        console.log(result);
-    }
 
-    const handleLogin =(googleDate)=>{
-        setEmail(googleDate.profileObj.email)
-        setPassword('1234')
-        
-        console.log(googleDate.tokenId);
-        console.log(googleDate);
-        if(value === ''){
-            setResponse('Please pick either customer or worker')
-            return
-        }
-        axios.post(`http://localhost:5000/login/${value}`, {
-            email,
-            password
-        })
-        .then((result) => {
-            dispatch(setLogin(result.data.token));
-            dispatch(setUserId(result.data.token));
-            if(value === 'customer'){
-                navigate('/')
-            }else{
-                navigate('/worker')
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-            // setResponse(err.response.data.massage)
-        })
-    }
-    
+
+    const clientId ="922531268610-dvasq8corobmvg4j4lr1ovq2a74u90m2.apps.googleusercontent.com";
+
     useEffect(() => {
         function start() {
           gapi.client.init({
-            clientId:"971735679119-ptsdkh5tirpodu47q1seh6tqu9cqjsr0.apps.googleusercontent.com",
-            scope: 'email',
+            clientId: clientId,
+            scope: "email",
           });
         }
-    
-        gapi.load('client:auth2', start);
+        gapi.load("client:auth2", start);
       }, []);
 
+  
+      const onSuccess = (response) => {
+        axios
+          .post("http://localhost:5000/login/google", {
+            firstName: response.wt.rV,
+            lastName: response.wt.uT,
+            email: response.wt.cu,
+          })
+          .then((result) => {
+            console.log(result);
+            dispatch(setLogin(result.data.token));
+            dispatch(setUserId(result.data.userId));
+            
+          })
+          .catch((err)=>{
+            console.log(err);
+          })
+    
+           
+    
+        navigate("/");
+      };
+      const onFailure = (response) => {
+        console.log("FAILED", response);
+      };
 
 
 
@@ -102,17 +94,14 @@ const Login = () => {
         <label><input id="Customer" type="radio" name="Customer-Worker" value="customer"  onClick={(e) => {setValue(e.target.value);}}/> Customer</label>
         <label><input id="Worker" type="radio" name="Customer-Worker" value="worker" onClick={(e) => {setValue(e.target.value);}}/> Worker</label>
         <button onClick={handleButton}>Sign In</button>
+      
       <div>
-     {/* <GoogleOAuthProvider clientId="971735679119-qg354t44ghuarsqi5apslk80hukfohi6.apps.googleusercontent.com"  */}
-        <GoogleLogin
-         clientId="971735679119-ptsdkh5tirpodu47q1seh6tqu9cqjsr0.apps.googleusercontent.com"
-         buttonText="Login With Google"
-         onSuccess={handleLogin}
-         onFailure={handelFailure}
-         cookiePolice={'single_host_origin'}
-        />
-          {/* </GoogleOAuthProvider> */}
-        
+          <GoogleLogin
+            clientId={clientId}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+          />
+     
         </div>
         {response && <h3>{response}</h3>}
     </div>
