@@ -179,8 +179,8 @@ const filterProduct=(req , res)=>{
 
 const paginationProduct = (req,res) => {
   const id = req.params.id;
-  const data = [id]
-  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 2 ROWS ONLY WHERE is_deleted=0`
+  const data = [id * 10]
+  const query = `SELECT * FROM products WHERE is_deleted=0  LIMIT 10  OFFSET $1 ` // offset
   pool.query(query,data)
   .then((result) => {
     if (result.rows.length == 0) {
