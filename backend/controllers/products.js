@@ -23,7 +23,7 @@ const createNewProducts =(req , res)=>{
 }
 
 const getAllProducts = (req ,res)=>{
-    const query =`select * from products   is_deleted=0`
+    const query =`select * from products WHERE  is_deleted=0`
     pool.query(query)
     .then((result)=>{
         res.status(200).json({
@@ -36,7 +36,7 @@ const getAllProducts = (req ,res)=>{
         res.status(500).json({
             sucess : false,
             message: "Server Error",
-            err : err
+            err : err.message
         })
     })
 }
