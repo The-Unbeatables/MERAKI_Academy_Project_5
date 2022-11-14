@@ -23,7 +23,7 @@ const createNewProducts =(req , res)=>{
 }
 
 const getAllProducts = (req ,res)=>{
-    const query =`select * from products  WHERE is_deleted=0`
+    const query =`select * from products   is_deleted=0`
     pool.query(query)
     .then((result)=>{
         res.status(200).json({
@@ -47,7 +47,7 @@ const updateProductsById=(req ,res)=>{
     const query = `UPDATE products
      SET 
      title= COALESCE($1 , title),
-     description = COALESCE($2 , description)
+     description = COALESCE($2 , description),
      price= COALESCE($3 , price),
      category= COALESCE($4 , category),
      items_left= COALESCE($5 ,items_left),
@@ -75,7 +75,7 @@ const updateProductsById=(req ,res)=>{
         res.status(500).json({
             success: false,
             massage: `Server Error`,
-            err : err,
+            err : err.message,
      })
     })
 }
@@ -180,7 +180,7 @@ const filterProduct=(req , res)=>{
 const paginationProduct = (req,res) => {
   const id = req.params.id;
   const data = [id]
-  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 2 ROWS ONLY`
+  const query = `SELECT * FROM products OFFSET $1 ROWS FETCH NEXT 2 ROWS ONLY WHERE is_deleted=0`
   pool.query(query,data)
   .then((result) => {
     if (result.rows.length == 0) {

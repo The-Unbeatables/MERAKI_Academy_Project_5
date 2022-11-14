@@ -26,6 +26,8 @@ import AdminPanell from "./components/AdminPanell";
 import AdminUsers from "./components/AdminUsers";
 import AdminProducts from "./components/AdminProducts";
 import AdminOrders from "./components/AdminOrders"
+import Creat from "./components/AdminProducts/AddProducts";
+import EditProduct from "./components/AdminProducts/EditProducts";
 
 function App() {
   return <div className="App">
@@ -57,8 +59,8 @@ function App() {
       <Route path="/admin/products" element={<AdminProducts />} />  
       <Route path="/admin/orders" element={<AdminOrders />} />  
       {/* <Route path="/admin/service/orders" element={<AdminServiceOrders />} />   */}
-
-  
+<Route path="/add/product" element={<Creat />} />
+  <Route path="/edit/product" element={<EditProduct />} />
    
 
     </Routes>

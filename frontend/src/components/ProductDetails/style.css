@@ -1,26 +1,8 @@
-/* .cardDetalis{
-    display: flex;
-    justify-content: center;
-  gap: 50px;
-  border: 1px solid;
-  width: auto;
-}
-
-.imgDetails{
-    width: 200px;
-    
-    border:1px solid
-  }
-
-  .containerDetails{
-    display: grid;
-    justify-content: center;
-  } */
-
-  .container-detailes-product {
+.container-detailes-product {
     display: grid;
     grid-template-columns: repeat(5,auto);
     background-color: white;
+    margin-left: 15px;
 }
 
 .image-product-detailess {

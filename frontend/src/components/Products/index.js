@@ -25,19 +25,20 @@ const Products = () => {
   });
 
   const [range, setRange] = useState("");
-  const [page, setPage] = useState();
-  console.log(page);
+  const [pagenum, setPageNum] = useState();
+  // console.log(page);
+
   const handlePageClick = (data) => {
-    // console.log(data.selected + 1);
-    setPage(data.selected)
-    dispatch((pages(data.selected +1)))
+    console.log(data.selected + 1);
+    setPageNum(data.selected)
+    // dispatch((pages(data.selected +1)))
   }
 
   const pageCount = 100;
-
+  //pagination/product/${pagenum}
   const getProduct = () => {
     axios
-      .get(`http://localhost:5000/products`)
+      .get(`http://localhost:5000/products/pagination/product/${pagenum}`)
       .then((result) => {
         console.log(result.data.result);
         dispatch(setProduct(result.data.result));
@@ -49,7 +50,7 @@ const Products = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [pagenum]);
 
   const handelDetalis = (data) => {
     dispatch(setitem(data));
