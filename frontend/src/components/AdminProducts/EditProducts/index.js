@@ -28,10 +28,11 @@ const EditProduct = () => {
 
 
   const updateProducts = () => {
+
     console.log(editProduct);
     axios
       .put(
-        `http://localhost:5000/products/${1}`,
+        `http://localhost:5000/products/${editProduct.id}`,
         {
           image,
           title,
@@ -43,6 +44,7 @@ const EditProduct = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((result) => {
+        console.log(result.data.result);
         dispatch(updateProduct(result.data.result));
       })
       .catch((err) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setProduct, deleteProduct } from '../../redux/reducers/products';
+import { setProduct, deleteProduct, setEditProduct } from '../../redux/reducers/products';
 import "./style.css";
 import { FcServices } from "react-icons/fc";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
@@ -43,9 +43,8 @@ const AdminProducts = () => {
     };
 
     const showEdit = (product) => {
-      setIsEdit(true);
+      dispatch((setEditProduct(product)))
       navigate('/edit/product');
-      dispatch((editProduct(product)))
     };
 
     const deleteProducts = (id) => {
@@ -101,7 +100,7 @@ const AdminProducts = () => {
                       className="delete_product"
                     style={{width: '40px', height: '40px', color: 'red'}}
                       onClick={() => {
-                        deleteProducts(iteam);
+                        deleteProducts(iteam.id);
                       }}
                       /></div>
                   </div>
