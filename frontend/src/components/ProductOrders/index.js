@@ -7,9 +7,6 @@ import { deleteUserProductOrder, setUserProductOrders } from "../../redux/reduce
 import "./style.css";
 import {
   FcDislike,
-  FcApproval,
-  FcCurrencyExchange,
-  FcLeft,
   FcHome
 } from "react-icons/fc";
 import {FaBackward} from "react-icons/fa";

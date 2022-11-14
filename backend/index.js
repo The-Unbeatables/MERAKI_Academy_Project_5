@@ -22,7 +22,7 @@ const cartRouter = require("./routes/carts");
 const serviceOrderRouter = require("./routes/serviceOrders");
 const commentRouter = require("./routes/comments");
 const productOrderRouter = require("./routes/productOrders");
-// const paymentRouter = require("./routes/stripe");
+const paymentRouter = require("./routes/stripe");
 
 
 app.use(cors());
@@ -39,7 +39,7 @@ app.use("/users", usersRouter)
 app.use("/carts", cartRouter)
 app.use("/comments", commentRouter)
 app.use("/productOrders", productOrderRouter)
-// app.use("/payment", paymentRouter)
+app.use("/payment", paymentRouter)
 
 
 app.use('/workers' , workersRouter)

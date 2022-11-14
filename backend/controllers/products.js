@@ -23,7 +23,7 @@ const createNewProducts =(req , res)=>{
 }
 
 const getAllProducts = (req ,res)=>{
-    const query =`select * from products  WHERE is_deleted=0`
+    const query =`select * from products   is_deleted=0`
     pool.query(query)
     .then((result)=>{
         res.status(200).json({
@@ -42,15 +42,16 @@ const getAllProducts = (req ,res)=>{
 }
 
 const updateProductsById=(req ,res)=>{
-    const {title ,price,category ,items_left,image}=req.body
-    const values = [title || null , price || null ,category || null ,items_left || null ,image || null]
+    const {title,description ,price,category ,items_left,image}=req.body
+    const values = [title || null, description || null , price || null ,category || null ,items_left || null ,image || null]
     const query = `UPDATE products
      SET 
      title= COALESCE($1 , title),
-     price= COALESCE($2 , price),
-     category= COALESCE($3 , category),
-     items_left= COALESCE($4 ,items_left),
-     image= COALESCE($5 , image)
+     description = COALESCE($2 , description),
+     price= COALESCE($3 , price),
+     category= COALESCE($4 , category),
+     items_left= COALESCE($5 ,items_left),
+     image= COALESCE($6 , image)
      WHERE id =${req.params.id} 
      AND
      is_deleted = 0  RETURNING *;
@@ -74,14 +75,16 @@ const updateProductsById=(req ,res)=>{
         res.status(500).json({
             success: false,
             massage: `Server Error`,
-            err : err,
+            err : err.message,
      })
     })
 }
 
 const deleteProductsById = (req , res)=>{
-    const query=`UPDATE products SET is_deleted=1 WHERE id=${req.params.id} ;`
-    pool.query(query)
+  const id = req.params.id;
+  const data = [id]
+    const query=`UPDATE products SET is_deleted=1 WHERE id=$1`
+    pool.query(query,data)
     .then((result)=>{
         if (result.rowCount === 0) {
             res.status(404).json({
@@ -172,6 +175,32 @@ const filterProduct=(req , res)=>{
     err:err
   })
  })
+};
+
+const paginationProduct = (req,res) => {
+  const id = req.params.id;
+  const data = [id * 10]
+  const query = `SELECT * FROM products WHERE is_deleted=0  LIMIT 10  OFFSET $1 ` // offset
+  pool.query(query,data)
+  .then((result) => {
+    if (result.rows.length == 0) {
+      res.status(500).json({
+        success: false,
+        message: 'No Products'
+      })
+    } else {
+      res.status(201).json({
+        success: true,
+        result: result.rows
+      })
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({
+      success: false,
+      message: err.message
+    })
+  })
 }
 
-module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory,filterProduct}
+module.exports={createNewProducts ,getAllProducts,updateProductsById,deleteProductsById,searchProductsByTitle,getAllProductsbyCategory,filterProduct,paginationProduct}
