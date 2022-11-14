@@ -88,7 +88,7 @@ const getWorkers=(req ,res)=>{
 const getWorkersByProffesion = (req, res) => {
   const { profession } = req.body;
   const values = [profession]
-  const query=`  SELECT workers.id, profession, bio, image, user_id, yoe, first_name, last_name, email, gender FROM workers INNER JOIN users ON workers.user_id = users.id WHERE profession = $1 AND workers.is_deleted=0`
+  const query=`  SELECT workers.id, profession, bio, workers.image, user_id, yoe, first_name, last_name, email, gender FROM workers INNER JOIN users ON workers.user_id = users.id WHERE profession = $1 AND workers.is_deleted=0`
   pool.query(query, values)
   .then((result)=>{
       res.status(200).json({

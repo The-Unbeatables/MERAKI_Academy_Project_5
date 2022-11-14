@@ -58,5 +58,28 @@ const updateUser = async function(req, res){
     })
 }
 
-module.exports = { deleteUser, updateUser }
+const getAllUsers = (req, res) =>{
+    const query = `SELECT * FROM users`
+    pool.query(query)
+    .then((result) => {
+        let successObject = {
+            success: true,
+            message: "All users",
+            result: result.rows
+          }
+      
+          res.status(200).json(successObject)
+    })
+    .catch((err) => {
+        let failObject = {
+            success: false,
+            message: "Server error",
+            err: err.message
+          }
+      
+          res.status(409).json(failObject)
+    })
+    
+}
+module.exports = { deleteUser, updateUser, getAllUsers }
 
