@@ -17,7 +17,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [response, setResponse] = useState('');
     const [value, setValue] = useState('');
-  const [tokens, setTokens] = useState('')
+//   /
   const [id, setId] = useState('')
     const handelFailure = (result)=>{
         console.log(result);
@@ -26,8 +26,7 @@ const Login = () => {
     const handleLogin =(googleDate)=>{
         setEmail(googleDate.profileObj.email)
         setPassword('1234')
-        setTokens(googleDate)
-        setId(googleDate.googleId)
+        
         console.log(googleDate.tokenId);
         console.log(googleDate);
         if(value === ''){
@@ -39,8 +38,8 @@ const Login = () => {
             password
         })
         .then((result) => {
-            dispatch(setLogin(tokens));
-            dispatch(setUserId(id));
+            dispatch(setLogin(result.data.token));
+            dispatch(setUserId(result.data.token));
             if(value === 'customer'){
                 navigate('/')
             }else{
