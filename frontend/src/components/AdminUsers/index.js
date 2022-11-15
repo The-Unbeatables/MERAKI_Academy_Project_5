@@ -1,10 +1,50 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUsers } from '../../redux/reducers/auth';
+import { setUsers, updateUser, deleteUser } from '../../redux/reducers/auth';
 import "./style.css";
 
 const AdminUsers = () => {
+
+  const { token } = useSelector((state) => {
+    return{
+      token: state.auth.token,
+
+    }
+  })
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/users/${id}`
+    ,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+    .then((result) => {
+        dispatch(deleteUser(id))
+})
+    .catch((err) => {
+        console.log(err);
+    })  }
+
+    const handleUpgrade = (id) => {
+      axios.put(`http://localhost:5000/users/${id}`
+      ,{
+        role_id: 1
+      },
+      {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+      .then((result) => {
+        console.log(result.data.result);
+          dispatch(updateUser(result.data.result[0]))
+  })
+      .catch((err) => {
+          console.log(err);
+      }) 
+    }
 
   const [counter, setCounter] = useState(0)
   const [page, setPage] = useState(1)
@@ -34,9 +74,7 @@ const AdminUsers = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/users')
     .then((result) => {
-      // console.log(result.data.result);
       dispatch(setUsers(result.data.result));
-      console.log(users[0].role_id);
     })
     .catch((err) => {
       console.log(err);
@@ -71,34 +109,34 @@ const AdminUsers = () => {
         </div>
 
       </div>
-      {users.slice(counter,counter+4).map((elem, i) => {
+      {users?.slice(counter,counter+4).map((elem, i) => {
         return(
           <div className='row-admin1'>
-            <div className='first'>
+            <div className='first data'>
             <h3>{i + counter + 1}</h3>
             </div>
 
-            <div className='second'>
+            <div className='second data'>
             <h3><span>{elem.first_name}</span><span> </span><span>{elem.last_name}</span></h3>
             </div>
 
-            <div className='third'>
+            <div className='third data'>
               <h3>{elem.email}</h3>
             </div>
               
-            <div className='fourth'>
+            <div className='fourth data'>
               {elem.role_id === 1 && <h3>Admin</h3> } 
               {elem.role_id === 2 && <h3>Customer</h3> }           
               {elem.role_id === 3 && <h3>Worker</h3>} 
             </div>
 
-            <div className='fifth'>
+            <div className='fifth data'>
             <h3>{elem.created_at.split('T')[0]}</h3>
             </div>
 
             <div className='sixth'>
-            <button>Delete</button>
-            <button>Upgrade</button>
+            <button className='admin delet' onClick={() => {handleDelete(elem.id)}}>Delete</button>
+            <button className='admin updat' onClick={() => {handleUpgrade(elem.id)}}>Upgrade</button>
             </div>
             
           </div>

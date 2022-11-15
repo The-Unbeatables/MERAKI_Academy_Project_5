@@ -5,16 +5,17 @@ const authSlice = createSlice({
     initialState:{
         token: null || localStorage.getItem('token'),
         userId: null,
-        isLoggedIn: localStorage.getItem("token") ? true : false,
-        // isLoggedIn: false,
-        isAdmin: false,
-        users: []
+        // isLoggedIn: localStorage.getItem("token") ? true : false,
+        isLoggedIn: false || localStorage.getItem('isLoggedIn'),
+        isAdmin: false || localStorage.getItem('isAdmin'),
+        users: null
     },
     reducers:{
         setLogin: (state, action) => {
             state.token = action.payload;
             state.isLoggedIn = true;
             localStorage.setItem('token', action.payload)
+            localStorage.setItem('isLoggedIn', true)
         },
         setUserId: (state, action) => {
             state.userId = action.payload;
@@ -30,6 +31,8 @@ const authSlice = createSlice({
             state.token = action.payload;
             state.isLoggedIn = true;
             localStorage.setItem('token', action.payload);
+            localStorage.setItem('isAdmin', true)
+            localStorage.setItem('isLoggedIn', true)
             state.isAdmin = true
         },
         setUsers:(state , action)=>{
