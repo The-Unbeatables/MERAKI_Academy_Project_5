@@ -1,3 +1,7 @@
+.table_container {
+    margin-bottom: 50px;
+}
+
 .add_product {
     display: flex;
     justify-content: center;
@@ -6,6 +10,7 @@
     cursor: pointer;
     gap: 20px;
     margin-left: 150px;
+    margin-top: 30px;
 }
 
 table {
