@@ -85,7 +85,7 @@ const Register = () => {
           />
         </div>
         <div className="buttonRegister">
-          <button
+          <button className="register_btn"
             onClick={() => {
               handelRegisterbutton();
             }}
