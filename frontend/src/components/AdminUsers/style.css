@@ -11,7 +11,7 @@
     
 }
 .bold{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
 .row-admin1{
@@ -45,6 +45,9 @@
     margin: auto;
     text-align: center
 }
+.sixth button{
+    margin-top: 5%;
+}
 .btn{
     width: 100%;
     position: relative;
@@ -72,6 +75,91 @@
     background-color: #0082e6;
 }
 .change:hover{
-    transform: scale(1.01);
+    transform: scale(1.05);
     transition: ease 0.1s;
+}
+.data h3{
+    font-size: 1.1rem;
+}
+.admin{
+    padding: 2%;
+    color: white;
+    background-color: #0082e6;
+    border: none;
+    border-radius: 10%;
+    margin: 2%;
+}
+.admin:hover{
+    transform: scale(1.1);
+    transition: ease 0.1s;
+}
+
+@media (max-width: 900px){
+    .bold{
+        font-size: 1rem;
+    }
+    .data h3{
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 770px){
+    .bold{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    .data h3{
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+    .first{
+        width: 3%;
+        text-align: center
+    }
+    .second{
+        width: 30%;
+        text-align: center
+    }
+    .third{
+        width: 30%;
+        text-align: center
+    }
+    .fourth{
+        width: 12%;
+        text-align: center
+    }
+    .fifth{
+        width: 15%;
+        text-align: center
+    }
+    .sixth{
+        width: 5%;
+        margin: auto;
+        text-align: center
+    }
+}
+
+.first{
+    width: 5%;
+    text-align: center
+}
+.second{
+    width: 20%;
+    text-align: center
+}
+.third{
+    width: 20%;
+    text-align: center
+}
+.fourth{
+    width: 15%;
+    text-align: center
+}
+.fifth{
+    width: 20%;
+    text-align: center
+}
+.sixth{
+    width: 20%;
+    margin: auto;
+    text-align: center
 }

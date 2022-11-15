@@ -3,8 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { getCart } from "../../redux/selector/cartSelector";
-import BounceLoader from "react-spinners/BounceLoader";
-import HashLoader from "react-spinners/HashLoader"
+import MoonLoader from "react-spinners/MoonLoader";
 import "./style.css";
 
 const Checkout = () => {
@@ -38,7 +37,7 @@ const Checkout = () => {
     return (
       <>
       <div className="loading">
-      {loading ? <BounceLoader
+      {loading ? <MoonLoader
       className="loading"
         color={'dodgerblue'}
         loading={loading}
