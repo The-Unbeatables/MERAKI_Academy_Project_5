@@ -93,17 +93,26 @@ const Login = () => {
 
 
   return (
+    <div className="register_page_container">
+        <div>
+        <img
+                      className="register_image"
+                      src={'https://thumbs.dreamstime.com/b/carpentry-background-22476057.jpg'}
+                      alt="product"
+                    />
+        </div>
     <div className='login-container'>
         <h3>Login</h3>
-        <input type='email' placeholder='Email' onChange={(e) => {setEmail(e.target.value)}}/>
-        <input type='password' placeholder='Password' onChange={(e) => {setPassword(e.target.value)}}/>
+        <input className='login_input' type='email' placeholder='Email' onChange={(e) => {setEmail(e.target.value)}}/>
+        <input className='login_input' type='password' placeholder='Password' onChange={(e) => {setPassword(e.target.value)}}/>
         <legend>Joining us as:</legend>
         <label><input id="Customer" type="radio" name="Customer-Worker" value="customer"  onClick={(e) => {setValue(e.target.value);}}/> Customer</label>
         <label><input id="Worker" type="radio" name="Customer-Worker" value="worker" onClick={(e) => {setValue(e.target.value);}}/> Worker</label>
-        <button onClick={handleButton}>Sign In</button>
+        <button className='login_btn' onClick={handleButton}>Sign In</button>
       
       <div>
-          <GoogleLogin
+          <GoogleLogin 
+            className='login_with_google_btn'
             clientId={clientId}
             onSuccess={onSuccess}
             onFailure={onFailure}
@@ -111,6 +120,7 @@ const Login = () => {
      
         </div>
         {response && <h3>{response}</h3>}
+    </div>
     </div>
   )
 }
