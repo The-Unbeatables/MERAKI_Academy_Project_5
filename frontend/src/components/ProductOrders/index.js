@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import { setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { deleteUserProductOrder, setUserProductOrders } from "../../redux/reducers/product_orders";
 import "./style.css";
 import {
@@ -114,7 +113,6 @@ const ProductOrders = () => {
                       alt="product"
                     />
                   </div>
-
                   <div className="words-cart">
                     <p className="title">{product.title}</p>
                     <hr></hr>
