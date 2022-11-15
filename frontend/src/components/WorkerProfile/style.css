@@ -45,6 +45,13 @@
 #upload{
     width: 350px;
     height: 30%;
+    margin-top: 0px;
+}
+#upload-label{
+
+    margin-top: 100px;
+    position: relative;
+left: 20px;
 }
 .button{
     position: relative;
