@@ -26,7 +26,21 @@
     border-radius: 3px;
 }
 
-.login_with_google_btn {
-    height: 50px;
-    width: 200px;
+.buttonGoogle{
+    display: flex;
+    height: 40px;
+    width: 70%;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding-top: 5px;
+}
+.iconGoogle{
+    position: relative;
+    left: -30px;
+}
+.signin{
+    position: relative;
+    left: -40px;
 }

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setLogin, setUserId, setAdminLogin } from '../../redux/reducers/auth'
 import GoogleLogin from 'react-google-login'
 import { gapi } from "gapi-script";
-
+import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
@@ -110,15 +110,19 @@ const Login = () => {
         <label><input id="Worker" type="radio" name="Customer-Worker" value="worker" onClick={(e) => {setValue(e.target.value);}}/> Worker</label>
         <button className='login_btn' onClick={handleButton}>Sign In</button>
       
-      <div>
+     
           <GoogleLogin 
             className='login_with_google_btn'
             clientId={clientId}
             onSuccess={onSuccess}
             onFailure={onFailure}
+            render={(renderProps) => (
+              <button className='buttonGoogle' onClick={renderProps.onClick}><span className='iconGoogle'><FcGoogle style={{height:'25px'}}/></span><span className='signin'>Sign in with Google</span></button>
+            )}
+           
           />
      
-        </div>
+        
         {response && <h3>{response}</h3>}
     </div>
     </div>
