@@ -1,0 +1,12 @@
+.contairAdminOrders{
+    display: grid;
+    width: 90%;
+    justify-items: center;
+    margin-bottom: 300px;
+}
+
+.tableOrders{
+    width: 90%;
+    position: relative;
+   left: 100px ;
+}
