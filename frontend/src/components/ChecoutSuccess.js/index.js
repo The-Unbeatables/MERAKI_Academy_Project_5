@@ -33,13 +33,28 @@ const CheckoutSuccess = () => {
           console.log(err);
         });
     }, []);
+
+    const deleteCart = () => {
+      axios
+        .delete(`http://localhost:5000/productOrders/all/order`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          dispatch(setUserProductOrders([]));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   
     return (
       <div className="success_checkout_container">
         <div className="success_checkout">
           <h1>Thanks for your order!</h1>
           <div onClick={() => navigate("/")} className="success">
-            <h5>Continue TO Shopping</h5>
+            <h5 onClick={() => deleteCart()}>Continue TO Shopping</h5>
           </div>
         </div>
       </div>
