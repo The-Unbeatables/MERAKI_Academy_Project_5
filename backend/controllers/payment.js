@@ -21,7 +21,7 @@ const paymentCheckout = async (req, res) => {
       line_items,
       mode: "payment",
       success_url: `${process.env.CLIENT_URL}/checkout-success`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel`,
+      cancel_url: `${process.env.CLIENT_URL}/products/orders`,
     });
     res.json({ url: session.url });
   };
