@@ -17,7 +17,7 @@ const createNewProducts =(req , res)=>{
         res.status(500).json({
             sucess : false,
             message: "Server Error",
-            err : err
+            err : err.message
         })
     })
 }

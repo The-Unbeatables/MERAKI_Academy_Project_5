@@ -151,4 +151,29 @@ const updateProductOrder = (req, res) => {
     })
 }
 
-module.exports = { addProductOrder, deleteProductOrder, deleteAllUserProductOrders, getAllProductOrders, getUserProductOrders, updateProductOrder }
+const getAllProductOrdersForAdmin = (req, res) => {
+
+    const query = `SELECT * FROM product_orders INNER JOIN products ON product_orders.product_id = products.id;`
+
+    pool.query(query)
+    .then((result) => {
+        let successObject = {
+            success: true,
+            massage: "All orders",
+            result: result.rows
+          }
+      
+          res.status(201).json(successObject)
+    })
+    .catch((err) => {
+        let failObject = {
+            success: false,
+            massage: "Server error",
+            err: err.message
+          }
+      
+          res.status(409).json(failObject)
+    })
+}
+
+module.exports = { addProductOrder, deleteProductOrder, deleteAllUserProductOrders, getAllProductOrders, getUserProductOrders, updateProductOrder, getAllProductOrdersForAdmin }
