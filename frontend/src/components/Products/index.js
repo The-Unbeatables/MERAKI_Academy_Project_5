@@ -95,16 +95,6 @@ const Products = () => {
       });
   };
 
-  // const pagenationProducts = (page) => {
-  //   axios.get(`http://localhost:5000/products/pagination/product/${page}`)
-  //   .then((result) => {
-  //     console.log(result);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   })
-  // }
-
   return (
     <>
       <div className="categoryAndSearch">
@@ -174,29 +164,6 @@ const Products = () => {
             handelSearch();
           }}
         />
-      </div>
-      <h2 className="n">Products</h2>
-      <div className="range">
-        {/* <label>0 - {range}</label>
-          <input className="inpurRange" type='range' min="0" max="100" step="10" onChange={(e)=>{handelselct(e.target.value)}} /> */}
-        <select
-          id="filter"
-          name="filter"
-          class="input-filter"
-          onClick={(e) => {
-            handelselct(e.target.value);
-          }}
-        >
-          <option value="test1">tset 1</option>
-          <option value="test2">test 2</option>
-        </select>
-        {/* <select className='select' name='rating' onChange={(e)=>{handelselct()}}>
-         <option> Choose one from the list </option>  
-          <option onClick={()=>{handelselct()}}>1 - 10</option>   
-          <option onClick={()=>{handelselct()}}>11 - 20 </option>
-          <option onClick={()=>{handelselct()}}>21 - 30 </option>   
-          <option onClick={()=>{handelselct()}}>31 - 40 </option>
-         </select> */}
       </div>
       <div className="products">
         {product?.map((data) => {
