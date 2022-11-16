@@ -31,8 +31,11 @@
     height: 450px;
     border-radius: 10px;
     box-shadow: 5px 10px 20px rgb(29, 26, 26);
+    transition: 0.3s;
 }
-
+.product-image-home:hover {
+box-shadow: 10px 10px 16px 10px rgba(0,0,0,0.2);
+}
 .header_Product_text {
     text-align: center;
     background-color: rgb(6, 37, 110);

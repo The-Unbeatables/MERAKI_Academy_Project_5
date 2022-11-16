@@ -83,15 +83,17 @@ useEffect(()=>{
         <div>
         <form>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    
+     <div className="prof">
       <label for="inputEmail4">Profession</label>
       {/* placeholder="profession" onChange={(e)=>{setProfession(e.target.value)}} */}
-      <input onChange={(e)=>{setProfession(e.target.value)}}/>
-    </div>
-    <div class="form-group col-md-6 cc">
+      <input className="inputprofile" onChange={(e)=>{setProfession(e.target.value)}}/>
+      </div>
+    
+    <div className="prof">
       <label for="inputPassword4">YOE</label>
       {/* <input type="text" class="form-control" placeholder="YOE" onChange={(e)=>{setYOE(e.target.value)}}/> */}
-      <input onChange={(e)=>{setYOE(e.target.value)}}/>
+      <input className="inputprofile" onChange={(e)=>{setYOE(e.target.value)}}/>
     </div>
   </div>
   <div class="form-group divtext">
@@ -99,6 +101,63 @@ useEffect(()=>{
     <textarea class="form-control text" id="exampleFormControlTextarea1" rows="3" onChange={(e)=>{setBio(e.target.value)}}></textarea>
   </div>
  
+
+{/* -------------------------------- */}
+
+
+{/* <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div> */}
+
+
+
+{/* <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form> */}
+
+
+
+
+
+
+
+
+
+
+
+{/* ---------------------------------------- */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
