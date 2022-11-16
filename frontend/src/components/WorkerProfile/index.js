@@ -26,6 +26,7 @@ const {userId ,token}=useSelector((state)=>{
 
   const getwrkerId = ()=>{
    //${userId} =>>> dont work but if bot number 4 will work 
+   if(userId){
     axios.get(`http://localhost:5000/workers/worker/${userId}`)
     .then((result)=>{
     //  console.log(result.data.result.rows[0]);
@@ -34,6 +35,8 @@ const {userId ,token}=useSelector((state)=>{
     .catch((err)=>{
     console.log(err);
     })
+   }
+    
 
  
   }
