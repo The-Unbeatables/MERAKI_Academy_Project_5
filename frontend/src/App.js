@@ -1,7 +1,8 @@
 import "./App.css";
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Register from "./components/Register"

@@ -30,18 +30,15 @@
     width: 350px;
     height: 450px;
     border-radius: 10px;
-    box-shadow: 5px 10px 20px rgb(29, 26, 26);
-    transition: 0.3s;
-}
-.product-image-home:hover {
-box-shadow: 10px 10px 16px 10px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 20px 10px rgb(29, 26, 26);
+
 }
 .header_Product_text {
     text-align: center;
     background-color: rgb(6, 37, 110);
     color: white;
     border-radius: 8px;
-    box-shadow: 5px 10px 20px rgb(29, 26, 26);
+    box-shadow: 0px 0px 30px 15px rgb(29, 26, 26);
     height: 60px;
     align-items: center;
     padding-top: 10px;
@@ -54,3 +51,20 @@ box-shadow: 10px 10px 16px 10px rgba(0,0,0,0.2);
 .image_slider {
     height: 300px;
 }
+
+.slider_text {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    color: rgb(0, 0, 0);
+    transition: transform .2s;
+    position: relative;
+    animation: websiteName 8s infinite;
+    font-weight: 1000;
+}
+
+@keyframes websiteName {
+    from {left: -500px;}
+    to {left: 500px;}
+}
+
