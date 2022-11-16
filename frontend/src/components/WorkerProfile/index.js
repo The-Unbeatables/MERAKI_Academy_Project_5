@@ -13,7 +13,7 @@ const WorkerProfile=()=>{
   const [workerId, setWorkerId] = useState('')
    const dispatch =useDispatch()
 
-
+const [show, setShow] = useState('')
 
 const {userId ,token}=useSelector((state)=>{
   return {
@@ -22,11 +22,12 @@ const {userId ,token}=useSelector((state)=>{
   }
 })
 
-
+console.log(userId);
 
   const getwrkerId = ()=>{
    //${userId} =>>> dont work but if bot number 4 will work 
-    axios.get(`http://localhost:5000/workers/worker/${userId}`)
+   if(userId){
+   axios.get(`http://localhost:5000/workers/worker/${userId}`)
     .then((result)=>{
     //  console.log(result.data.result.rows[0]);
     setWorkerId(result.data.result.rows[0].id)
@@ -35,7 +36,7 @@ const {userId ,token}=useSelector((state)=>{
     console.log(err);
     })
 
- 
+  }
   }
 
 useEffect(()=>{
@@ -56,8 +57,11 @@ useEffect(()=>{
         Authorization: `Bearer ${token}`,
       },
     })
-    .then((result)=>{ 
+    .then((result)=>{
+      console.log(result.data.massage);
+      setShow(result.data.massage)
      dispatch(updateWorker(result.data.result))
+     
     })
     .catch((err)=>{
      console.log(err);
@@ -76,110 +80,54 @@ useEffect(()=>{
             
             <div className="contanirProfile">
 
-        
-        <div>
-        <form>
-  <div class="form-row">
-    
-     <div className="prof">
-      <label for="inputEmail4">Profession</label>
-      {/* placeholder="profession" onChange={(e)=>{setProfession(e.target.value)}} */}
-      <input className="inputprofile" onChange={(e)=>{setProfession(e.target.value)}}/>
-      </div>
-    
-    <div className="prof">
-      <label for="inputPassword4">YOE</label>
-      {/* <input type="text" class="form-control" placeholder="YOE" onChange={(e)=>{setYOE(e.target.value)}}/> */}
-      <input className="inputprofile" onChange={(e)=>{setYOE(e.target.value)}}/>
-    </div>
-  </div>
-  <div class="form-group divtext">
-    <label for="inputAddress">bio</label>
-    <textarea class="form-control text" id="exampleFormControlTextarea1" rows="3" onChange={(e)=>{setBio(e.target.value)}}></textarea>
-  </div>
- 
-
-{/* -------------------------------- */}
-
-
-{/* <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div> */}
-
-
-
-{/* <form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
-  </div>
-  
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form> */}
-
-
-
-
-
-
-
-
-
-
-
-{/* ---------------------------------------- */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="container py-5">
-
-
-<div class="row py-4">
-    <div class="col-lg-6 mx-auto">
-
-        {/* <!-- Upload image input--> */}
-        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-          <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" onChange={(e)=>{setImage(e.target.value)}}/>
+        <div className="conatan-input">
+        <div className="prof">
+        <label >Profession</label>
+        <input
+            className="inputprofile"
+            type="text"
             
+            onChange={(e) => {
+              setProfession(e.target.value);
+            }}
+        ></input>
         </div>
 
+        <div className="prof">
+       <label >Years of experience</label>
+        <input
+          className="inputprofile"
+            type="text"
+            onChange={(e) => {
+              setYOE(e.target.value);
+            }}
+        ></input>
+      </div>
+      </div>
+      
+      <div className="textarea">
+      <label >bio</label>
+        <textarea
+            className="input-textarea"
+            type="text"
+            onChange={(e) => {
+              setBio(e.target.value);
+            }}
+        ></textarea>
+</div>
+    <div className="upload-imag">
+     <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" onChange={(e)=>{setImage(e.target.value)}}/>
+       </div>       
+
+
+
+    <div className="button-ubdate">
+      <button type="submit" class="btn btn-primary button" onClick={()=>{handelProfileWorker()}}>Update Information</button>
+      </div>
+    <div className="show-Message">
+      {show && <div className="show">{show}</div>}
     </div>
-</div>
-</div>
-
-
-  <button type="submit" class="btn btn-primary button" onClick={()=>{handelProfileWorker()}}>Sign in</button>
-</form>
-</div>
             </div>
         
         </div>
