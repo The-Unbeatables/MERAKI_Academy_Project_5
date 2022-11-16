@@ -73,7 +73,7 @@ const AdminProducts = () => {
       <div className="back_to_home">
     </div>
       </div>
-    <table>
+    <table className='table_container'>
         <thead>
           <tr>
             <th scope="col"><h4><b>Image</b></h4></th>
