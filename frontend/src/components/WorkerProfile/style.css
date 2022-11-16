@@ -16,6 +16,19 @@
 
     
 }
+.form-row{
+    margin-left: 20px;
+    display: flex;
+    gap: 80px;
+}
+.prof{
+    display: grid;
+}
+.inputprofile{
+    width: 300px;
+    border-radius: 3px;
+    height: 30px;
+}
 .contanirProfile{
     padding: 50px;
     position: relative;
@@ -45,6 +58,13 @@
 #upload{
     width: 350px;
     height: 30%;
+    margin-top: 0px;
+}
+#upload-label{
+
+    margin-top: 200px;
+    position: relative;
+left: 20px;
 }
 .button{
     position: relative;
