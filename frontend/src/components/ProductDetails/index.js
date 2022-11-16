@@ -85,7 +85,7 @@ const sendToWhislist = (id) => {
             <h1 className="title-detailess">
               {item.title}
             </h1>
-            <hr></hr>
+            
             <p className="detailess">
               <b className="textt">Description: </b>{" "}
               {item.description}
@@ -98,10 +98,10 @@ const sendToWhislist = (id) => {
             <hr></hr>
             <p className="detailess">
               <b className="textt">Price: </b>{" "}
-              {item.price}
+              {item.price} $
             </p>
           </div>
-
+          <hr></hr>
           <div className="icon-love-product">
             <div className="fclike-icon">
               <button 
