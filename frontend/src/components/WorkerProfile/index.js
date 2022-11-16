@@ -14,7 +14,7 @@ const WorkerProfile=()=>{
    const dispatch =useDispatch()
 
 const [show, setShow] = useState('')
-
+const [file, setFile] = useState(null);
 const {userId ,token}=useSelector((state)=>{
   return {
     userId : state.auth.userId,
@@ -69,6 +69,23 @@ useEffect(()=>{
   }
 
 
+  const uploadImage = async () => {
+    const form = new FormData();
+    form.append("file", file);
+    form.append("upload_preset", "eeshop");
+
+      // send form to cloudenary
+    await axios
+        .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
+        .then((result) => {
+        console.log(result.data.secure_url);
+        setImage(result.data.secure_url);
+        })
+        .catch((err) => {
+        console.log(err);
+        throw err;
+        });
+    };
 
 
     return(
@@ -115,12 +132,24 @@ useEffect(()=>{
             }}
         ></textarea>
 </div>
-    <div className="upload-imag">
+    {/* <div className="upload-imag">
      <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
             <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" onChange={(e)=>{setImage(e.target.value)}}/>
-       </div>       
+       </div>        */}
 
+       <div className="upload-imag">
+            <input
+            className="upload-image"
+            type="file"
+            id="myFile"
+            name="filename"
+            onChange={(e) => {
+            setFile(e.target.files[0]);
+            }}
+        />
 
+        <button className="upload_image_btn" onClick={uploadImage}>upload</button>
+            </div>
 
     <div className="button-ubdate">
       <button type="submit" class="btn btn-primary button" onClick={()=>{handelProfileWorker()}}>Update Information</button>

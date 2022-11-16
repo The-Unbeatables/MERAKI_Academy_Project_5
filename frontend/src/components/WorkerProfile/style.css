@@ -85,11 +85,18 @@ left: 20px;
 .show-Message{
     margin-top: -30px;
     margin-left: 100px;
-    background: blue;
-    width: 1560px;
+    width: 300px;
+    height: 60px;
+   
+   
 }
 .show{
     font-size: 30px;
-    
+    background: #0e2b50;
+    color: white;
+    border-radius: 10px;
+    width: 300px;
+    height: 60px;
+    padding: 10px;
 
 }
