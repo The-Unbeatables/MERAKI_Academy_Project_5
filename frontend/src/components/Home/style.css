@@ -13,10 +13,6 @@
 }
 
 .sub-container{
-    border: 1px solid black;
-    padding: 100px;
-}
-
     display: grid;
     grid-template-columns: 1fr;
     /* border: 1px solid black; */
@@ -31,8 +27,8 @@
     height: 450px;
     border-radius: 10px;
     box-shadow: 5px 5px 20px 10px rgb(29, 26, 26);
-
 }
+
 .header_Product_text {
     text-align: center;
     background-color: rgb(6, 37, 110);
@@ -67,4 +63,3 @@
     from {left: -500px;}
     to {left: 500px;}
 }
-
