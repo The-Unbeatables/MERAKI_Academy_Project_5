@@ -15,6 +15,8 @@ const WorkerProfile=()=>{
 
 const [show, setShow] = useState('')
 const [file, setFile] = useState(null);
+
+
 const {userId ,token}=useSelector((state)=>{
   return {
     userId : state.auth.userId,
@@ -39,7 +41,7 @@ console.log(userId);
     
 
   }
-  }
+  
 
 useEffect(()=>{
   getwrkerId()
@@ -75,8 +77,6 @@ useEffect(()=>{
     const form = new FormData();
     form.append("file", file);
     form.append("upload_preset", "eeshop");
-
-      // send form to cloudenary
     await axios
         .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
         .then((result) => {
@@ -88,7 +88,7 @@ useEffect(()=>{
         throw err;
         });
     };
-
+  
 
     return(
         <div className="workerProfile">
@@ -133,11 +133,8 @@ useEffect(()=>{
               setBio(e.target.value);
             }}
         ></textarea>
-</div>
-    {/* <div className="upload-imag">
-     <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" onChange={(e)=>{setImage(e.target.value)}}/>
-       </div>        */}
+   </div>
+
 
        <div className="upload-imag">
             <input
@@ -150,7 +147,7 @@ useEffect(()=>{
             }}
         />
 
-        <button className="upload_image_btn" onClick={uploadImage}>upload</button>
+        <button className="upload_image_btn" onClick={()=>{uploadImage()}}>upload</button>
             </div>
 
     <div className="button-ubdate">
