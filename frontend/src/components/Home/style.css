@@ -10,6 +10,8 @@
     flex-direction: row;
     justify-content: space-around;
     cursor: pointer;
+  
+    
 }
 
 .sub-container{
@@ -17,7 +19,7 @@
     grid-template-columns: 1fr;
     /* border: 1px solid black; */
     /* padding: 100px; */
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 50px;
 
 }
@@ -42,6 +44,8 @@
 
 .slider {
     width: 100%;
+    position: relative;
+    top:-50px;
 }
 
 .image_slider {

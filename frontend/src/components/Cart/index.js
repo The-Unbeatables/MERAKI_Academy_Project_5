@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setCart, deleteFromCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from "../../redux/reducers/product_orders";
 import { useEffect } from "react";
-import { FcFullTrash, FcLike, FcHome } from 'react-icons/fc';
+import { FcFullTrash , FcHome } from 'react-icons/fc';
 import {FaBackward} from "react-icons/fa";
-
+import { SlBasket } from "react-icons/sl";
 // Wishlist
 
 const Cart = () => {
@@ -92,7 +92,7 @@ const Cart = () => {
     <div className="back_to_home">
     <div className="home">
       <FcHome
-          style={{width: '40px', height: '40px'}}
+          style={{width: '40px', height: '40px',cursor:'pointer'}}
       onClick={() => {
             navigate("/");
           }}/>
@@ -109,46 +109,51 @@ const Cart = () => {
       </div>
     </div>
       <div className="cart-container">
-        <div className="cart">
+        <div className="carts">
           {cart.map((product, index) => {
             return (
               <>
-                <div key={product[index]} className="cart-prduct">
-                  <div className="image-div-cart">
+                <div key={product[index]} className="cart-prducts">
+                  <div className="imagediv-cart">
                     <img
-                      className="product-image-cart"
+                      className="image-cart"
                       src={product.image}
                       alt="product"
                     />
                   </div>
-                  <div className="words-cart">
-                    <p className="title">{product.title}</p>
-                    <hr></hr>
-                    <p className="description">{product.price}$</p>
-                    <hr></hr>
-                    <p className="description">
-                      Item Quantity: {product.items_left}
-                    </p>
+                  <div className="contant-cart">
+                    <h1 className="title-cart">{product.title}</h1>
+                    {/* <hr></hr> */}
+                    <p className="price-cart">{product.price}$</p>
+                    {/* <hr></hr> */}
+                    <div className="description-cart">
+                    <h5 className="desc" >
+                     {product.description}
+                    </h5>
+                    </div>
                   </div>
-                  <div className="delete-item-from">
+                 
                     <div className="whislist_btns">
+                      <div>
                     <FcFullTrash
                       className="whislist_icons"
-                      style={{width: '40px', height: '40px'}}
+                      style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         deleteFromWhislist(product.id);
                       }}
                     />
+                    </div>
                     <div>
-                      <FcLike 
+                    <SlBasket
+                      
                       className="whislist_icons"
-                      style={{width: '40px', height: '40px'}}
+                      style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         sendToCart(product.product_id);
                       }}/>
                       </div>
                     </div>
-                  </div>
+                 
                 </div>
               </>
             );

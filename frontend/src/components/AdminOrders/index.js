@@ -7,15 +7,20 @@ import './style.css'
 const AdminOrders = () => {
   const dispatch = useDispatch()
 
-
-  const {allServiceOrders}= useSelector((state)=>{
-   
+  const {allServiceOrders }= useSelector((state)=>{
     return{
-      allServiceOrders: state.serviceOrders.allServiceOrders
+      allServiceOrders: state.serviceOrders.allServiceOrders,
+   
 
     }
   })
-console.log(allServiceOrders);
+
+
+
+  
+
+
+
 
 
 
@@ -27,12 +32,13 @@ const getServiceOrders=()=>{
   
   })
   .catch((err)=>{
-console.log(err);
+   console.log(err);
   })
 }
 
 useEffect(()=>{
   getServiceOrders()
+
 },[])
 
 
@@ -60,7 +66,7 @@ useEffect(()=>{
                 <td data-label="Title">{item.service_description}</td>
                 <td className='price' data-label="Price"><b>{item.created_at.split('T')[0]}</b></td>
                 <td className='price' data-label="Price"><b>{item.worker_id}</b></td>
-                <td className='price' data-label="Price"><b>{item.user_id}</b></td>
+                <td className='price' data-label="Price"><b>{item.first_name}</b></td>
                 <td className='price' data-label="Price"><b>{item.status}</b></td>
                 <td data-label="Actions">
                   <div className="controller_icn">
