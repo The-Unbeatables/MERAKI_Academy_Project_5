@@ -21,7 +21,6 @@ const ServiceDetails = () => {
             profession
         })
         .then((result) => {
-            console.log(result.data.result);
             setWorkers(result.data.result)
         })
         .catch((err) => {
@@ -36,22 +35,21 @@ const ServiceDetails = () => {
 
   return (
     <div className='det'>
-        <h2>{profession}s</h2>
+        
         {workers.map((elem, i) => {
             return(
-                <div className='big_container' key={i}>
-                    <div className='small_container'>
-                        <img src={elem.image} />
-                        <h3 className='text_img'><span>{elem.first_name}</span><span> </span><span>{elem.last_name}</span></h3>
-                    </div>                    
-                    <div>{elem.bio}</div>
-                    <div>{elem.yoe} years of experience</div>
-                    {isLoggedIn && <div><button onClick={() => {handleButton(elem)}}>Send Request</button></div>}
+                <div className='ser_box' key={i}>
+                    <img src={elem.image} />
+                    <div className='ser_content'>
+                        <h2><span>{elem.first_name}</span><span> </span><span>{elem.last_name}</span></h2>
+                        <p>{elem.bio}</p>
+                        <p>{elem.yoe} years of experience</p>
+                        {isLoggedIn && <div><button className='ser_Btn' onClick={() => {handleButton(elem)}}>Send Request</button></div>}
+                    </div>
                 </div>
             )
         })}
     </div>
   )
 }
-//nice
 export default ServiceDetails

@@ -18,7 +18,7 @@ const AdminPanell = () => {
   const [productOrdersNum, setProductOrdersNum] = useState(0);
   const [income, setIncome] = useState(0);
   const [serviceOrdersNum, setServiceOrdersNum] = useState(0);
-
+  
 
   const getAllTheUsers = () => {
     axios.get('http://localhost:5000/users')

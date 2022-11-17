@@ -19,13 +19,13 @@ img{
 .bigg{
     /* margin-top: 250px;
     margin-left: 300px; */
-    margin-top: 20%;
+    margin-top: 13%;
     margin-left: 22%;
     display: grid;
     grid-template-columns: repeat(3, 33.33%);
     row-gap: 2rem;
     column-gap: 2rem;
-    margin-bottom: -12%;
+    margin-bottom: -10%;
 
 }
 .overlay{
@@ -52,7 +52,7 @@ img{
 .service-btn{
     width: 100%;
     height: 100%;
-    /* padding: 10%; */
+    padding: 3%;
     border-radius: 4%;
     font-size: 1rem;
     background-color: brown;
@@ -71,20 +71,24 @@ img{
 .containerOfService:hover .overlay{
     opacity: 0.8;
 }
-
+@media (max-width: 1210px){
+    .bigg{
+        margin-top: 16%;
+    }
+}
 @media (max-width: 1100px){
     
 .bigg{
-    margin-top: 20%;
+    margin-top: 17%;
     margin-left: 30%;
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
 }
-@media (max-width: 890px){
+@media (max-width: 930px){
     
     .bigg{
-        margin-top: 30%;
+        margin-top: 22%;
         margin-left: 35%;
         display: grid;
         grid-template-columns: repeat(2, 50%);
@@ -94,29 +98,56 @@ img{
 @media (max-width: 750px){
     
     .bigg{
-        margin-top: 35%;
+        margin-top: 28%;
         margin-left: 50%;
         display: grid;
         grid-template-columns: repeat(1, 100%);
     }
     }
 
-    @media (max-width: 570px){
+    @media (max-width: 600px){
     
         .bigg{
-            margin-top: 40%;
+            margin-top: 30%;
             margin-left: 50%;
             display: grid;
             grid-template-columns: repeat(1, 100%);
         }
         }
+        @media (max-width: 560px){
+    
+            .bigg{
+                margin-top: 35%;
 
+            }
+        }
+        @media (max-width: 500px){
+    
+            .bigg{
+                margin-top: 39%;
+
+            }
+        }
         @media (max-width: 460px){
     
             .bigg{
-                margin-top: 50%;
+                margin-top: 42%;
                 margin-left: 50%;
                 display: grid;
                 grid-template-columns: repeat(1, 100%);
             }
             }
+            @media (max-width: 420px){
+    
+                .bigg{
+                    margin-top: 45%;
+    
+                }
+            }   
+            @media (max-width: 400px){
+    
+                .bigg{
+                    margin-top: 50%;
+    
+                }
+            }  
