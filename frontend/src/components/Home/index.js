@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <div>
         <div className="slider">
-          <h2 className="slider_text">Welcome To Maintenance App</h2>
+          <h2 className="slider_text"></h2>
           <Slider {...settings}>
             <div>
               <h3>

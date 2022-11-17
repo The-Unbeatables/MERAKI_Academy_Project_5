@@ -13,13 +13,88 @@
     border-color: white;
     cursor: pointer;
 }
+.carts{
+    display: grid;
+    grid-template-columns: repeat(3 , 350px);
+   gap: 100px;
+   justify-content: center;
+   margin-left: 100px;
+   margin-top: 50px;
+   margin-bottom: 300px;
+   
+   
+}
+.contant-cart{
+    display: grid;
+    justify-items: center;
+    margin-top: 0px;
+    gap: 20px;
+}
+.cart-prducts{
+    width: 100%;
+    border: 2px solid;
+    border-style: outset;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+.image-cart{
+    height: 250px;
+}
+.price-cart{
+    color: rgb(97, 95, 95);
+  font-size: 22px;
+}
+
+.desc{
+    width: 300px;
+}
 
 .whislist_btns {
     display: flex;
     margin-top: 20px;
-    margin-left: 240px;
-    gap: 30px
+    /* margin-left: 240px; */
+    gap: 30px;
+    justify-content: center;
+    margin-top: 50px;
+    
 }
+
+
+
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* @media (min-width: 768px) {
     .wishlist-grid {

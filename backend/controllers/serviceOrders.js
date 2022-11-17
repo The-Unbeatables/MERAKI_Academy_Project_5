@@ -86,7 +86,10 @@ const deleteServiceOrder=(req , res)=>{
 }
 
 const getAllServiceOrders=(req ,res)=>{
-    const query=`SELECT * FROM service_orders WHERE  is_deleted = 0 `
+    const query=`SELECT * FROM service_orders
+    INNER JOIN users on service_orders.user_id = users.id
+    INNER JOIN workers on service_orders.worker_id = workers.id 
+   where service_orders.is_deleted =0 `
     pool.query(query)
     .then((result)=>{
         res.status(200).json({
