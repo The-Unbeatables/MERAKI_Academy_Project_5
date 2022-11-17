@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
+import './style.css'
 
 const AddServiceOrder = () => {
 
@@ -39,28 +40,52 @@ const AddServiceOrder = () => {
     // },[])
   return (
     <>
-    <div>
-        {check && 
+    <div className='bigggest'>
+        {/* {check && 
         <>
-        <h3>Please fill the required information for your request</h3>
-        <label>Service Title:
-            <input type={'text'} placeholder='please enter the title' onChange={(e) => {setTitle(e.target.value)}}/>
-        </label>
-        <br/>
-        <label>Service Description:
-            <input type={'text'} placeholder='Describe the issue you are trying to fix' onChange={(e) => {setDescription(e.target.value)}}/>
-        </label>
-        <br/>
-        <button onClick={handleSendRequest}>Send Request</button>
+        <div className='input_container'>
+            <div><h3>Service Info</h3></div>
+            <div className='input_box'>
+                <input type='text' required='required' onChange={(e) => {setTitle(e.target.value)}}/>
+                <span>Title</span>
+            </div>
+            <div className='input_box'>
+                <input type='text' required='required' onChange={(e) => {setDescription(e.target.value)}}/>
+                <span>description</span>
+            </div>
+
+            <button className='btn_add_service' onClick={handleSendRequest}>Send Request</button>
+        </div>
+        
         </>
-        }
-        {!check &&
+        } */}
+        <div className='input_container'>
+            <div><h3>Service Info</h3></div>
+            <div className='input_box'>
+                <input type='text' required='required' onChange={(e) => {setTitle(e.target.value)}}/>
+                <span>Title</span>
+            </div>
+            <div className='input_box'>
+                <input type='text' required='required' onChange={(e) => {setDescription(e.target.value)}}/>
+                <span>description</span>
+            </div>
+
+            <button className='btn_add_service' onClick={handleSendRequest}>Send Request</button>
+        </div>
+        
+            <div className={`${check ? 'showdd' : 'hidedd'}`}>
+                <h3>Your request has been sent successfully</h3>
+                <h3>Please keep an eye on your services to check whether it will be accepted by {selectedWorker.first_name} or not</h3>
+                <h3>Have a nice day</h3>
+            </div>
+            
+        {/* {!check &&
         <>
             <h3>Your request has been sent successfully</h3>
             <h3>Please keep an eye on your services to check whether it will be accepted by {selectedWorker.first_name} or not</h3>
             <h3>Have a nice day</h3>
         </>
-        }
+        } */}
     </div>
     </>
   )
