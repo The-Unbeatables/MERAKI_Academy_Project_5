@@ -92,7 +92,7 @@ const Cart = () => {
     <div className="back_to_home">
     <div className="home">
       <FcHome
-          style={{width: '40px', height: '40px'}}
+          style={{width: '40px', height: '40px',cursor:'pointer'}}
       onClick={() => {
             navigate("/");
           }}/>
@@ -134,7 +134,7 @@ const Cart = () => {
                     <div className="whislist_btns">
                     <FcFullTrash
                       className="whislist_icons"
-                      style={{width: '40px', height: '40px'}}
+                      style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         deleteFromWhislist(product.id);
                       }}
@@ -142,7 +142,7 @@ const Cart = () => {
                     <div>
                       <FcLike 
                       className="whislist_icons"
-                      style={{width: '40px', height: '40px'}}
+                      style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         sendToCart(product.product_id);
                       }}/>
