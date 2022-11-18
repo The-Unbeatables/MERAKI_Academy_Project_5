@@ -2,25 +2,23 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteProduct,
   setitem,
   setProduct,
 } from "../../redux/reducers/products";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import ProductDetails from "../ProductDetails";
 import { FcSearch } from "react-icons/fc";
 import ReactPaginate from "react-paginate";
+import { FcBookmark } from "react-icons/fc";
+
 
 const Products = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { product, token, pages } = useSelector((state) => {
+  const { product } = useSelector((state) => {
     return {
       product: state.products.products,
-      token: state.auth.token,
-      pages: state.products.pages
     };
   });
 
@@ -167,6 +165,7 @@ const Products = () => {
       </div>
       <div className="products">
         {product?.map((data) => {
+          console.log(data);
           return (
             <div className="cardProduct">
               <div className="sss">
@@ -175,19 +174,18 @@ const Products = () => {
                 </div>
                 <div className="info">
                   <div className="product_title">
-                    <h2>{data.title}</h2>
+                    <h2 className="title_card">{data.title}</h2>
                   </div>
                   <div className="product_description">{data.description}</div>
                   <div className="product_price">{data.price} $</div>
                   <div>
-                    <button
-                      className="product_detailes_btns"
-                      onClick={() => {
+                    <div className="detailes_container">
+                  <FcBookmark style={{width: '20px', height: '20px'}} />
+                    <p className="product_detailes_btns" onClick={() => {
                         handelDetalis(data);
-                      }}
-                    >
-                      Details
-                    </button>
+                  }}>Show More Details</p>
+                  <FcBookmark style={{width: '20px', height: '20px'}} />
+                  </div>
                   </div>
                 </div>
               </div>
