@@ -1,12 +1,110 @@
-.border{
-    border: 1px solid blue;
+.show_ser_container{
+    margin-left: 1%;
+    background: rgb(240, 231, 231);
+    margin-top: 1%;
+    box-shadow: 1px 2px 2px 2px grey;
+    width: 98%;
+    padding: 1%;
 }
-.row{
+.ser_update{
     display: flex;
     flex-direction: row;
+    
 }
-.row input{
+.ser_update input{
     height: 20px;
     margin-top: 18px;
     margin-left: 18px;
+}
+
+.show_ser_btn{
+    margin: auto;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: 1px solid rgb(31, 28, 28);
+    font-weight: bold;
+    margin-left: 1%;
+}
+.show_ser_btn:hover{
+    transform: scale(1.1);
+    transition: 0.4s;
+    background: grey;
+}
+.ser_show_text{
+    width: 20%;
+}
+.ser_show_info{
+    width: 80%;
+}
+.ser_show_info_can{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.ser_show_info h3{
+    color: rgb(129, 72, 72);
+}
+.ser_show_info_can h3{
+    color: rgb(129, 72, 72);
+}
+.Pending{
+    /* background: blue; */
+}
+.first_one{
+    width: 30%;
+}
+.second_one{
+    width: 70%;
+}
+.second_one input{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+}
+.second_one input::placeholder{
+    text-align: center;
+}
+
+@media (max-width: 960px){
+    .ser_show_text h3{
+        font-size: 1rem;
+    }
+    .first_one h3{
+        font-size: 1rem;
+    }
+    .second_one h3{
+        font-size: 1rem;
+    }
+    .ser_show_info h3{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 960px){
+    .first_one{
+    width: 50%;
+}
+    .second_one{
+    width: 50%;
+}
+.second_one input{
+    width: 90%;
+}
+
+}
+@media (max-width: 650px){
+    .ser_show_text h3{
+        font-size: 0.9rem;
+    }
+    .first_one h3{
+        font-size: 0.9rem;
+    }
+    .second_one h3{
+        font-size: 0.9rem;
+    }
+    .ser_show_info h3{
+        font-size: 0.9rem;
+    }
 }

@@ -8,7 +8,7 @@
     gap: 10px;
     margin-left: 10%;
     width: 20%;
-    width: 100%;
+    width: 50%;
     text-align: center;
     /* margin-top: 20px;
     border: 1px solid black; */
@@ -58,9 +58,33 @@
     transition: 0.4s;
     background: grey;
 }
-.showdd{
-    visibility: visible;
-}
 .hidedd{
+    margin-left: 10%;
+    position: absolute;
+    top: 0;
+    left: 40%;
+    transform:scale(0.1);
     visibility: hidden;
+    transition: trasnform 0.4s;
+}
+.showdd{
+    background: rgb(218, 216, 216);
+    text-align: center;
+    padding: 1%;
+    width: 30%;
+    border-radius: 3%;
+    box-shadow: 1px 2px 5px 10px grey;
+    margin-left: 15%;
+    position: absolute;
+    visibility: visible;
+    top: 24%;
+    left: 30%;
+    transform:scale(1);
+    transition: trasnform 0.4s, top 0.4s;
+}
+.marg{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    background: rgb(218, 216, 216);
+
 }

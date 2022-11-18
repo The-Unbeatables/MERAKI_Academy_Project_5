@@ -74,29 +74,44 @@ return(
     <>
     {userServiceOrders.map((elem, i) => {
         return (
-            <div className='border'>
-                <div className='row'>
-                    <h3>Service Title: {elem.service_title}</h3>
-                    {check && (selectedId === elem.id) && <input type='text' placeholder='new title' onChange={(e) => {setTitle(e.target.value)}}/>}
+            <div className='show_ser_container'>
+
+                <div className='ser_update'>
+                    <div className='ser_show_text'><h3>Service Title:</h3></div>
+                    <div className='ser_show_info_can'>
+                        <div className='first_one'><h3>{elem.service_title}</h3></div>
+                        <div className='second_one'>{check && (selectedId === elem.id) && <input type='text' placeholder='New Title' onChange={(e) => {setTitle(e.target.value)}}/>}</div>
+                    </div>
                 </div>
-                <div className='row'>
-                    <h3>Service Description: {elem.service_description}</h3>
-                    {check && (selectedId === elem.id) && <input type='text' placeholder='new description' onChange={(e) => {setDescription(e.target.value)}}/>}
+
+                <div className='ser_update'>
+                    <div className='ser_show_text'><h3>Service Description: </h3></div>
+                    <div className='ser_show_info_can'>
+                        <div className='first_one'><h3> {elem.service_description}</h3></div>
+                        <div className='second_one'>{check && (selectedId === elem.id) && <input type='text' placeholder='New Description' onChange={(e) => {setDescription(e.target.value)}}/>}</div>
+                    </div>
+                </div>
+
+                <div className='ser_update'>
+                    <div className='ser_show_text'><h3>Worker's Name: </h3></div>
+                    <div className='ser_show_info'><h3>{elem.first_name} {elem.last_name}</h3></div>
+                </div>
+
+                <div className='ser_update'>
+                    <div className='ser_show_text'><h3>Service Status:</h3></div>
+                    <div className='ser_show_info'><h3 className={`${elem.status}`}>{elem.status}</h3></div>
                 </div>
                 
-                <h3>Worker's Name: {elem.first_name} {elem.last_name}</h3>
-                <h3>Service Creation Date: {elem.created_at.split('T')[0]}</h3>
-                <h3>Service Status: {elem.status}</h3>
                 {!check && 
                 <>
-                    <button onClick={() => {toggle(elem.id)}}>Update Service</button>
-                    <button onClick={() => {handleDelete(elem.id)}}>Delete Service</button>
+                    <button className='show_ser_btn' onClick={() => {toggle(elem.id)}}>Update Service</button>
+                    <button className='show_ser_btn' onClick={() => {handleDelete(elem.id)}}>Delete Service</button>
                     </>
                 }
                 {check && (selectedId === elem.id) &&
                 <>
-                    <button onClick={() => {handleUpdate(elem.id)}}>Confirm Update</button>
-                    <button onClick={() => {setCheck(!check)}}>Cancel</button>
+                    <button className='show_ser_btn' onClick={() => {handleUpdate(elem.id)}}>Confirm Update</button>
+                    <button className='show_ser_btn' onClick={() => {setCheck(!check)}}>Cancel</button>
                     </>
                 }
                 
