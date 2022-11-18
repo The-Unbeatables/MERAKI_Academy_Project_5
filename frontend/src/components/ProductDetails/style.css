@@ -1,22 +1,25 @@
 .container-detailes-product {
     display: grid;
     grid-template-columns: repeat(5,auto);
-    background-color: white;
+    background-color: rgb(39, 34, 34);
     margin-left: 15px;
     margin-bottom: 30px;
+    margin-right: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
 }
 
 .image-product-detailess {
     width: 500px;
     height: 500px;
-    margin-top: 40px;
+    border-radius: 5px;
 }
 
 .prduct-detailes-words {
     margin-top: 40px;
     width: 500px;
     height: auto;
-    color: #000000;
+    color: #ffffff;
 }
 
 .icon-love-product {
@@ -24,7 +27,7 @@
 }
 
 .textt {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .fclike-icon {
@@ -45,16 +48,49 @@
 .remove-from-wish-list {
   margin-top: 40px;
   border-radius: 4px;
-  font-size: 16px;
-  background-color: #32373b;
-  color: rgb(251, 251, 251);
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #feffff;
+  color: rgb(0, 98, 255);
   margin-right: 10px;
   margin-left: 80px;
   width: 180px;
+  height: 45px;
 }
 
-.remove-from-wish-list-btns:hover {
-  background-color: #0082e6;
-  border-color: white;
+.remove-from-wish-list:hover {
+  background-color: #01257b;
+  border-color: #01257b;
+  color: white;
   cursor: pointer;
 }
+
+@media (min-width: 400px) and (max-width: 600px) {
+   .container-detailes-product {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: rgb(39, 34, 34);
+    width: auto;
+   }
+
+   .image-product-detailess {
+    width: 400px;
+    height: 420px;
+    border-radius: 5px;
+   }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    .container-detailes-product {
+     display: grid;
+     grid-template-columns: 1fr;
+     background-color: rgb(39, 34, 34);
+     width: auto;
+    }
+ 
+    .image-product-detailess {
+     width: 585px;
+     height: 420px;
+     border-radius: 5px;
+    }
+ }

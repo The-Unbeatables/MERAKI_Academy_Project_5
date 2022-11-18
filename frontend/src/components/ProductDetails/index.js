@@ -87,12 +87,12 @@ const sendToWhislist = (id) => {
             </h1>
             
             <p className="detailess">
-              <b className="textt">Description: </b>{" "}
+              <b className="textt">Description: <br></br></b>{" "}
               {item.description}
             </p>
             <hr></hr>
             <p className="detailess">
-              <b className="textt">Quantity: </b>{" "}
+              <b className="textt">Quantity:</b>{" "}
               {item.items_left}
             </p>
             <hr></hr>
@@ -101,7 +101,6 @@ const sendToWhislist = (id) => {
               {item.price} $
             </p>
           </div>
-          <hr></hr>
           <div className="icon-love-product">
             <div className="fclike-icon">
               <button 
@@ -109,22 +108,7 @@ const sendToWhislist = (id) => {
               onClick={() => {
                   sendToWhislist(item.id);
                 }}>Add To Favorite</button>
-              {/* <FcLike
-                size={40}
-                onClick={() => {
-                  sendToWhislist(item.id);
-                }}
-              /> */}
             </div>
-            {/* <div>
-              <FcUndo
-                className="undo-icon"
-                size={30}
-                onClick={() => {
-                  history(-1);
-                }}
-              />
-            </div> */}
           </div>
         </div>
       </div>
