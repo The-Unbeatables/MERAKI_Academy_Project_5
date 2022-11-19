@@ -6,14 +6,14 @@
 
 .register_image {
     width: 650px;
-    height: 650px;
+    height: 580px;
 }
 
 .Register{
 text-align: center;
 display: grid;
 justify-content: center;
- 
+margin-top: 30px;
 }
 .contanirRegister{
     display: grid;
@@ -21,17 +21,19 @@ justify-content: center;
 }
 .inputRegister{
     display: grid;
+    grid-template-rows: 1fr 1fr;
     gap: 20px;
     
 
 }
 .threefirstinput{
-display: flex;
-gap: 20px;
-
+display: grid;
+grid-template-rows: 1fr 1fr 1fr;
+gap: 15px;
 }
 .buttonRegister{
-    text-align: left;
+    text-align: center;
+    margin-top: -20px;
 }
 
 .register_btn {
@@ -40,4 +42,24 @@ gap: 20px;
     width: 100px;
     height: 35px;
     border-radius: 3px;
+}
+
+.register_input {
+    width: 500px;
+    height: 35px;
+}
+
+.twolasttinput {
+    display: grid;
+grid-template-rows: 1fr 1fr 1fr;
+gap: 10px;
+}
+
+.login_header {
+    color: black;
+}
+
+.register_btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: brown;
 }
