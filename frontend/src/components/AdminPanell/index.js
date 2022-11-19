@@ -69,7 +69,6 @@ const AdminPanell = () => {
     })
   }
 
-  
   useEffect(() => {
     getAllTheUsers();
     getAllTheProducts();
@@ -80,7 +79,6 @@ const AdminPanell = () => {
   return (
     <>
     <div className='biggestss'>  {/* Biggest container*/}
-
        <div className='stat-container'> {/*Stats*/}
 
        <div className='stats'>
