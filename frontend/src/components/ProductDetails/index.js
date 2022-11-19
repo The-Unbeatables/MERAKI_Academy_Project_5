@@ -71,8 +71,8 @@ const sendToWhislist = (id) => {
         />
       </div>
     </div>
-      <div>
-        <div className="container-detailes-product">
+      <div className="container-detailes-product">
+        <div className="product_grid">
           <div>
             <img
               className="image-product-detailess"

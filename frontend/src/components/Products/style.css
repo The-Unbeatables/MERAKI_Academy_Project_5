@@ -7,18 +7,18 @@
     /* justify-content: center; */
 }
 .cardProduct{
-   display: grid;
-   text-align: center;
-   height: 300px;
-   width: auto;
-   box-shadow: 0 10px 8px 0 rgba(11, 11, 11, 0.2);
-   perspective: 1000px; 
-   background-color: transparent;
+  display: grid;
+  text-align: center;
+  height: 300px;
+  width: auto;
+  box-shadow: 0 10px 8px 0 rgba(11, 11, 11, 0.2);
+  perspective: 1000px; 
+  background-color: transparent;
 }
 .sss{
   position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 .cardProduct:hover .sss {
   transform: rotateY(180deg);
