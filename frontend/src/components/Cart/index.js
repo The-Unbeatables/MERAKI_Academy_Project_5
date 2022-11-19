@@ -116,7 +116,7 @@ const Cart = () => {
                 <div key={product[index]} className="cart-prducts">
                   <div className="imagediv-cart">
                     <img
-                      className="image-cart"
+                      className="image-wishList"
                       src={product.image}
                       alt="product"
                     />

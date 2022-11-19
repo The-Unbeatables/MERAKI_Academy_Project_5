@@ -9,6 +9,7 @@ import {
   FcHome
 } from "react-icons/fc";
 import {FaBackward} from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 // Cart
 const ProductOrders = () => {
@@ -100,30 +101,32 @@ const ProductOrders = () => {
       </div>
     </div>
 
-      <div className="cart-container">
-        <div className="cart">
+      <div className="cart-containers">
+        <div className="the-cart">
           {userProductOrders.map((product,index) => {
             return (
               <>
-                <div key={product[index]} className="cart-prduct">
+                <div key={product[index]} className="card-cart">
                   <div className="image-div-cart">
                     <img
-                      className="product-image-cart"
+                      className="image-cart"
                       src={product.image}
                       alt="product"
                     />
                   </div>
                   <div className="words-cart">
-                    <p className="title">{product.title}</p>
+                    
+                    <h1 className="price-cart">{product.price}$</h1>
                     <hr></hr>
-                    <p className="description">{product.price}$</p>
+                    <p className="title-cart">{product.title}</p>
                     <hr></hr>
                     <p className="description">
                       Item Quantity: {product.items_left}
                     </p>
                   </div>
                   <div className="whislist_btn_cart">
-                    <FcDislike
+                    <IoClose
+                    // <FcDislike
                       className="delete-icon"
                       style={{width: '40px', height: '40px'}}
                       onClick={() => {
