@@ -37,7 +37,7 @@
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
   
 }
-.image-cart{
+.image-wishList{
     height: 250px;
 }
 .price-cart{
@@ -119,3 +119,14 @@
     grid-template-columns: repeat(4, 1fr);
     }
 } */
+
+/* ----------------------------------- */
+@media only screen and (max-width: 600px) {
+
+    .carts{
+        display: grid;
+        grid-template-columns: repeat(1 , 350px);
+        margin-left: 0px;       
+    }
+
+}
