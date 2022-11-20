@@ -83,7 +83,14 @@
     font-weight: 700;
     margin-top: 20px;
 }
-
+.Quantity{
+    display: flex;
+    gap: 10px;
+}
+.inputQuantity{
+    width: 50px;
+    border-radius: 5px;
+}
 .description {
     font-weight: 350;
 }
