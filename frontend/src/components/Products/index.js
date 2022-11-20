@@ -140,7 +140,7 @@ const Products = () => {
             </h4>
           </div>
         </div>
-        <input type="text" name="search" placeholder="Search.." onChange={(e) => {
+        <input className="input_search" type="text" name="search" placeholder="Search.." onChange={(e) => {
             handelSearch(e.target.value);
           }}></input>
       </div>
