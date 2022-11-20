@@ -1,7 +1,7 @@
 .container-detailes-product {
     display: grid;
-    grid-template-columns: repeat(5,auto);
-    background-color: rgb(39, 34, 34);
+    grid-template-columns: repeat(3,auto);
+    background-color: rgb(255, 255, 255);
     margin-left: 15px;
     margin-bottom: 30px;
     margin-right: 15px;
@@ -9,17 +9,25 @@
     margin-top: 15px;
 }
 
+.product_grid {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    position: relative;
+}
+
 .image-product-detailess {
-    width: 500px;
-    height: 500px;
     border-radius: 5px;
+    width: 400px;
+    height: 500px;
+    position: relative;
 }
 
 .prduct-detailes-words {
     margin-top: 40px;
     width: 500px;
     height: auto;
-    color: #ffffff;
+    color: #000000;
+    position: relative;
 }
 
 .icon-love-product {
@@ -27,7 +35,7 @@
 }
 
 .textt {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 .fclike-icon {
@@ -46,51 +54,49 @@
 }
 
 .remove-from-wish-list {
-  margin-top: 40px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #feffff;
-  color: rgb(0, 98, 255);
-  margin-right: 10px;
-  margin-left: 80px;
-  width: 180px;
-  height: 45px;
+    margin-top: 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+    margin-left: 80px;
+    width: 180px;
+    height: 45px;
 }
 
 .remove-from-wish-list:hover {
-  background-color: #01257b;
-  border-color: #01257b;
-  color: white;
-  cursor: pointer;
+    background-color: #d60606;
+    border-color: #ca0505;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
 }
 
-@media (min-width: 400px) and (max-width: 600px) {
-   .container-detailes-product {
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: rgb(39, 34, 34);
-    width: auto;
-   }
-
-   .image-product-detailess {
-    width: 400px;
-    height: 420px;
+/* @media (min-width: 400px) and (max-width: 600px) {
+    .product_grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+    }
+    .image-product-detailess {
     border-radius: 5px;
-   }
+    width: auto;
+    height: 220px;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 800px) {
     .container-detailes-product {
-     display: grid;
-     grid-template-columns: 1fr;
-     background-color: rgb(39, 34, 34);
-     width: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: rgb(39, 34, 34);
+        width: auto;
     }
- 
+
     .image-product-detailess {
-     width: 585px;
-     height: 420px;
-     border-radius: 5px;
+        width: 585px;
+        height: 420px;
+        border-radius: 5px;
     }
- }
+ } */
