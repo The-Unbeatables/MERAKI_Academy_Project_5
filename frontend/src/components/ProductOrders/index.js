@@ -15,6 +15,7 @@ import { IoClose } from "react-icons/io5";
 const ProductOrders = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [quantity, setQuantity] = useState('')
 
   const { userProductOrders, token, userId, cart } = useSelector((state) => {
     return {
@@ -26,7 +27,6 @@ const ProductOrders = () => {
   });
 
   const showCart = () => {
-    console.log(userId);
     if (!token) {
       navigate("/login");
     } else {
@@ -39,8 +39,7 @@ const ProductOrders = () => {
         }
         )
         .then((result) => {
-          console.log(result);
-          console.log(result.data.result);
+         
           dispatch(setUserProductOrders(result.data.result));
         })
         .catch((err) => {
@@ -65,19 +64,29 @@ const ProductOrders = () => {
         dispatch(deleteUserProductOrder(id));
         }
     } catch (err) {
-      console.log("err");
+      console.log(err);
     }
   };
 
   const total = (arr) => {
     return arr.reduce((sum, index) => {
-      return sum + index.price;
+      return sum + index.price ;
     }, 0);
   };
 
   const checkout = () => {
     navigate("/checkout");
   };
+
+
+const avargeQuantity=(e,price)=>{
+  // console.log(e);
+  //  let qutity= ((e*price)-price)
+  //  console.log(qutity);
+  //   setQuantity(qutity)
+}
+
+
 
   return (
     <>
@@ -120,9 +129,12 @@ const ProductOrders = () => {
                     <hr></hr>
                     <p className="title-cart">{product.title}</p>
                     <hr></hr>
-                    <p className="description">
-                      Item Quantity: {product.items_left}
+                    <div className="Quantity">
+                    <p className="QuantityP">
+                       Quantity:
                     </p>
+                    <input className="inputQuantity" type={"number"} onChange={(e)=>{avargeQuantity(e.target.value,product.price)}}/>
+                    </div>
                   </div>
                   <div className="whislist_btn_cart">
                     <IoClose
