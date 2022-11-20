@@ -1,17 +1,31 @@
+.register_page_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .login-container{
     display: grid;
     /* flex-direction: column; */
-    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     /* width: 40%; */
     /* margin: auto; */
     /* border: 1px solid black; */
     text-align: center;
-    margin-top: 10%;
+    /* margin-top: 10%; */
+    margin-top: 30px;
 }
 
 .login_input {
     margin-top: 5px;
     height: 35px;
+}
+
+.container_login_btn {
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin-left: 55px;
+    margin-top: 20px;
 }
 
 .login_btn {
@@ -26,16 +40,27 @@
     border-radius: 3px;
 }
 
+.login_btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: brown;
+}
+
 .buttonGoogle{
     display: flex;
     height: 40px;
     width: 70%;
-    margin-left: 50px;
+    margin-left: 75px;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    padding-top: 5px;
+    border-radius: 2px;
+    border-color: white;
 }
+
+.buttonGoogle:hover {
+    color: rgb(255, 255, 255);
+    background-color: brown;
+}
+
 .iconGoogle{
     position: relative;
     left: -30px;
@@ -43,4 +68,11 @@
 .signin{
     position: relative;
     left: -40px;
+}
+
+.label_type {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
 }

@@ -32,72 +32,81 @@ const Register = () => {
 
   return (
     <>
-    <div className="register_page_container">
+      <div className="register_page_container">
         <div>
-        <img
-                      className="register_image"
-                      src={'https://thumbs.dreamstime.com/b/3d-workers-team-work-24603364.jpg'}
-                      alt="product"
-                    />
+          <img
+            className="register_image"
+            src={
+              "https://thumbs.dreamstime.com/b/3d-workers-team-work-24603364.jpg"
+            }
+            alt="product"
+          />
         </div>
 
-    <div className="Register">
-      <h2>Register</h2>
-      <div className="contanirRegister">
-        <div className="inputRegister">
-          <div className="threefirstinput">
-            <input
-              type="text"
-              placeholder="First Name"
-              onChange={(e) => {
-                setFirstName(e.target.value);
-              }}
-            />
-
-            <input
-              type="text"
-              placeholder="Last Name"
-              onChange={(e) => {
-                setLastname(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Gender"
-              onChange={(e) => {
-                setGender(e.target.value);
-              }}
-            />
+        <div className="Register">
+        <h3 className="login_header">Register</h3>
+          <div className="contanirRegister">
+            <div className="inputRegister">
+              <div className="threefirstinput">
+                <input
+                  className="register_input"
+                  type="text"
+                  placeholder="First Name"
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
+                />
+                <input
+                  className="register_input"
+                  type="text"
+                  placeholder="Last Name"
+                  onChange={(e) => {
+                    setLastname(e.target.value);
+                  }}
+                />
+                <input
+                  className="register_input"
+                  type="text"
+                  placeholder="Gender"
+                  onChange={(e) => {
+                    setGender(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="twolasttinput">
+              <input
+                className="register_input"
+                type="email"
+                placeholder="example@email.com"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+              <input
+                className="register_input"
+                type="password"
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              </div>
+            </div>
+            <div className="buttonRegister">
+              <button
+                className="register_btn"
+                onClick={() => {
+                  handelRegisterbutton();
+                }}
+              >
+                {" "}
+                Register{" "}
+              </button>
+            </div>
           </div>
-          <input
-            type="email"
-            placeholder="example@email.com"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div className="buttonRegister">
-          <button className="register_btn"
-            onClick={() => {
-              handelRegisterbutton();
-            }}
-          >
-            {" "}
-            Register{" "}
-          </button>
+          <div>{showMessage && <div>{message}</div>}</div>
         </div>
       </div>
-      <div>{showMessage && <div>{message}</div>}</div>
-    </div>
-    </div>
     </>
   );
 };
