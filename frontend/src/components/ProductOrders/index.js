@@ -71,6 +71,7 @@ const ProductOrders = () => {
   const total = (arr) => {
     console.log(arr);
     return arr.reduce((sum, index) => {
+
       return sum + index.price;
     }, 0);
   };
@@ -86,6 +87,7 @@ const avargeQuantity=(e,price)=>{
   //  console.log(qutity);
     setQuantity(qutity)
 }
+
 
 
 
