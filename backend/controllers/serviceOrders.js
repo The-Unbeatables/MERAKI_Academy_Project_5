@@ -84,18 +84,19 @@ const deleteServiceOrder=(req , res)=>{
      })
     })
 }
-
+//fix
 const getAllServiceOrders=(req ,res)=>{
     const query=`SELECT * FROM service_orders
     INNER JOIN users on service_orders.user_id = users.id
     INNER JOIN workers on service_orders.worker_id = workers.id 
-   where service_orders.is_deleted =0 `
+   where service_orders.is_deleted =0;
+   SELECT * FROM workers INNER JOIN users ON workers.user_id = users.id `
     pool.query(query)
     .then((result)=>{
         res.status(200).json({
             sucess : true,
             message: "Success Operation",
-            result : result.rows
+            result : result
         })
     })
     .catch((err)=>{
