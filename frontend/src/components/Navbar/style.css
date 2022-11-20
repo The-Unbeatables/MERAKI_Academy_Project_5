@@ -10,7 +10,7 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
 nav{
-    background: #0082e6;
+    background: #25242a;
     width: 100%;
     height: 80px;
 }
@@ -43,9 +43,10 @@ nav ul li a{
 }
 
 a:hover{
-    background: #1b9bff;
+    background: brown;
     transition: 0.5s;
     cursor: pointer;
+    color: white;
 }
 
 .checkbtn{
