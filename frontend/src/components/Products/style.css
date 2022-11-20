@@ -205,6 +205,11 @@ input[type=text]:focus {
   .category {
     gap: 10px;
   }
+  /* .pagin{
+    position: relative;
+    left: 200px;
+    top: -100px;
+  } */
 }
 
  @media (min-width: 801px) and (max-width: 900px) {

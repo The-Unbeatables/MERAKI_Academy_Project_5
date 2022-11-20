@@ -67,36 +67,8 @@
 }
 
 .remove-from-wish-list:hover {
-    background-color: #d60606;
-    border-color: #ca0505;
+    background-color: brown;
+    border-color: brown;
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
-
-/* @media (min-width: 400px) and (max-width: 600px) {
-    .product_grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        position: relative;
-    }
-    .image-product-detailess {
-    border-radius: 5px;
-    width: auto;
-    height: 220px;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 800px) {
-    .container-detailes-product {
-        display: grid;
-        grid-template-columns: 1fr;
-        background-color: rgb(39, 34, 34);
-        width: auto;
-    }
-
-    .image-product-detailess {
-        width: 585px;
-        height: 420px;
-        border-radius: 5px;
-    }
- } */
