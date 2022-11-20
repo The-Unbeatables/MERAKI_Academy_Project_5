@@ -147,6 +147,7 @@ const Home = () => {
           <img className="brand_img" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmn0IFGfw2KHYnMl9D7oDWA52hmLsDeNc8sNp3RVp_Amp8hJ7UlsxZ3hrnQr1BAf7TvYY&usqp=CAU"} alt="brand"/>
         </div>
         <div className="contact_info"><h1 className="contact_form_text">Contact Form</h1></div>
+        <div className="container_message">
         <div class="container">
           <div class="row">
             <div class="col-lg-7 mx-auto">
@@ -254,6 +255,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

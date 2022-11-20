@@ -15,7 +15,7 @@ import { IoClose } from "react-icons/io5";
 const ProductOrders = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState('')
+  const [quantity, setQuantity] = useState(1)
 
   const { userProductOrders, token, userId, cart } = useSelector((state) => {
     return {
@@ -69,8 +69,9 @@ const ProductOrders = () => {
   };
 
   const total = (arr) => {
+    console.log(arr);
     return arr.reduce((sum, index) => {
-      return sum + index.price ;
+      return sum + index.price;
     }, 0);
   };
 
@@ -81,9 +82,9 @@ const ProductOrders = () => {
 
 const avargeQuantity=(e,price)=>{
   // console.log(e);
-  //  let qutity= ((e*price)-price)
+   let qutity= ((e*price))
   //  console.log(qutity);
-  //   setQuantity(qutity)
+    setQuantity(qutity)
 }
 
 

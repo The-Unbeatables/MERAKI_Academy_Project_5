@@ -17,8 +17,6 @@ img{
     height: 100%;
 }
 .bigg{
-    /* margin-top: 250px;
-    margin-left: 300px; */
     margin-top: 13%;
     margin-left: 22%;
     display: grid;
@@ -26,7 +24,6 @@ img{
     row-gap: 2rem;
     column-gap: 2rem;
     margin-bottom: -10%;
-
 }
 .overlay{
     position: absolute;
