@@ -84,7 +84,7 @@ const deleteServiceOrder=(req , res)=>{
      })
     })
 }
-
+//fix
 const getAllServiceOrders=(req ,res)=>{
     const query=`SELECT * FROM service_orders
     INNER JOIN users on service_orders.user_id = users.id
