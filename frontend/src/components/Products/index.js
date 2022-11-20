@@ -1,16 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setitem,
-  setProduct,
-} from "../../redux/reducers/products";
+import { setitem, setProduct } from "../../redux/reducers/products";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { FcSearch } from "react-icons/fc";
 import ReactPaginate from "react-paginate";
 import { FcBookmark } from "react-icons/fc";
-
 
 const Products = () => {
   const navigate = useNavigate();
@@ -24,16 +19,13 @@ const Products = () => {
 
   const [range, setRange] = useState("");
   const [pagenum, setPageNum] = useState(0);
-  // console.log(page);
 
   const handlePageClick = (data) => {
     console.log(data.selected + 1);
-    setPageNum(data.selected)
-    // dispatch((pages(data.selected +1)))
-  }
+    setPageNum(data.selected);
+  };
 
   const pageCount = 100;
-  //pagination/product/${pagenum}
   const getProduct = () => {
     axios
       .get(`http://localhost:5000/products/pagination/product/${pagenum}`)
@@ -148,21 +140,11 @@ const Products = () => {
             </h4>
           </div>
         </div>
-        <input
-          className="search_input"
-          placeholder="search"
-          onChange={(e) => {
+        <input type="text" name="search" placeholder="Search.." onChange={(e) => {
             handelSearch(e.target.value);
-          }}
-        />
-        <FcSearch
-          className="icons_search"
-          style={{ width: "35px", height: "40px" }}
-          onClick={() => {
-            handelSearch();
-          }}
-        />
+          }}></input>
       </div>
+
       <div className="products">
         {product?.map((data) => {
           console.log(data);
@@ -170,7 +152,7 @@ const Products = () => {
             <div className="cardProduct">
               <div className="sss">
                 <div className="imgproduct">
-                  <img src={`${data.image}`} className="image" />
+                  <img src={`${data.image}`} />
                 </div>
                 <div className="info">
                   <div className="product_title">
@@ -180,12 +162,23 @@ const Products = () => {
                   <div className="product_price">{data.price} $</div>
                   <div>
                     <div className="detailes_container">
-                  <FcBookmark style={{width: '20px', height: '20px'}} />
-                    <p className="product_detailes_btns" onClick={() => {
-                        handelDetalis(data);
-                  }}>Show More Details</p>
-                  <FcBookmark style={{width: '20px', height: '20px'}} />
-                  </div>
+                      <FcBookmark
+                        className="icons_show_detailes"
+                        style={{ width: "20px", height: "20px" }}
+                      />
+                      <p
+                        className="product_detailes_btns"
+                        onClick={() => {
+                          handelDetalis(data);
+                        }}
+                      >
+                        Show More Details
+                      </p>
+                      <FcBookmark
+                        className="icons_show_detailes"
+                        style={{ width: "20px", height: "20px" }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -198,8 +191,8 @@ const Products = () => {
           breakLabel="..."
           nextLabel="next >"
           onPageChange={handlePageClick}
-          marginPagesDisplayed={4}
-          pageRangeDisplayed={4}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={2}
           pageCount={pageCount}
           previousLabel="< back"
           containerClassName={"pagination justify-content-center p-3"}
@@ -213,7 +206,7 @@ const Products = () => {
           breakLinkClassName={"page-link"}
           activeClassName={"active"}
         />
-        </div>
+      </div>
     </>
   );
 };
