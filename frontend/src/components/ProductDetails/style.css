@@ -64,6 +64,7 @@
     margin-left: 80px;
     width: 180px;
     height: 45px;
+    transition: .3s;
 }
 
 .remove-from-wish-list:hover {

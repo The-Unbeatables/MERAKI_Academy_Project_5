@@ -126,31 +126,38 @@ const Cart = () => {
                     {/* <hr></hr> */}
                     <p className="price-cart">{product.price}$</p>
                     {/* <hr></hr> */}
-                    <div className="description-cart">
+                    
                     <h5 className="desc" >
                      {product.description}
                     </h5>
-                    </div>
+                   
                   </div>
                  
                     <div className="whislist_btns">
                       <div>
-                    <FcFullTrash
+                        <button  className="btn-delete-wishList" onClick={() => {
+                        deleteFromWhislist(product.id);
+                      }}> Delete {product.title}</button>
+                        
+                    {/* <FcFullTrash
                       className="whislist_icons"
                       style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         deleteFromWhislist(product.id);
                       }}
-                    />
+                    /> */}
                     </div>
                     <div>
-                    <SlBasket
+                    <button className="btn-addToCart-wishList" onClick={() => {
+                        sendToCart(product.product_id);
+                      }}> Add {product.title} To Cart</button>
+                    {/* <SlBasket
                       
                       className="whislist_icons"
                       style={{width: '40px', height: '40px',cursor:'pointer'}}
                       onClick={() => {
                         sendToCart(product.product_id);
-                      }}/>
+                      }}/> */}
                       </div>
                     </div>
                  
