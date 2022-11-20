@@ -18,10 +18,12 @@ const AdminOrders = () => {
 const getServiceOrders=()=>{
   axios.get('http://localhost:5000/ServiceOrders')
   .then((result)=>{
-   console.log(result.data.result[0].rows);
-   console.log(result.data.result[1].rows);
+  //  console.log(result.data.result[0].rows);
+  //  console.log(result.data.result[1].rows);
    setWorkers(result.data.result[1].rows)
      dispatch(getAllServiceOrders(result.data.result[0].rows))
+    //  console.log(allServiceOrders.slice(7,11));
+
   
   })
   .catch((err)=>{
@@ -50,7 +52,7 @@ useEffect(()=>{
           </tr>
         </thead>
     <tbody>
-          { allServiceOrders?.map((item,i) => (
+          { allServiceOrders.map((item,i) => (
               
               <tr key={i}>
             
