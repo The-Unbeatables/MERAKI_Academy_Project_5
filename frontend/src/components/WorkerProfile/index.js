@@ -88,7 +88,7 @@ useEffect(()=>{
         throw err;
         });
     };
-  
+
 
     return(
         <div className="workerProfile">
@@ -102,14 +102,26 @@ useEffect(()=>{
         <div className="conatan-input">
         <div className="prof">
         <label >Profession</label>
-        <input
+        
+        <select className='select' name='rating' onChange={(e)=>{setProfession(e.target.value)}}>
+
+<option  value="none" selected disabled hidden> Choose one from the list </option>  
+ <option value="painter">Painter</option>   
+ <option value='carpenter'>Carpenter </option>
+ <option value='plumber'>Plumber</option>   
+ <option value='mechanic'>Mechanic</option>
+ <option value='tiler'>Tiler</option>
+ <option value='drywaller'>Drywaller</option>
+ <option value='smith'>Smith</option>
+</select>
+        {/* <input
             className="inputprofile"
             type="text"
             
             onChange={(e) => {
               setProfession(e.target.value);
             }}
-        ></input>
+        ></input> */}
         </div>
 
         <div className="prof">
