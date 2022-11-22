@@ -73,3 +73,11 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
+.ss{
+    background-color: #a6a6a6;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    width: 180px;
+    height: 45px;
+}
