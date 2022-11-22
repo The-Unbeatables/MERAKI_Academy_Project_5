@@ -3,7 +3,7 @@ import './style.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { FcLike} from "react-icons/fc";
-import { addToCart } from "../../redux/reducers/carts";
+import { addToCart, setCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from "../../redux/reducers/product_orders"; 
 import { FcHome } from 'react-icons/fc';
 import {FaBackward} from "react-icons/fa";
@@ -47,7 +47,8 @@ const sendToWhislist = (id) => {
       )
       .then((res) => {
         dispatch(addToCart(item))
-        disable()
+    
+        setToDisabled(true)
     
       })
       .catch((err) => {
@@ -65,24 +66,43 @@ const sendToWhislist = (id) => {
 }
 
 
+useEffect(()=>{
+  axios
+  .get(`http://localhost:5000/carts/show`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  .then((result) => {
+    // console.log(result.data.result);
+    // setTheCart(result.data.result)
 
-console.log(item);
+    dispatch(setCart(result.data.result));
+    disable();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+},[])
+
+
+
+// console.log(item);
 const disable =()=>{
 
 for (let i = 0; i < cart.length; i++) {
-  console.log(cart.length);
-  console.log(cart[i].product_id);
-  console.log(item.id);
+  // console.log(cart.length);
+  // console.log(cart[i].product_id);
+  // console.log(item.id);
   if(cart[i].product_id === item.id){
-    //  setToDisabled(true)
+    
     console.log('not disable');
-    return true
+    setToDisabled(true)
+    return;
            
   }
  
 }
-console.log('disable');
-return false
 
 }
 
@@ -145,10 +165,10 @@ return false
             <div className="fclike-icon">
             {/* {cart.find((item) => item.id === product.id) ? */}
             
-              <button   className={`${disable() ?   "ss" :"remove-from-wish-list"}`}
+              <button   className={`${toDisabled ? "ss" :"remove-from-wish-list"}`}
               onClick={() => {
                   sendToWhislist(item.id);
-                }} disabled={disable()}>Add To Favorite</button>
+                }} disabled={toDisabled}>Add To Favorite</button>
             </div>
           </div>
         </div>
