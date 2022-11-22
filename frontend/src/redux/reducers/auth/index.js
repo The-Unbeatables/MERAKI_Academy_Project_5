@@ -27,6 +27,7 @@ const authSlice = createSlice({
             state.userId = null;
             state.isLoggedIn = false;
             state.isAdmin = false;
+            state.isWorker = false;
             localStorage.clear();
         },
         setAdminLogin: (state, action) => {
