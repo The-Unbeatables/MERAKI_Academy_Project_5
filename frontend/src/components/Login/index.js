@@ -87,7 +87,7 @@ const Login = () => {
 
   return (
     <div className="register_page_container">
-      <div>
+      <div className="image_dive">
         <img
           className="register_image"
           src={
@@ -162,7 +162,7 @@ const Login = () => {
             </button>
           )}
         />
-        {response && <h3>{response}</h3>}
+        {response && <h3 className="login_message">{response}</h3>}
       </div>
     </div>
   );
