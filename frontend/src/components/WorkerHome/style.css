@@ -44,3 +44,11 @@
     background-color: #301111;
     width: 300px;
 } */
+.just-some-space{
+    height: 300px;
+    /* text-align: center; */
+}
+.just-some-space h2{
+    font-size: 1.5rem;
+    color: brown;
+}

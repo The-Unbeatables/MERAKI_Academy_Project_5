@@ -1,9 +1,9 @@
 const {pool} =require('../models/db')
 
 const updateWorkers =(req , res)=>{
-    const {profession,YOE ,bio, image,user_id}=req.body
+    const {profession,yoe ,bio, image,user_id}=req.body
    
-    const values=[profession || null, YOE || null, bio || null, image || null,user_id || null ]
+    const values=[profession || null, yoe || null, bio || null, image || null,user_id || null ]
     const query=`UPDATE workers
     SET
     profession=COALESCE($1 ,profession),
