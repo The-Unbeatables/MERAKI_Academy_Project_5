@@ -122,8 +122,8 @@ const handeldelteStaus =(id)=>{
 <hr/>
 </div>
 <div className="buttonworkerHome">
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Cancel')}}>Cancel</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Approved')}}>Approved</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Declined')}}>Declined</button>
 <div class="content app-content container-fluid">
                      
                         </div>
