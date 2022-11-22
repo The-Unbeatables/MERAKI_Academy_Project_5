@@ -51,7 +51,8 @@ const AdminPanell = () => {
     axios
       .get("http://localhost:5000/ServiceOrders")
       .then((result) => {
-        setServiceOrdersNum(result.data.result.length);
+        // console.log(result.data.result[0].rows);
+        setServiceOrdersNum(result.data.result[0].rows.length);
       })
       .catch((err) => {
         console.log(err);
@@ -61,7 +62,7 @@ const AdminPanell = () => {
     axios
       .get("http://localhost:5000/productOrders/all/admin")
       .then((result) => {
-        console.log(result.data.result);
+        // console.log(result.data.result);
         setProductOrdersNum(result.data.result.length);
         let total = 0;
         result.data.result.map((elem, i) => {

@@ -6,9 +6,10 @@ const authSlice = createSlice({
         token: null || localStorage.getItem('token'),
         userId: null,
 
-        isLoggedIn: localStorage.getItem("token") ? true : false,
-        // isLoggedIn: false || localStorage.getItem('isLoggedIn'),
+        // isLoggedIn: localStorage.getItem("token") ? true : false,
+        isLoggedIn: false || localStorage.getItem('isLoggedIn'),
         isAdmin: false || localStorage.getItem('isAdmin'),
+        isWorker: false || localStorage.getItem('isWorker'),
         users: null
     },
     reducers:{
@@ -26,6 +27,7 @@ const authSlice = createSlice({
             state.userId = null;
             state.isLoggedIn = false;
             state.isAdmin = false;
+            state.isWorker = false;
             localStorage.clear();
         },
         setAdminLogin: (state, action) => {
@@ -35,6 +37,14 @@ const authSlice = createSlice({
             localStorage.setItem('isAdmin', true)
             localStorage.setItem('isLoggedIn', true)
             state.isAdmin = true
+        },
+        setWorkerLogin: (state, action) => {
+            state.token = action.payload;
+            state.isLoggedIn = true;
+            localStorage.setItem('token', action.payload);
+            localStorage.setItem('isWorker', true)
+            localStorage.setItem('isLoggedIn', true)
+            state.isWorker = true
         },
         setUsers:(state , action)=>{
             state.users = action.payload
@@ -57,4 +67,4 @@ const authSlice = createSlice({
 })
 
 export default authSlice.reducer;
-export const { setLogin, setUserId, setLogout, setAdminLogin, setUsers, updateUser, deleteUser } = authSlice.actions;
+export const { setLogin, setUserId, setLogout, setAdminLogin, setUsers, updateUser, deleteUser, setWorkerLogin } = authSlice.actions;

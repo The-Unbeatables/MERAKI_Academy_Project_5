@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setLogin, setUserId, setAdminLogin } from "../../redux/reducers/auth";
+import { setLogin, setUserId, setAdminLogin, setWorkerLogin } from "../../redux/reducers/auth";
 import GoogleLogin from "react-google-login";
 import { gapi } from "gapi-script";
 import { FcGoogle } from "react-icons/fc";
@@ -69,11 +69,13 @@ const Login = () => {
           return;
         }
         // console.log(result.data);
-        dispatch(setLogin(result.data.token));
+        
         dispatch(setUserId(result.data.result[0].id));
         if (value === "customer") {
+          dispatch(setLogin(result.data.token));
           navigate("/");
         } else {
+          dispatch(setWorkerLogin(result.data.token));
           navigate("/worker");
         }
       })

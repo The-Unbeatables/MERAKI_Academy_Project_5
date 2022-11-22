@@ -83,11 +83,11 @@ const handeldelteStaus =(id)=>{
     return(
         
         <div className="workerHome">
-            <div className="sidebar">
+            {/* <div className="sidebar">
             <SideBar/>
-            </div>
+            </div> */}
         <div className="contanirWorkerService">
-  
+        {workerServiceOrders.length === 0 && <div className="just-some-space"><h2>You don't have any orders yet</h2></div>}
         {workerServiceOrders?.map((item)=>{
            
             return(
@@ -122,8 +122,8 @@ const handeldelteStaus =(id)=>{
 <hr/>
 </div>
 <div className="buttonworkerHome">
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Aprove')}}>Aprove</button>
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Cancel')}}>Cancel</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Approved')}}>Approved</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Declined')}}>Declined</button>
 <div class="content app-content container-fluid">
                      
                         </div>

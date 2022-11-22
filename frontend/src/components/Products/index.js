@@ -30,7 +30,6 @@ const Products = () => {
     axios
       .get(`http://localhost:5000/products/pagination/product/${pagenum}`)
       .then((result) => {
-        console.log(result.data.result);
         dispatch(setProduct(result.data.result));
       })
       .catch((err) => {
@@ -57,7 +56,7 @@ const Products = () => {
       });
   };
 
-  const [search, setSearch] = useState("");
+ 
 
   const handelSearch = (search) => {
     axios
@@ -147,7 +146,7 @@ const Products = () => {
 
       <div className="products">
         {product?.map((data) => {
-          console.log(data);
+         
           return (
             <div className="cardProduct">
               <div className="sss">

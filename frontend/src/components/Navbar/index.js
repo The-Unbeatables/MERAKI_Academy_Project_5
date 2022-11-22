@@ -8,10 +8,11 @@ const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { isLoggedIn, isAdmin } = useSelector((state) => {
+    const { isLoggedIn, isAdmin, isWorker } = useSelector((state) => {
         return{
             isLoggedIn: state.auth.isLoggedIn,
-            isAdmin: state.auth.isAdmin
+            isAdmin: state.auth.isAdmin,
+            isWorker: state.auth.isWorker
         }
     });
 
@@ -34,7 +35,7 @@ const Navbar = () => {
 
     }
 
-    {isLoggedIn && !isAdmin &&
+    {isLoggedIn && !isAdmin && !isWorker &&
 
         <nav>
             <input type="checkbox" id="check" />
@@ -51,6 +52,23 @@ const Navbar = () => {
             </ul>
         </nav>
     }
+{isLoggedIn && !isAdmin && isWorker &&
+
+<nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+    </label>
+     <label class="logo">Maintinance App</label>
+     <ul>
+        <li onClick={() => {navigate('/worker')}}><a className='aa'>Home</a></li>
+        <li onClick={() => {navigate('/worker/profile')}}><a>Profile</a></li>
+        {/* <li onClick={() => {navigate('/products/orders')}}><a>Cart</a></li>
+        <li onClick={() => {navigate('/services/orders')}}><a>Services</a></li> */}
+        <li onClick={() => {dispatch(setLogout()); navigate('/')}}><a>Logout</a></li> 
+    </ul>
+</nav>
+}
 
 { isAdmin && isLoggedIn &&
 

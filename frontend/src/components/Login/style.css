@@ -12,12 +12,18 @@
     margin-bottom: 20px;
 }
 
+.login_with {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
 .login_input {
     margin-top: 5px;
     height: 35px;
 }
 
 .container_login_btn {
+    display: flex;
     justify-content: center;
     justify-items: center;
     text-align: center;
@@ -33,9 +39,12 @@
     justify-content: center;
     margin-left: 25%;
     background-color: #25242a;
+
+
     color: white;
     font-size: 18px;
     border-radius: 3px;
+    margin-left: -50px;
 }
 
 .login_btn:hover {

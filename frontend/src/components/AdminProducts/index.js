@@ -91,7 +91,7 @@ const AdminProducts = () => {
                 <td data-label="Title"><img src={`${iteam.image}`} className="image_list" /></td>
                 <td data-label="Title">{iteam.title}</td>
                 <td data-label="Title">{iteam.description}</td>
-                <td className='price' data-label="Price"><b>{iteam.price} $</b></td>
+                <td className='price' data-label="Price">{iteam.price} $</td>
                 <td data-label="Actions">
                   <div className="controller_icn">
                     <AiFillEdit
