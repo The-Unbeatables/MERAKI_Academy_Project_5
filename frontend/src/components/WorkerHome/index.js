@@ -83,11 +83,11 @@ const handeldelteStaus =(id)=>{
     return(
         
         <div className="workerHome">
-            <div className="sidebar">
+            {/* <div className="sidebar">
             <SideBar/>
-            </div>
+            </div> */}
         <div className="contanirWorkerService">
-  
+        {workerServiceOrders.length === 0 && <div className="just-some-space"><h2>You don't have any orders yet</h2></div>}
         {workerServiceOrders?.map((item)=>{
            
             return(

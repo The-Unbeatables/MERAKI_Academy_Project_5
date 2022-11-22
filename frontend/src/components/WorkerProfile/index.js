@@ -24,7 +24,7 @@ const {userId ,token}=useSelector((state)=>{
   }
 })
 
-console.log(userId);
+// console.log(userId);
 
   const getwrkerId = ()=>{
    //${userId} =>>> dont work but if bot number 4 will work 
@@ -92,9 +92,9 @@ useEffect(()=>{
 
     return(
         <div className="workerProfile">
-        <div className="sidebars">
+        {/* <div className="sidebars">
             <SideBar/>
-            </div>
+            </div> */}
 
             
             <div className="contanirProfile">
