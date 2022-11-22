@@ -7,26 +7,33 @@ import { addToCart } from "../../redux/reducers/carts";
 import { addUserProductOrder } from "../../redux/reducers/product_orders"; 
 import { FcHome } from 'react-icons/fc';
 import {FaBackward} from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 
 const ProductDetails=()=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
-  
+    const [toDisabled, setToDisabled] = useState(false)
 
-const {item, token}= useSelector((state)=>{
+const {item, token ,cart}= useSelector((state)=>{
     return{
     item : state.products.item,
     token: state.auth.token,
+    cart: state.carts.cart
     }
 })
+console.log(cart);
+
 
 const sendToWhislist = (id) => {
   // console.log(item);
+ 
     if (!token) {
         return navigate("/login");
     } else {
-        axios
+      console.log(cart.length);
+ 
+          axios
       .post(
         `http://localhost:5000/carts`,
         {
@@ -39,16 +46,49 @@ const sendToWhislist = (id) => {
         }
       )
       .then((res) => {
-        console.log(res);
-        console.log(item);
-        dispatch(addToCart(item));
+        dispatch(addToCart(item))
+        disable()
+    
       })
       .catch((err) => {
         console.log(err);
         throw err;
       });
+
+         
+      //  }
+      
+      //})
+    
+   
     }
 }
+
+
+
+console.log(item);
+const disable =()=>{
+
+for (let i = 0; i < cart.length; i++) {
+  console.log(cart.length);
+  console.log(cart[i].product_id);
+  console.log(item.id);
+  if(cart[i].product_id === item.id){
+    //  setToDisabled(true)
+    console.log('not disable');
+    return true
+           
+  }
+ 
+}
+console.log('disable');
+return false
+
+}
+
+
+ 
+
 
     return(
       <>
@@ -103,11 +143,12 @@ const sendToWhislist = (id) => {
           </div>
           <div className="icon-love-product">
             <div className="fclike-icon">
-              <button 
-              className="remove-from-wish-list"
+            {/* {cart.find((item) => item.id === product.id) ? */}
+            
+              <button   className={`${disable() ?   "ss" :"remove-from-wish-list"}`}
               onClick={() => {
                   sendToWhislist(item.id);
-                }}>Add To Favorite</button>
+                }} disabled={disable()}>Add To Favorite</button>
             </div>
           </div>
         </div>
