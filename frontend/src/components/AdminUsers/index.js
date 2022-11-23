@@ -111,7 +111,7 @@ const AdminUsers = () => {
       </div>
       {users?.slice(counter,counter+4).map((elem, i) => {
         return(
-          <div className='row-admin1'>
+          <div className='row-admin1' key={i}>
             <div className='first data'>
             <h3>{i + counter + 1}</h3>
             </div>

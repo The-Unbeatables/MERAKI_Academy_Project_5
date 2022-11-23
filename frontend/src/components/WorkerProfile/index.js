@@ -24,14 +24,12 @@ const {userId ,token}=useSelector((state)=>{
   }
 })
 
-// console.log(userId);
 
   const getwrkerId = ()=>{
    //${userId} =>>> dont work but if bot number 4 will work 
    if(userId){
     axios.get(`http://localhost:5000/workers/worker/${userId}`)
     .then((result)=>{
-    //  console.log(result.data.result.rows[0]);
     setWorkerId(result.data.result.rows[0].id)
     })
     .catch((err)=>{
@@ -62,7 +60,6 @@ useEffect(()=>{
       },
     })
     .then((result)=>{
-      console.log(result.data.massage);
       setShow(result.data.massage)
      dispatch(updateWorker(result.data.result))
      
@@ -80,7 +77,6 @@ useEffect(()=>{
     await axios
         .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
         .then((result) => {
-        console.log(result.data.secure_url);
         setImage(result.data.secure_url);
         })
         .catch((err) => {
@@ -163,7 +159,7 @@ useEffect(()=>{
             </div>
 
     <div className="button-ubdate">
-      <button type="submit" class="btn btn-primary button" onClick={()=>{handelProfileWorker()}}>Update Information</button>
+      <button type="submit" className="btn btn-primary button" onClick={()=>{handelProfileWorker()}}>Update Information</button>
       </div>
     <div className="show-Message">
       {show && <div className="show">{show}</div>}

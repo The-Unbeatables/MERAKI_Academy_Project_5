@@ -139,37 +139,37 @@ const Home = () => {
         </div>
         <div className="contact_info"><h1 className="contact_form_text">Contact Form</h1></div>
         <div className="container_message">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-7 mx-auto">
-              <div class="card mt-2 mx-auto p-4 bg-light">
-                <div class="card-body bg-light">
-                  <div class="container">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-7 mx-auto">
+              <div className="card mt-2 mx-auto p-4 bg-light">
+                <div className="card-body bg-light">
+                  <div className="container">
                     <form id="contact-form" role="form">
-                      <div class="controls">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_name">Firstname</label>
+                      <div className="controls">
+                        <div className="row">
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label htmlFor="form_name">Firstname</label>
                               <input
                                 id="form_name"
                                 type="text"
                                 name="name"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Please enter your firstname"
                                 required="required"
                                 data-error="Firstname is required."
                               />
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_lastname">Lastname</label>
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label htmlFor="form_lastname">Lastname</label>
                               <input
                                 id="form_lastname"
                                 type="text"
                                 name="surname"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Please enter your lastname"
                                 required="required"
                                 data-error="Lastname is required."
@@ -177,30 +177,30 @@ const Home = () => {
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_email">Email</label>
+                        <div className="row">
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label htmlFor="form_email">Email</label>
                               <input
                                 id="form_email"
                                 type="email"
                                 name="email"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Please enter your email"
                                 required="required"
                                 data-error="Valid email is required."
                               />
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="form_need">
+                          <div className="col-md-6">
+                            <div className="form-group">
+                              <label htmlFor="form_need">
                                 Please specify your need
                               </label>
                               <select
                                 id="form_need"
                                 name="need"
-                                class="form-control"
+                                className="form-control"
                                 required="required"
                                 data-error="Please specify your need"
                               >
@@ -215,14 +215,14 @@ const Home = () => {
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="form_message">Message</label>
+                        <div className="row">
+                          <div className="col-md-12">
+                            <div className="form-group">
+                              <label htmlFor="form_message">Message</label>
                               <textarea
                                 id="form_message"
                                 name="message"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Write your message here."
                                 rows="4"
                                 required="required"
@@ -230,10 +230,10 @@ const Home = () => {
                               ></textarea>
                             </div>
                           </div>
-                          <div class="col-md-12">
+                          <div className="col-md-12">
                             <input
                               type="submit"
-                              class="btn btn-success btn-send  pt-2 btn-block
+                              className="btn btn-success btn-send  pt-2 btn-block
                             "
                               value="Send Message"
                             />

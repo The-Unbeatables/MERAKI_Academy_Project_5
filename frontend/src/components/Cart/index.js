@@ -110,10 +110,10 @@ const Cart = () => {
     </div>
       <div className="cart-container">
         <div className="carts">
-          {cart.map((product, index) => {
+          {cart.map((product, i) => {
             return (
               <>
-                <div key={product[index]} className="cart-prducts">
+                <div key={i} className="cart-prducts">
                   <div className="imagediv-cart">
                     <img
                       className="image-wishList"

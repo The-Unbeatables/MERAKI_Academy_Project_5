@@ -34,11 +34,11 @@ const Services = () => {
       <div className='bigg'>
         {arr.map((elem, i) => {
           return(
-            <div className='testtt'>
-            <div class="containerOfService">
+            <div className='testtt' key={i}>
+            <div className="containerOfService">
               <img src={elem.img} alt={elem.state} />
-              <div class="overlay">
-              <div class="content">
+              <div className="overlay">
+              <div className="content">
                 <h3>{elem.name}</h3>
                 <button className='service-btn' onClick={() => {handleClick(`${elem.state}`)}}>Show {elem.name}</button>
               </div>

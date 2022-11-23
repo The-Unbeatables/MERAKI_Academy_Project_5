@@ -69,7 +69,6 @@ const ProductOrders = () => {
   };
 
   const total = (arr) => {
-    console.log(arr);
     return arr.reduce((sum, index) => {
 
       return sum + index.price;
@@ -82,9 +81,7 @@ const ProductOrders = () => {
 
 
 const avargeQuantity=(e,price)=>{
-  // console.log(e);
    let qutity= ((e*price))
-  //  console.log(qutity);
     setQuantity(qutity)
 }
 
@@ -115,10 +112,10 @@ const avargeQuantity=(e,price)=>{
 
       <div className="cart-containers">
         <div className="the-cart">
-          {userProductOrders.map((product,index) => {
+          {userProductOrders.map((product,i) => {
             return (
               <>
-                <div key={product[index]} className="card-cart">
+                <div className="card-cart" key={i}>
                   <div className="image-div-cart">
                     <img
                       className="image-cart"
@@ -158,9 +155,9 @@ const avargeQuantity=(e,price)=>{
         </div>
         <div className="CheckOut">
           <p className="span-total">Total Price</p>
-          <spnan className="total-price">
+          <span className="total-price">
           {total(userProductOrders)} $ 
-          </spnan>
+          </span>
           <button className="button-checkout" onClick={()=>{checkout()}}>
             CheckOut 
           </button>

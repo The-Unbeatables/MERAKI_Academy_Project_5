@@ -16,7 +16,6 @@ const ServiceDetails = () => {
         }
     });
     useEffect(() => {
-        console.log(profession);
         axios.post('http://localhost:5000/workers/profession', {
             profession
         })

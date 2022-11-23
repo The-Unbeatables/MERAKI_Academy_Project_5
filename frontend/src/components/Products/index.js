@@ -21,7 +21,6 @@ const Products = () => {
   const [pagenum, setPageNum] = useState(0);
 
   const handlePageClick = (data) => {
-    console.log(data.selected + 1);
     setPageNum(data.selected);
   };
 
@@ -62,7 +61,6 @@ const Products = () => {
     axios
       .get(`http://localhost:5000/products/search/product/?title=${search}`)
       .then((result) => {
-        console.log(result);
         dispatch(setProduct(result.data.result));
       })
       .catch((err) => {
@@ -145,10 +143,10 @@ const Products = () => {
       </div>
 
       <div className="products">
-        {product?.map((data) => {
+        {product?.map((data, i) => {
          
           return (
-            <div className="cardProduct">
+            <div className="cardProduct" key={i}>
               <div className="sss">
                 <div className="imgproduct">
                   <img src={`${data.image}`} />

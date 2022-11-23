@@ -10,11 +10,9 @@ const Checkout = () => {
     const cart = useSelector(getCart);
   
     const handleCheckout = () => {
-        console.log(cart);
       axios
         .post("http://localhost:5000/payment/create-checkout-session", cart)
         .then((result) => {
-            console.log(result);
           if (result.data.url) {
             window.location.href = result.data.url;
           }

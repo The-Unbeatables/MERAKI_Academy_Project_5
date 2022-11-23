@@ -49,7 +49,6 @@ console.log(err);
     },[])
 
 const handelUpdateStaus=(id,state)=>{
-   console.log(id);
     axios.put(`http://localhost:5000/ServiceOrders/${id}`,{
         status : state
     },{
@@ -88,14 +87,14 @@ const handeldelteStaus =(id)=>{
             </div> */}
         <div className="contanirWorkerService">
         {workerServiceOrders.length === 0 && <div className="just-some-space"><h2>You don't have any orders yet</h2></div>}
-        {workerServiceOrders?.map((item)=>{
+        {workerServiceOrders?.map((item, i)=>{
            
             return(
-                <div className="cardirWorkerService">
+                <div className="cardirWorkerService" key={i}>
    <div className="tables">
    <p>from: {item.first_name}</p>
     <p>Email: {item.email}</p>
-<table class="table table-striped">
+<table className="table table-striped">
 
   <thead>
     <tr>
@@ -122,9 +121,9 @@ const handeldelteStaus =(id)=>{
 <hr/>
 </div>
 <div className="buttonworkerHome">
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Approved')}}>Approved</button>
-<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Declined')}}>Declined</button>
-<div class="content app-content container-fluid">
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Approved')}}>Approve</button>
+<button className="btn btn-primary" onClick={()=>{handelUpdateStaus(item.id,'Declined')}}>Decline</button>
+<div className="content app-content container-fluid">
                      
                         </div>
 </div>

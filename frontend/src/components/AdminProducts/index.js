@@ -29,7 +29,6 @@ const AdminProducts = () => {
           },
         });
         if (res.data) {
-          console.log(res.data.result);
           dispatch(setProduct(res.data.result));
           setMessage("");
           setShow(true);
@@ -86,7 +85,6 @@ const AdminProducts = () => {
         <tbody>
           {show &&
             products.map((iteam) => (
-              console.log(iteam),
               <tr key={iteam.id}>
                 <td data-label="Title"><img src={`${iteam.image}`} className="image_list" /></td>
                 <td data-label="Title">{iteam.title}</td>
