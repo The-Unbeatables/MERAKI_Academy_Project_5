@@ -86,40 +86,32 @@ const Home = () => {
         </Slider>
         <div className="text_info"><h1 className="header_form_text">More Great Deals</h1></div>
       </div>
+
+
         <div className="container_deals">
-          <div
-            className="sub-container"
-            onClick={() => {
-              navigate("/services");
-            }}
-          >
-            <img
-              className="product-image-home"
-              src={
-                "https://thumbs.dreamstime.com/b/construction-man-20437204.jpg"
-              }
-              alt="product"
-            />
-            <h1 className="header_Product_text">Services</h1>
+          <div className="sub-container" onClick={() => {navigate("/services");}}>
+            <div className="image_of_home">
+              <img className="product-image-home" src={"https://thumbs.dreamstime.com/b/construction-man-20437204.jpg"} alt="product"/>
+            </div>
+            <div>
+              <h1 className="header_Product_text">Services</h1>
+            </div>
           </div>
 
-          <div
-            className="sub-container"
-            onClick={() => {
-              navigate("/products");
-            }}
-          >
-            <img
-              className="product-image-home"
-              src={
-                "https://thumbs.dreamstime.com/b/wall-tools-25971185.jpg"
-              }
-              alt="product"
-            />
-            <h1 className="header_Product_text">Products</h1>
+          <div className="sub-container"onClick={() => {navigate("/products");}}>
+            <div className="image_of_home">
+              <img className="product-image-home" src={ "https://thumbs.dreamstime.com/b/wall-tools-25971185.jpg" } alt="product" />
+            </div>
+            <div>
+              <h1 className="header_Product_text">Products</h1>
+            </div>
+
           </div>
         </div>
+
+
         <div className="brands_info"><h1 className="brands_text">Brands</h1></div>
+
         <div className="brand_container">
           <img className="brand_img" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdemSTt5MsilPIEmIPdRTwAsaeEl-gD-b4w&usqp=CAU"} alt="brand"/>
 
@@ -132,8 +124,7 @@ const Home = () => {
           <img className="brand_img" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBmd9ilLIyBMvHbZxcxHBVIqhfqmlP7ZUzHg&usqp=CAU"} alt="brand"/>
 
           <img className="brand_img" src={"https://m.media-amazon.com/images/I/31G32Q9yezL._AC_SY580_.jpg"} alt="brand"/>
-        </div>
-        <div className="brand_container">
+
           <img className="brand_img" src={"https://static.wixstatic.com/media/92a91e_4df27a7a71944f0fb8cb353e419d40ac~mv2_d_1772_1772_s_2.jpg/v1/crop/x_0,y_529,w_1772,h_715/fill/w_260,h_104,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/PAD%20Grey%20logo.jpg"} alt="brand"/>
 
           <img className="brand_img" src={"https://rkwltd.com:8002/media/logo/Breville_Logo.jpg"} alt="brand"/>

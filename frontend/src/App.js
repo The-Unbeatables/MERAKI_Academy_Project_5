@@ -47,7 +47,7 @@ function App() {
       <Route path="/cart" element={<Cart />} /> 
       <Route path="/services/orders" element={<ServiceOrders />} /> 
       <Route path="/products/orders" element={<ProductOrders />} /> 
-      <Route path="/user/profile" element={<UserProfile />} />
+      {/* <Route path="/user/profile" element={<UserProfile />} /> */}
       <Route path="/worker/profile" element={<WorkerProfile />} />
       <Route path="/checkout" element={<Checkout />} />   
       <Route path="/worker" element={<WorkerHome />} />  
