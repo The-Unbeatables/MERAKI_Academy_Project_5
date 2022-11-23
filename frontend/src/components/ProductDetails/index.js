@@ -15,14 +15,15 @@ const ProductDetails=()=>{
     const navigate = useNavigate();
     const [toDisabled, setToDisabled] = useState(false)
 
-const {item, token ,cart}= useSelector((state)=>{
+const {item, token ,cart ,isLoggedIn}= useSelector((state)=>{
     return{
     item : state.products.item,
     token: state.auth.token,
-    cart: state.carts.cart
+    cart: state.carts.cart,
+    isLoggedIn: state.auth.isLoggedIn
     }
 })
-console.log(cart);
+
 
 
 const sendToWhislist = (id) => {
@@ -67,22 +68,21 @@ const sendToWhislist = (id) => {
 
 
 useEffect(()=>{
+  if(isLoggedIn === true){
   axios
-  .get(`http://localhost:5000/carts/show`, {
+  .get(`http://localhost:5000/carts/show`,{
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
   .then((result) => {
-    // console.log(result.data.result);
-    // setTheCart(result.data.result)
-
     dispatch(setCart(result.data.result));
     disable();
   })
   .catch((err) => {
     console.log(err);
   });
+}
 },[])
 
 
@@ -133,6 +133,7 @@ for (let i = 0; i < cart.length; i++) {
     </div>
       <div className="container-detailes-product">
         <div className="product_grid">
+          {/* <div className="asss"> */}
           <div>
             <img
               className="image-product-detailess"
@@ -161,6 +162,7 @@ for (let i = 0; i < cart.length; i++) {
               {item.price} $
             </p>
           </div>
+          {/* </div> */}
           <div className="icon-love-product">
             <div className="fclike-icon">
             {/* {cart.find((item) => item.id === product.id) ? */}
