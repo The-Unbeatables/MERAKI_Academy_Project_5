@@ -110,6 +110,7 @@ const Cart = () => {
     </div>
       <div className="cart-container">
         <div className="carts">
+        {cart.length === 0 && <div ><h2 className="just-some-space-wishlist">You don't have any Wishlist yet</h2></div>}
           {cart.map((product, index) => {
             return (
               <>
