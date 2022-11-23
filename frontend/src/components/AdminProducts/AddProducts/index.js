@@ -33,7 +33,6 @@ const Creat = () => {
     await axios
         .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
         .then((result) => {
-        console.log(result.data.secure_url);
         setImage(result.data.secure_url);
         })
         .catch((err) => {
@@ -62,7 +61,6 @@ const Creat = () => {
             }
         )
     } catch (err) {
-        // console.log(err);
         throw err;
     }
     };

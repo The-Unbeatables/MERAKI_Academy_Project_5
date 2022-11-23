@@ -63,7 +63,7 @@ useEffect(()=>{
                 {workers.map((elem, index) => {
                   if(item.worker_id === elem.id){
                     return(
-                      <td className='price' data-label="Price"><b>{elem.firstname}</b></td>
+                      <td className='price' data-label="Price" key={i}><b>{elem.firstname}</b></td>
                     )
                   }
                 })} 

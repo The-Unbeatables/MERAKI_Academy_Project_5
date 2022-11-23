@@ -51,6 +51,7 @@
 .btn{
     width: 100%;
     position: relative;
+    margin-bottom: 50px;
 }
 .btns{
     position: absolute;
@@ -63,7 +64,7 @@
     /* border: 1px rgb(143, 143, 161) solid; */
     border: none;
     /* color: rgb(22, 22, 82); */
-    color: #0082e6;
+    color: #25242a;
     font-weight: bolder;
 }
 .number{
@@ -71,8 +72,8 @@
     /* background-color: rgb(22, 22, 82); */
     color: white;
     /* border: 1px rgb(22, 22, 82) solid; */
-    border: 1px #0082e6 solid;
-    background-color: #0082e6;
+    border: 1px #25242a solid;
+    background-color: #25242a;
 }
 .change:hover{
     transform: scale(1.05);
@@ -84,7 +85,7 @@
 .admin{
     padding: 2%;
     color: white;
-    background-color: #0082e6;
+    background-color: #25242a;
     border: none;
     border-radius: 10%;
     margin: 2%;

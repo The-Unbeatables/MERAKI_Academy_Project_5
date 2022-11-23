@@ -74,7 +74,7 @@ return(
     <>
     {userServiceOrders.map((elem, i) => {
         return (
-            <div className='show_ser_container'>
+            <div className='show_ser_container' key={i}>
 
                 <div className='ser_update'>
                     <div className='ser_show_text'><h3>Service Title:</h3></div>

@@ -29,7 +29,6 @@ const EditProduct = () => {
 
   const updateProducts = () => {
 
-    console.log(editProduct);
     axios
       .put(
         `http://localhost:5000/products/${editProduct.id}`,
@@ -44,11 +43,9 @@ const EditProduct = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((result) => {
-        console.log(result.data.result);
         dispatch(updateProduct(result.data.result));
       })
       .catch((err) => {
-        // console.log(err);
         throw err;
       });
   };
@@ -66,11 +63,9 @@ const EditProduct = () => {
     await axios
       .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
       .then((result) => {
-        // console.log(result.data.secure_url);
         setNewImage(result.data.secure_url);
       })
       .catch((err) => {
-        // console.log(err);
         console.log(err);
         throw err;
       });
