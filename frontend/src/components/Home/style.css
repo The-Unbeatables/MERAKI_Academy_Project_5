@@ -6,18 +6,22 @@
 }
 
 .container_deals{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    gap: 50px;
-    margin-left: 40px;
-    margin-right: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     cursor: pointer;
+    width: 90%;
+    margin: auto;
 }
 
 .sub-container{
-    display: grid;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
     margin-bottom: 40px;
+}
+.image_of_home{
+    height: 400px;
 }
 
 .product-image-home {
@@ -173,18 +177,23 @@ label {
 }
 
 .brand_container {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(6, 16.66%);
     margin-bottom: 80px;
     margin-top: 40px;
+    row-gap: 20%;
 }
 
+
 .brand_img {
-    width: 180px;
+    width: 70%;
     height: 50px;
-    border-radius: 8px;
+    align-self: center;
+    align-items: center;
+    margin: auto;
+    /* width: 180px;
+    height: 50px;
+    border-radius: 8px; */
 }
 
 .brand_img:hover {
@@ -196,6 +205,50 @@ label {
     margin-top: 20px;
 }
 
+@media (max-width:900px){
+    .sub-container{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:800px){
+    .brand_container {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+    }
+}
+
+@media (max-width:650px){
+    .image_slider {
+        height: 250px;
+    }
+    .container_deals{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .sub-container{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-bottom: 40px;
+    }
+}
+
+
+
+
+
+
+
+/* 
 @media (min-width: 600px) and (max-width: 800px) {
     .brand_container {
         display: flex;
@@ -350,4 +403,4 @@ label {
         height: 60px;
         border-radius: 8px;
     }
-}
+} */
