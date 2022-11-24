@@ -199,7 +199,7 @@
   .icons_show_detailes {
     display: none;
   }
-  input {
+  .displayNone {
     display: none;
   }
   .category {
@@ -217,7 +217,7 @@
     display: grid;
     grid-template-columns: repeat(3,auto);
   }
-  input {
+  .displayNone {
     display: none;
   }
   .category {
@@ -233,7 +233,7 @@
     display: grid;
     grid-template-columns: repeat(4,auto);
   }
-  input {
+  .displayNone {
     display: none;
   }
   .category {
