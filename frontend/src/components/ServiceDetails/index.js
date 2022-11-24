@@ -16,7 +16,7 @@ const ServiceDetails = () => {
         }
     });
     useEffect(() => {
-        axios.post('http://localhost:5000/workers/profession', {
+        axios.post('https://animated-lolly-e71145.netlify.app/workers/profession', {
             profession
         })
         .then((result) => {

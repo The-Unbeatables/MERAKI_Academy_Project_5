@@ -11,7 +11,7 @@ const Checkout = () => {
   
     const handleCheckout = () => {
       axios
-        .post("http://localhost:5000/payment/create-checkout-session", cart)
+        .post("https://animated-lolly-e71145.netlify.app/payment/create-checkout-session", cart)
         .then((result) => {
           if (result.data.url) {
             window.location.href = result.data.url;

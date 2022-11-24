@@ -28,7 +28,7 @@ const {userId ,token}=useSelector((state)=>{
   const getwrkerId = ()=>{
    //${userId} =>>> dont work but if bot number 4 will work 
    if(userId){
-    axios.get(`http://localhost:5000/workers/worker/${userId}`)
+    axios.get(`https://animated-lolly-e71145.netlify.app/workers/worker/${userId}`)
     .then((result)=>{
     setWorkerId(result.data.result.rows[0].id)
     })
@@ -49,7 +49,7 @@ useEffect(()=>{
 
   const handelProfileWorker=()=>{
   
-    axios.put(`http://localhost:5000/workers/${workerId}`,{
+    axios.put(`https://animated-lolly-e71145.netlify.app/workers/${workerId}`,{
       profession :profession ,
       YOE :yoe,
       bio:bio,

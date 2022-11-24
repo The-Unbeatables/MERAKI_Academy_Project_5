@@ -31,7 +31,7 @@ const EditProduct = () => {
 
     axios
       .put(
-        `http://localhost:5000/products/${editProduct.id}`,
+        `https://animated-lolly-e71145.netlify.app/products/${editProduct.id}`,
         {
           image,
           title,
