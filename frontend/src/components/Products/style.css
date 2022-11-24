@@ -56,8 +56,10 @@
   transform: rotateY(180deg);
   border-radius: 10px;
   position: absolute;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  display: flex;
+  flex-direction: column;
 }
 
 .categoryAndSearch{
@@ -97,7 +99,11 @@
 }
 
 .product_title {
-  margin-bottom: 10px;
+  height: 60%;
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  /* margin-bottom: 10px; */
   color: white;
 }
 
@@ -109,13 +115,15 @@
 }
 
 .product_price {
-  margin-bottom: 10px;
+  height: 20%;
+  /* margin-bottom: 10px; */
   color: rgb(255, 0, 0);
-  font-size: 15px;
+  font-size: 1.4rem;
   font-weight: 800;
 }
 
 .product_detailes_btns {
+  height: 25%;
   color: rgb(255, 255, 255);
   cursor: pointer;
   font-weight: 700;

@@ -129,6 +129,8 @@ svg{
     #check:checked ~ ul{
         left: 0;
     }
+
+
 }
 @media (max-width: 550px) {
     label.logo{
