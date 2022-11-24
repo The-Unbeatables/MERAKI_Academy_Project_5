@@ -63,3 +63,73 @@ gap: 10px;
     color: rgb(255, 255, 255);
     background-color: brown;
 }
+
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    .register_page_container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .register_image {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        left: 200px;
+    }
+    .login_header{
+        position: relative;
+        top: 30px;
+   
+    }
+    .Register{
+        position: relative;
+        top: -150px;
+        
+    }
+    .threefirstinput{
+        position: relative;
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+    .twolasttinput{
+        position: relative;
+        margin-left: 100px;
+    }
+   
+   
+}
+@media only screen and (max-width: 600px) {
+    .register_page_container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .register_image {
+        width: 400px;
+        height: 400px;
+      
+    }
+    .login_header{
+        margin-bottom: 20px;
+        position: relative;
+        text-align: left;
+        margin-left: 100px;
+    }
+    .Register{
+        position: relative;
+        top: -100px;
+    }
+    .threefirstinput{
+        position: relative;
+        left: 20px;
+        top: -1px;
+        
+    }
+    .twolasttinput{
+        position: relative;
+        left: 20px;
+        top: -1px;
+       
+    }
+   
+
+} 

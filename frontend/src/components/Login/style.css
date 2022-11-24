@@ -89,3 +89,81 @@
     color: white;
     border-radius: 3px;
 }
+
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    .register_page_container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .login-container{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        /* text-align: center;
+        align-items: center; */
+       position: relative;
+       top: -100px;
+       left: 50px;
+        margin-bottom: 20px;
+    }
+    .word_login{
+        text-align: center;
+    }
+   
+    .label_type {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+    }
+   
+}
+@media only screen and (max-width: 600px) {
+    .register_page_container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .login-container{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        /* text-align: center;
+        align-items: center; */
+       position: relative;
+       top: -100px;
+       left: 50px;
+        margin-bottom: 20px;
+        
+    }
+    .login_input{
+    width: 500px;
+    }
+    
+    .word_login{
+        text-align: center;
+        position: relative;
+        right: 50px;
+    }
+   
+    .label_type {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        right: 10px;
+    }
+    .login_btn{
+        position: relative;
+        right: 10px;
+    }
+    .buttonGoogle{
+        width: 50%;
+        position: relative;
+        left: 50px ;
+    }
+
+} 
+/* @media only screen and (max-width: 600px) {
+   
+
+}  */

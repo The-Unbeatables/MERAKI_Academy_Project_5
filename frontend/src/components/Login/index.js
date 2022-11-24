@@ -97,7 +97,7 @@ const Login = () => {
         />
       </div>
       <div className="login-container">
-        <h3>Login</h3>
+        <h3 className="word_login">Login</h3>
         <input
           className="login_input"
           type="email"
