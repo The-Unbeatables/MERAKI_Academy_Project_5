@@ -99,11 +99,11 @@ const Products = () => {
           <div
             className="type_category"
             onClick={() => {
-              handelcategory("Striking tools");
+              handelcategory("Lubrication");
             }}
           >
             <h4>
-              <b>Striking tools</b>
+              <b>Lubrication</b>
             </h4>
           </div>
           <div
@@ -119,21 +119,21 @@ const Products = () => {
           <div
             className="type_category"
             onClick={() => {
-              handelcategory("Holding tools");
+              handelcategory("Plumbing");
             }}
           >
             <h4>
-              <b>Holding tools</b>
+              <b>Plumbing</b>
             </h4>
           </div>
           <div
             className="type_category"
             onClick={() => {
-              handelcategory("Sharpening and grinding tools");
+              handelcategory("Welding & Soldering");
             }}
           >
             <h4>
-              <b>Sharpening and grinding tools</b>
+              <b>Welding & Soldering</b>
             </h4>
           </div>
         </div>
@@ -155,7 +155,7 @@ const Products = () => {
                   <div className="product_title">
                     <h2 className="title_card">{data.title}</h2>
                   </div>
-                  <div className="product_description">{data.description}</div>
+                  {/* <div className="product_description">{data.description}</div> */}
                   <div className="product_price">{data.price} $</div>
                   <div>
                     <div className="detailes_container">
