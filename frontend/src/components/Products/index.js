@@ -27,7 +27,7 @@ const Products = () => {
   const pageCount = 100;
   const getProduct = () => {
     axios
-      .get(`http://localhost:5000/products/pagination/product/${pagenum}`)
+      .get(`https://animated-lolly-e71145.netlify.app/products/pagination/product/${pagenum}`)
       .then((result) => {
         dispatch(setProduct(result.data.result));
       })
@@ -46,7 +46,7 @@ const Products = () => {
   };
   const handelcategory = (str) => {
     axios
-      .get(`http://localhost:5000/products/${str}`)
+      .get(`https://animated-lolly-e71145.netlify.app/products/${str}`)
       .then((result) => {
         dispatch(setProduct(result.data.result));
       })
@@ -59,7 +59,7 @@ const Products = () => {
 
   const handelSearch = (search) => {
     axios
-      .get(`http://localhost:5000/products/search/product/?title=${search}`)
+      .get(`https://animated-lolly-e71145.netlify.app/products/search/product/?title=${search}`)
       .then((result) => {
         dispatch(setProduct(result.data.result));
       })
@@ -70,7 +70,7 @@ const Products = () => {
   const handelselct = (range) => {
     setRange(range);
     axios
-      .post("http://localhost:5000/products/filter/Product", {
+      .post("https://animated-lolly-e71145.netlify.app/products/filter/Product", {
         max: range,
       })
       .then((result) => {

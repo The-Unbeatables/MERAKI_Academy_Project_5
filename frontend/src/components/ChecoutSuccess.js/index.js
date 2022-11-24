@@ -21,7 +21,7 @@ const CheckoutSuccess = () => {
     useEffect(() => {
 
       axios
-        .delete(`http://localhost:5000/productOrders/all/order`, {
+        .delete(`https://animated-lolly-e71145.netlify.app/productOrders/all/order`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,7 +36,7 @@ const CheckoutSuccess = () => {
 
     const deleteCart = () => {
       axios
-        .delete(`http://localhost:5000/productOrders/all/order`, {
+        .delete(`https://animated-lolly-e71145.netlify.app/productOrders/all/order`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
