@@ -123,7 +123,7 @@ const Cart = () => {
                     />
                   </div>
                   <div className="contant-cart">
-                    <h1 className="title-cart">{product.title}</h1>
+                    <h4 className="title-cart">{product.title}</h4>
                     {/* <hr></hr> */}
                     <p className="price-cart">{product.price}$</p>
                     {/* <hr></hr> */}
