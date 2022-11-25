@@ -86,14 +86,19 @@
 }
 .ss{
     margin-top: 40px;
-    margin-right: 10px;
-    margin-left: 80px;
-    background-color: #a6a6a6;
     border-radius: 4px;
     font-size: 18px;
     font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin-left: 80px;
     width: 180px;
     height: 45px;
+    position: relative;
+    left: 700px;
+    top: -150px;
+    transition: .3s;
+    background-color: #a6a6a6;
+    
 }
 .asss{
     background-color: #f0f0f0;
