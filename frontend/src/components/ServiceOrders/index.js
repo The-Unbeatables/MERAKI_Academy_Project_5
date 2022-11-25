@@ -21,7 +21,7 @@ const ServiceOrders=()=>{
     });
 
 useEffect(()=>{
-    axios.get(`https://animated-lolly-e71145.netlify.app/ServiceOrders/user/${userId}`)
+    axios.get(`http://localhost:5000/ServiceOrders/user/${userId}`)
     .then((result)=>{
     dispatch(setUserServiceOrders(result.data.result))
     })
@@ -34,7 +34,7 @@ useEffect(()=>{
         setCheck(!check);
     }
     const handleDelete = (id) => {
-        axios.delete(`https://animated-lolly-e71145.netlify.app/ServiceOrders/${id}`
+        axios.delete(`http://localhost:5000/ServiceOrders/${id}`
         ,{
             headers: {
               Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ useEffect(()=>{
     }
 
     const handleUpdate = (id) => {
-        axios.put(`https://animated-lolly-e71145.netlify.app/ServiceOrders/${id}`
+        axios.put(`http://localhost:5000/ServiceOrders/${id}`
         ,{
             service_title: title,
             service_description: description

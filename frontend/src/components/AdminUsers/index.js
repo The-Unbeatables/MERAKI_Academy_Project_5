@@ -14,7 +14,7 @@ const AdminUsers = () => {
   })
 
   const handleDelete = (id) => {
-    axios.delete(`https://animated-lolly-e71145.netlify.app/users/${id}`
+    axios.delete(`http://localhost:5000/users/${id}`
     ,{
         headers: {
           Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ const AdminUsers = () => {
     })  }
 
     const handleUpgrade = (id) => {
-      axios.put(`https://animated-lolly-e71145.netlify.app/users/${id}`
+      axios.put(`http://localhost:5000/users/${id}`
       ,{
         role_id: 1
       },
@@ -72,7 +72,7 @@ const AdminUsers = () => {
   })
 
   useEffect(() => {
-    axios.get('https://animated-lolly-e71145.netlify.app/users')
+    axios.get('http://localhost:5000/users')
     .then((result) => {
       dispatch(setUsers(result.data.result));
     })

@@ -23,7 +23,7 @@ const AdminPanell = () => {
 
   const getAllTheUsers = () => {
     axios
-      .get("https://animated-lolly-e71145.netlify.app/users")
+      .get("http://localhost:5000/users")
       .then((result) => {
         setUsersNum(result.data.result.length);
         setUsers(result.data.result);
@@ -39,7 +39,7 @@ const AdminPanell = () => {
 
   const getAllTheProducts = () => {
     axios
-      .get("https://animated-lolly-e71145.netlify.app/products")
+      .get("http://localhost:5000/products")
       .then((result) => {
         setProductsNum(result.data.result.length);
       })
@@ -49,7 +49,7 @@ const AdminPanell = () => {
   };
   const getAllTheServiceOrders = () => {
     axios
-      .get("https://animated-lolly-e71145.netlify.app/ServiceOrders")
+      .get("http://localhost:5000/ServiceOrders")
       .then((result) => {
         // console.log(result.data.result[0].rows);
         setServiceOrdersNum(result.data.result[0].rows.length);
@@ -60,7 +60,7 @@ const AdminPanell = () => {
   };
   const getAllTheProductOrders = () => {
     axios
-      .get("https://animated-lolly-e71145.netlify.app/productOrders/all/admin")
+      .get("http://localhost:5000/productOrders/all/admin")
       .then((result) => {
         // console.log(result.data.result);
         setProductOrdersNum(result.data.result.length);
@@ -68,7 +68,7 @@ const AdminPanell = () => {
         result.data.result.map((elem, i) => {
           total += elem.price;
         });
-        setIncome(total * 10);
+        setIncome(total * 11);
       })
       .catch((err) => {
         console.log(err);

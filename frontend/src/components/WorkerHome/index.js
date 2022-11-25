@@ -16,9 +16,9 @@ const WorkerHome=()=>{
     })
 
 const getwrkerId=()=>{
-    axios.get(`https://animated-lolly-e71145.netlify.app/workers/worker/${userId}`)
+    axios.get(`http://localhost:5000/workers/worker/${userId}`)
     .then((result)=>{
-    axios.get(`https://animated-lolly-e71145.netlify.app/ServiceOrders/workerservis/worker/${result.data.result.rows[0].id}`)
+    axios.get(`http://localhost:5000/ServiceOrders/workerservis/worker/${result.data.result.rows[0].id}`)
     .then((result)=>{
   dispatch(setWorkerServiceOrders(result.data.result))
   
@@ -49,7 +49,7 @@ console.log(err);
     },[])
 
 const handelUpdateStaus=(id,state)=>{
-    axios.put(`https://animated-lolly-e71145.netlify.app/ServiceOrders/${id}`,{
+    axios.put(`http://localhost:5000/ServiceOrders/${id}`,{
         status : state
     },{
         headers: {
@@ -65,7 +65,7 @@ const handelUpdateStaus=(id,state)=>{
 }
 
 const handeldelteStaus =(id)=>{
-    axios.delete(`https://animated-lolly-e71145.netlify.app/ServiceOrders/${id}`,{
+    axios.delete(`http://localhost:5000/ServiceOrders/${id}`,{
         headers: {
             Authorization: `Bearer ${token}`,
           },

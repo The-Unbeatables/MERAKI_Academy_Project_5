@@ -31,7 +31,7 @@ const Login = () => {
 
   const onSuccess = (response) => {
     axios
-      .post("https://animated-lolly-e71145.netlify.app/login/google", {
+      .post("http://localhost:5000/login/google", {
         firstName: response.wt.rV,
         lastName: response.wt.uT,
         email: response.wt.cu,
@@ -57,7 +57,7 @@ const Login = () => {
       return;
     }
     axios
-      .post(`https://animated-lolly-e71145.netlify.app/login/${value}`, {
+      .post(`http://localhost:5000/login/${value}`, {
         email,
         password,
       })

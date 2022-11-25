@@ -45,7 +45,7 @@ const Creat = () => {
     try {
         await axios
         .post(
-            "https://animated-lolly-e71145.netlify.app/products/",
+            "http://localhost:5000/products/",
             {
             title,
             description,

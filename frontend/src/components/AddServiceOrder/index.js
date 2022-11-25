@@ -18,7 +18,7 @@ const AddServiceOrder = () => {
     });
 
     const handleSendRequest = () => {
-        axios.post('https://animated-lolly-e71145.netlify.app/ServiceOrders', {
+        axios.post('http://localhost:5000/ServiceOrders', {
             service_title: title,
             service_description: description,
             user_id: userId,
