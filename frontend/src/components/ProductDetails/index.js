@@ -36,7 +36,7 @@ const sendToWhislist = (id) => {
  
           axios
       .post(
-        `https://animated-lolly-e71145.netlify.app/carts`,
+        `http://localhost:5000/carts`,
         {
             product_id: id,
         },
@@ -70,7 +70,7 @@ const sendToWhislist = (id) => {
 useEffect(()=>{
   if(isLoggedIn === true){
   axios
-  .get(`https://animated-lolly-e71145.netlify.app/carts/show`,{
+  .get(`http://localhost:5000/carts/show`,{
     headers: {
       Authorization: `Bearer ${token}`,
     },

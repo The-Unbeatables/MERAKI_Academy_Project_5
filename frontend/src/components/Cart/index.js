@@ -27,7 +27,7 @@ const Cart = () => {
       navigate("/login");
     } else {
       axios
-        .get(`https://animated-lolly-e71145.netlify.app/carts/show`, {
+        .get(`http://localhost:5000/carts/show`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +51,7 @@ const Cart = () => {
     } else {
       axios
         .post(
-          `https://animated-lolly-e71145.netlify.app/productOrders`,
+          `http://localhost:5000/productOrders`,
           {
             product_id: id,
           },
@@ -74,7 +74,7 @@ const Cart = () => {
 
   const deleteFromWhislist = (id) => {
     axios
-      .delete(`https://animated-lolly-e71145.netlify.app/carts/delete/${id}`, {
+      .delete(`http://localhost:5000/carts/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

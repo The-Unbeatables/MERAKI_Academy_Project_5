@@ -31,7 +31,7 @@ const ProductOrders = () => {
       navigate("/login");
     } else {
       axios
-        .get(`https://animated-lolly-e71145.netlify.app/productOrders/showCart`
+        .get(`http://localhost:5000/productOrders/showCart`
         , {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ const ProductOrders = () => {
   const deleteFromCarts = async (id) => {
     try {
       let res = await axios
-        .delete(`https://animated-lolly-e71145.netlify.app/productOrders/delete/${id}`, {
+        .delete(`http://localhost:5000/productOrders/delete/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

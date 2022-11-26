@@ -23,7 +23,7 @@ const AdminProducts = () => {
   })
     const getAllProducts = async () => {
       try {
-        const res = await axios.get(`https://animated-lolly-e71145.netlify.app/products`, {
+        const res = await axios.get(`http://localhost:5000/products`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ const AdminProducts = () => {
 
     const deleteProducts = (id) => {
       axios
-        .delete(`https://animated-lolly-e71145.netlify.app/products/delete/product/${id}`)
+        .delete(`http://localhost:5000/products/delete/product/${id}`)
         .then((res) => {
           dispatch(deleteProduct(id));
         })

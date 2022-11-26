@@ -24,7 +24,7 @@ const Navbar = () => {
     <label htmlFor="check" className="checkbtn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
     </label>
-    <label className="logo">Maintinance App</label>
+    <label className="logo">Ready To Serve</label>
     <ul>
       <li onClick={() => {navigate('/')}}><a>Home</a></li>
       <li onClick={() => {navigate('/register')}}><a>Sign Up</a></li>
@@ -42,7 +42,7 @@ const Navbar = () => {
             <label htmlFor="check" className="checkbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
             </label>
-             <label className="logo">Maintinance App</label>
+             <label className="logo">Ready To Serve</label>
              <ul>
                 <li onClick={() => {navigate('/')}}><a className='aa'>Home</a></li>
                 <li onClick={() => {navigate('/cart')}}><a>Wishlist</a></li>
@@ -59,7 +59,7 @@ const Navbar = () => {
     <label htmlFor="check" className="checkbtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
     </label>
-     <label className="logo">Maintinance App</label>
+     <label className="logo">Ready To Serve</label>
      <ul>
         <li onClick={() => {navigate('/worker')}}><a className='aa'>Home</a></li>
         <li onClick={() => {navigate('/worker/profile')}}><a>Profile</a></li>
@@ -77,7 +77,7 @@ const Navbar = () => {
     <label htmlFor="check" className="checkbtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
     </label>
-     <label className="logo">Maintinance App</label>
+     <label className="logo">Ready To Serve</label>
      <ul>
         <li onClick={() => {navigate('/admin')}}><a>Home</a></li>
         <li onClick={() => {navigate('/admin/users')}}><a>Users</a></li>

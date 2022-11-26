@@ -16,7 +16,7 @@ const AdminOrders = () => {
   })
 
 const getServiceOrders=()=>{
-  axios.get('https://animated-lolly-e71145.netlify.app/ServiceOrders')
+  axios.get('http://localhost:5000/ServiceOrders')
   .then((result)=>{
   //  console.log(result.data.result[0].rows);
   //  console.log(result.data.result[1].rows);

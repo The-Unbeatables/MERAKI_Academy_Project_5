@@ -13,7 +13,7 @@ const Register = () => {
 
   const handelRegisterbutton = () => {
     axios
-      .post("https://animated-lolly-e71145.netlify.app/register", {
+      .post("http://localhost:5000/register", {
         first_name: firstName,
         last_name: lastName,
         email,
